@@ -1,0 +1,24 @@
+
+.wrapper{
+    width: 1024px;
+    margin: 0 auto;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    &__logo{
+
+    }
+    &__menu{
+        display: flex;
+    }
+
+    &__user{
+        width: 60px;
+
+        img{
+            width: 100%;
+        }
+    }
+}
