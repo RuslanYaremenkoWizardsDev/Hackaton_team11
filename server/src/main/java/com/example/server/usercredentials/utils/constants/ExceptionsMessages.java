@@ -5,5 +5,6 @@ public class ExceptionsMessages {
     public static final String EMPTY_FIELD = "Empty field";
     public static final String USER_WITH_SAME_CREDENTIALS_EXIST = " user with same credentials exist";
     public static final String INCORRECT_PASSWORD = "Incorrect password";
+    public static final String INCORRECT_LOGIN = "Incorrect login";
 
 }
