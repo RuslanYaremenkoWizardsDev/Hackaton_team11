@@ -1,21 +1,63 @@
-
-.wrapper{
-    width: 1024px;
-    margin: 0 auto;
+.general {
+    background: #ccc;
+    min-height: 100vh;
 }
-
-.header{
+.header {
     display: flex;
-    justify-content: space-between;
-    &__menu{
+    align-items: center;
+    width: 100%;
+    height: 156px;
+    &__bar {
         display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
-
-    &__user{
-        width: 60px;
-
-        img{
-            width: 100%;
+    &__logo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 320px;
+        height: 110px;
+        color: $text-color; 
+        &-icon {
+            color: #ccc;
+            width: 105px;
+            height: 105px;
+        }
+        &-logoname {
+            font-size: 39px;
+            letter-spacing: 2px;
+            cursor: default;
+        }
+    }
+    &__nav {
+        position: relative;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 430px;
+        height: 110px;
+        &-language {
+            &:hover {
+                color: $hover-color;
+            }
+            &:focus {
+                outline: none;
+            }
+        }
+        &-theme {
+            &:hover {
+                color: $hover-color;
+            }
+            &:focus {
+                outline: none;
+            }
+        }
+        &-avatar {
+            display: block;
+            width: 50px;
+            height: 50px;
+            border: 1px solid red;
         }
     }
 }
