@@ -11,10 +11,13 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class AuthorizationServiceImpl implements IAuthorizationService {
-    @Autowired
-    private UserRepository userRepository;
-    @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
+    private final UserRepository userRepository;
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    public AuthorizationServiceImpl(UserRepository userRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
+        this.userRepository = userRepository;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+    }
 
     @Override
     public void authorizeUser(AuthorizationDto authorizationDto) {
