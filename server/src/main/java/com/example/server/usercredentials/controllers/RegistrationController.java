@@ -12,9 +12,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
 import javax.validation.Valid;
-
 import static com.example.server.usercredentials.utils.ElseConstants.SUCCESS;
 import static com.example.server.usercredentials.utils.ElseConstants.WAS_REGISTERED;
 import static com.example.server.usercredentials.utils.ExceptionsMessages.EMPTY_FIELD;
@@ -32,9 +30,9 @@ public class RegistrationController {
     }
 
     @PostMapping(REGISTRATION_MAPPING)
-    public ResponseEntity<String> registryUser(@Valid @RequestBody UserCredentials userCredentials, BindingResult bindingResult){
+    public ResponseEntity<String> registryUser(@Valid @RequestBody UserCredentials userCredentials, BindingResult bindingResult) {
         log.info(userCredentials.getLogin());
-        if(bindingResult.hasErrors()){
+        if (bindingResult.hasErrors()) {
             throw new InvalidFieldException(EMPTY_FIELD);
         }
         registrationService.saveUserToDb(userCredentials);
