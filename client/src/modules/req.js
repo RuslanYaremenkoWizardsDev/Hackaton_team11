@@ -1,22 +1,22 @@
+/*
+    public static final String REG_EXP_FOR_LOGIN = "^[a-zA-Z](.[a-zA-Z0-9_-]*)$";
+    public static final String REG_EXP_FOR_PASSWORD = "[0-9a-zA-Z]{6,}";
+*/
+
 
 
 
 function req(){
-    const btn = document.querySelector('#btn');
+    const login = document.querySelector("#reg-login");
+    const pass = document.querySelector('#reg-password');
+    const confPass = document.querySelector('#reg-confirmPassword');
+    const email = document.querySelector('#reg-email');
+    const btnReq = document.querySelector('#reg-submit');
 
     const URL = 'http://localhost:8077/registration';
-    const login = "Login";
-    const pass = "password";
-    const sKey = "secret";
-    const email = "fff@fff.com";
 
-    const req = JSON.stringify({
-        login: login,
-        password: pass,
-        email: email,
-        secretKey: sKey
-        
-    });
+
+
     console.log(req);
 
 
@@ -30,7 +30,7 @@ function req(){
         xhr.addEventListener("load", function(){
             if(xhr.status === 200){
                 console.log(xhr.responseText);
-            // window.location.pathname = "index.html"
+                window.location.pathname = "../html/index.html";
             } else if(xhr.status > 400){
                 console.log(xhr.responseText);
             }
@@ -39,7 +39,17 @@ function req(){
 
     
 
-    btn.addEventListener("click", ()=>{
+    btnReq.addEventListener("click", ()=>{
+
+        const req = JSON.stringify({
+            login: login.value,
+            password: pass.value,
+            email: "emailvalue",
+            secretKey: "sKey"
+            
+        });
+
+        console.log(req);
         registration(req);
     });
 

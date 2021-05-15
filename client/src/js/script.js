@@ -1,9 +1,8 @@
 import '../scss/style.scss';
 
-import hello from '../modules/hello';
+import req from '../modules/req';
 
 
 window.addEventListener('DOMContentLoaded', () => {
-    hello();
- 
-  })
+  req();
+})
