@@ -5,7 +5,7 @@ import com.example.server.usercredentials.model.dto.AuthorizationDto;
 import com.example.server.usercredentials.model.entity.Person;
 import com.example.server.usercredentials.repo.UserRepository;
 import com.example.server.usercredentials.services.IAuthorizationService;
-import com.example.server.usercredentials.utils.ExceptionsMessages;
+import com.example.server.usercredentials.utils.constants.ExceptionsMessages;
 import com.example.server.usercredentials.utils.JwtTokenProvider;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

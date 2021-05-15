@@ -1,4 +1,4 @@
-package com.example.server.usercredentials.utils;
+package com.example.server.usercredentials.utils.constants;
 
 public class ExceptionsMessages {
     public static final String USER_NOT_FOUND = "User with login %s not found";

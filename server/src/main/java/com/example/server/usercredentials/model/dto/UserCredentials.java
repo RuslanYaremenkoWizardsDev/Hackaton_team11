@@ -8,7 +8,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 
-import static com.example.server.usercredentials.utils.ExceptionsMessages.EMPTY_FIELD;
+import static com.example.server.usercredentials.utils.constants.ExceptionsMessages.EMPTY_FIELD;
 
 @Data
 @NoArgsConstructor
