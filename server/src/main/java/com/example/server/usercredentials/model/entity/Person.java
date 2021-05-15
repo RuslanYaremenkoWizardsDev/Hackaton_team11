@@ -1,6 +1,7 @@
-package com.example.server.usercredentials.model;
+package com.example.server.usercredentials.model.entity;
 
 
+import com.example.server.usercredentials.model.Roles;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

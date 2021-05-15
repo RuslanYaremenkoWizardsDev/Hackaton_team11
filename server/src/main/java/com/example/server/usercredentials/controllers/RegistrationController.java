@@ -1,6 +1,6 @@
 package com.example.server.usercredentials.controllers;
 
-import com.example.server.usercredentials.model.Person;
+import com.example.server.usercredentials.model.entity.Person;
 import com.example.server.usercredentials.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;

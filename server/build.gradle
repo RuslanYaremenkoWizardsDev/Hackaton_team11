@@ -2,6 +2,7 @@ plugins {
     id 'org.springframework.boot' version '2.4.5'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
+    id 'checkstyle'
 }
 
 sourceCompatibility = '11'
@@ -11,6 +12,13 @@ ext{
 }
 repositories {
     mavenCentral()
+}
+
+checkstyle {
+    toolVersion = "8.5"
+    maxErrors = 0
+    maxWarnings = 0
+    configFile = rootProject.file('utils/checkstyle-configuration.xml')
 }
 
 dependencies {
@@ -25,8 +33,7 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.4.5'
     implementation group: 'org.postgresql', name: 'postgresql', version: '42.2.2'
-
-
+    implementation "org.springframework.boot:spring-boot-starter-security:${springBootVersion}"
 
 }
 
