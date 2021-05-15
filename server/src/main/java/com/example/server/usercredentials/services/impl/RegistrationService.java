@@ -7,8 +7,7 @@ import com.example.server.usercredentials.repo.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
-
-import static com.example.server.usercredentials.utils.constants.ExceptionsMessages.USER_WITH_SAME_CREDENTIALS_EXIST;
+import static com.example.server.usercredentials.utils.ExceptionsMessages.USER_WITH_SAME_CREDENTIALS_EXIST;
 
 @Slf4j
 @Component
