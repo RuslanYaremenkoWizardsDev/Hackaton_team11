@@ -25,7 +25,12 @@ public class AuthorizationServiceImpl implements IAuthorizationService {
 
     @Override
     public String authorizeUser(AuthorizationDto authorizationDto) {
-        Person person = userRepository.findByLogin(authorizationDto.getLogin());
+        Person person;
+        if (authorizationDto.getLogin().contains("@")) {
+            person = userRepository.findByEmail(authorizationDto.getLogin());
+        } else {
+            person = userRepository.findByLogin(authorizationDto.getLogin());
+        }
         if (person == null) {
             throw new UserNotFoundException(String.format(ExceptionsMessages.USER_NOT_FOUND, authorizationDto.getLogin()));
         }

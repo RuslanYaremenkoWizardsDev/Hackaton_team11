@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import static com.example.server.usercredentials.utils.constants.Responses.WAS_AUTHORIZE;
+import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 
 @RestController
 @Slf4j
@@ -34,6 +35,6 @@ public class AuthorizationController {
         }
         String token = authorizationService.authorizeUser(authorizationDto);
         log.info(authorizationDto.getLogin() + WAS_AUTHORIZE);
-        return ResponseEntity.status(HttpStatus.OK).header("Authorization", token).contentType(MediaType.APPLICATION_JSON).body(Responses.SUCCESS);
+        return ResponseEntity.status(HttpStatus.OK).header(AUTHORIZATION, token).contentType(MediaType.APPLICATION_JSON).body(Responses.SUCCESS);
     }
 }
