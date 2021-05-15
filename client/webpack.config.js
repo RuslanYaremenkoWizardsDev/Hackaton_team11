@@ -30,15 +30,15 @@ module.exports = {
         }),
         new HTMLPlugin({
             filename: 'index.html',
-            template: './src/index.html',
+            template: './src/html/index.html',
         }),
         new HTMLPlugin({
             filename: 'main.html',
-            template: './src/main.html'
+            template: './src/html/main.html'
         }),
         new HTMLPlugin({
             filename: 'regpage.html',
-            template: './src/regpage.html'
+            template: './src/html/regpage.html'
         }),
         new CopyPlugin({
             patterns: [{from:'src/img/', to: 'img'}]
