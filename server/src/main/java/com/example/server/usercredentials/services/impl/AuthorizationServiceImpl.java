@@ -1,10 +1,12 @@
 package com.example.server.usercredentials.services.impl;
 
+import com.example.server.usercredentials.exception.IncorrectPasswordException;
 import com.example.server.usercredentials.model.dto.AuthorizationDto;
+import com.example.server.usercredentials.model.entity.Person;
 import com.example.server.usercredentials.repo.UserRepository;
 import com.example.server.usercredentials.services.IAuthorizationService;
 import com.example.server.usercredentials.utils.ExceptionsMessages;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.server.usercredentials.utils.JwtTokenProvider;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -13,22 +15,23 @@ import org.springframework.stereotype.Service;
 public class AuthorizationServiceImpl implements IAuthorizationService {
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
+    private final JwtTokenProvider jwtTokenProvider;
 
-    public AuthorizationServiceImpl(UserRepository userRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
+    public AuthorizationServiceImpl(UserRepository userRepository, BCryptPasswordEncoder bCryptPasswordEncoder, JwtTokenProvider jwtTokenProvider) {
         this.userRepository = userRepository;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+        this.jwtTokenProvider = jwtTokenProvider;
     }
 
     @Override
-    public void authorizeUser(AuthorizationDto authorizationDto) {
-        String password = getPasswordByLogin(authorizationDto.getLogin());
-    }
-
-    private String getPasswordByLogin(String login) {
-        String password = userRepository.findByLogin(login).getPassword();
-        if (password == null){
-            throw new UsernameNotFoundException(String.format(ExceptionsMessages.USER_NOT_FOUND, login));
+    public String authorizeUser(AuthorizationDto authorizationDto) {
+        Person person = userRepository.findByLogin(authorizationDto.getLogin());
+        if (person == null) {
+            throw new UsernameNotFoundException(String.format(ExceptionsMessages.USER_NOT_FOUND, authorizationDto.getLogin()));
         }
-        return password;
+        if (!bCryptPasswordEncoder.matches(authorizationDto.getPassword(), person.getPassword())) {
+            throw new IncorrectPasswordException(ExceptionsMessages.INCORRECT_PASSWORD);
+        }
+        return jwtTokenProvider.createToken(person);
     }
 }
