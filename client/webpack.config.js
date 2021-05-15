@@ -11,6 +11,7 @@ module.exports = {
         path: path.resolve(__dirname, 'dist/'),
     },
     devServer: {
+        port: 4200,
         contentBase: path.resolve(__dirname, '/dist')
     },
     //watch: true,
