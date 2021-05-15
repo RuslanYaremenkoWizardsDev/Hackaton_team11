@@ -4,11 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Haka
-    </title>
+    <title>Authorization</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
-    <a href="main.html">Main</a>
+    <div class="auth">
+        <div class="auth__body">
+            <div class="container">
+                <div class="auth__body-header">
+                    <span data-translate="authorization">Authorization</span>
+                </div>
+                <div class="auth__body-login input-block">
+                    <label for="login">
+                        <span data-translate="login">Login</span>
+                    </label>
+                    <input type="text" name="login" id="login" placeholder="Enter your login..." data-placeholder="login">
+                </div>
+                <div class="auth__body-password input-block">
+                    <label for="password">
+                        <span data-translate="password">Password</span>
+                    </label>
+                    <input type="text" name="password" id="password" placeholder="Enter your password..." data-placeholder="password">
+                </div>
+                <div class="auth__body-submit input-block">
+                    <label for="submit">
+                    </label>
+                    <input type="submit" name="submit" id="submit" >
+                </div>
+                <div class="auth__links">
+                    <a href="#">Registration</a>
+                    <a href="#">Log in like a guest</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
