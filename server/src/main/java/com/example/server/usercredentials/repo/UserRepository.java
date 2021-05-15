@@ -8,5 +8,5 @@ import javax.transaction.Transactional;
 @Transactional
 public interface UserRepository extends JpaRepository<Person,Long> {
     Person findByLogin(String login);
-
+    Person findByEmail(String email);
 }
