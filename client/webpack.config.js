@@ -49,6 +49,14 @@ module.exports = {
           filename: 'password.html',
           template: './src/html/password.html'
       }),
+        new HTMLPlugin({
+            filename: 'guest.html',
+            template: './src/html/guest.html'
+        }),
+        new HTMLPlugin({
+            filename: 'user.html',
+            template: './src/html/user.html'
+        }),
         new CopyPlugin({
             patterns: [{from:'src/img/', to: 'img'}]
         })

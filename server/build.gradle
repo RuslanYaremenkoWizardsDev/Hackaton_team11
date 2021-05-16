@@ -2,15 +2,25 @@ plugins {
     id 'org.springframework.boot' version '2.4.5'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
+    id 'checkstyle'
 }
 
 sourceCompatibility = '11'
 ext{
     springBootVersion = '2.4.5'
     lombokVersion = '1.18.20'
+    jwt = '0.2'
+    postgresql = '42.2.2'
 }
 repositories {
     mavenCentral()
+}
+
+checkstyle {
+    toolVersion = "8.5"
+    maxErrors = 0
+    maxWarnings = 0
+    configFile = rootProject.file('utils/checkstyle-configuration.xml')
 }
 
 dependencies {
@@ -23,7 +33,16 @@ dependencies {
     testImplementation "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
     implementation "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-
+    implementation "org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}"
+    implementation "org.postgresql:postgresql:${postgresql}"
+    implementation "org.springframework.boot:spring-boot-starter-security:${springBootVersion}"
+    implementation "io.jsonwebtoken:jjwt:${jwt}"
+    implementation 'org.springframework.boot:spring-boot-starter-websocket'
+    implementation 'org.webjars:webjars-locator-core'
+    implementation 'org.webjars:sockjs-client:1.0.2'
+    implementation 'org.webjars:stomp-websocket:2.3.3'
+    implementation 'org.webjars:bootstrap:3.3.7'
+    implementation 'org.webjars:jquery:3.1.1-1'
 }
 
 test {

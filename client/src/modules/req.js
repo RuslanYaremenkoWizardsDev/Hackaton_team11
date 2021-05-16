@@ -1,22 +1,80 @@
+import postRequest from '../modules/request';
 
-
-
-function req(){
-    const btn = document.querySelector('#btn');
+function registr(){
 
     const URL = 'http://localhost:8077/registration';
-    const login = "Login";
-    const pass = "password";
-    const sKey = "secret";
-    const email = "fff@fff.com";
 
-    const req = JSON.stringify({
-        login: login,
-        password: pass,
-        email: email,
-        secretKey: sKey
+    const login = document.querySelector("#reg-login");
+    const pass = document.querySelector('#reg-password');
+    const confPass = document.querySelector('#reg-confirmPassword');
+    const email = document.querySelector('#reg-email');
+    const sKey = document.querySelector('#reg-secretKey');
+    const btnReq = document.querySelector('#reg-submit');
+    
+    function getValidEntry(){
+        if(login.value === "" || pass.value === "" || confPass.value === "" || email === ""){
+            console.log("Fill in all the fields");
+            return true;
+        }
+    
+        if(pass.value != confPass.value){
+            console.log("repeated the password unsuccessfully");
+            return true;
+        }
+    
+    }
+    
+    btnReq.addEventListener('click', ()=>{
+    
+        if(getValidEntry()){
+            alert("No");
+        }else{
+            const req = JSON.stringify({
+                login: login.value,
+                password: pass.value,
+                email: email.value,
+                secretKey: sKey.value
+            });
         
+            postRequest(URL, req).then(()=>{
+                document.location.href = "/index.html";
+            });
+        }
+    
+       
+    
     });
+
+}
+
+export default registr;
+    
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+/*function req(){
+    const login = document.querySelector("#reg-login");
+    const pass = document.querySelector('#reg-password');
+    const confPass = document.querySelector('#reg-confirmPassword');
+    const email = document.querySelector('#reg-email');
+    const btnReq = document.querySelector('#reg-submit');
+
+    const URL = 'http://localhost:8077/registration';
+
+
+
     console.log(req);
 
 
@@ -30,7 +88,7 @@ function req(){
         xhr.addEventListener("load", function(){
             if(xhr.status === 200){
                 console.log(xhr.responseText);
-            // window.location.pathname = "index.html"
+                window.location.pathname = "../html/index.html";
             } else if(xhr.status > 400){
                 console.log(xhr.responseText);
             }
@@ -39,14 +97,24 @@ function req(){
 
     
 
-    btn.addEventListener("click", ()=>{
+    btnReq.addEventListener("click", ()=>{
+
+        const req = JSON.stringify({
+            login: login.value,
+            password: pass.value,
+            email: "emailvalue",
+            secretKey: "sKey"
+            
+        });
+
+        console.log(req);
         registration(req);
     });
 
 }
 
 
-export default req;
+export default req;*/
 
 
 
