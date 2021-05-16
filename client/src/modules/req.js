@@ -8,6 +8,7 @@ function registr(){
     const pass = document.querySelector('#reg-password');
     const confPass = document.querySelector('#reg-confirmPassword');
     const email = document.querySelector('#reg-email');
+    const sKey = document.querySelector('#reg-secretKey');
     const btnReq = document.querySelector('#reg-submit');
     
     function getValidEntry(){
@@ -32,7 +33,7 @@ function registr(){
                 login: login.value,
                 password: pass.value,
                 email: email.value,
-                secretKey: "sKey11111"
+                secretKey: sKey.value
             });
         
             postRequest(URL, req).then(()=>{

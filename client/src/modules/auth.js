@@ -1,4 +1,5 @@
 import postRequest from '../modules/request';
+import jwt_decode from "jwt-decode";
 
 function auth(){
 
@@ -25,8 +26,11 @@ function auth(){
                 password: pass.value,
             });
         
-            postRequest(URL, req).then(()=>{
-                document.location.href = "/main.html";
+            postRequest(URL, req).then((res)=>{
+                //console.log(res.headers)
+                alert(res);
+               
+                document.location.href = "/admin.html";
             });
         }
     });
