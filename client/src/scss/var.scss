@@ -80,6 +80,11 @@ $modal-bg: rgba(26, 26, 26, 0.9);
     word-break: break-word;
     font-weight: 300;
     }
+    &__question {
+        text-align: center;
+        font-size: 24px;
+        color: $text-color;
+    }
     &__buttons {
         margin: 45px auto 40px; 
         width: 420px; 
