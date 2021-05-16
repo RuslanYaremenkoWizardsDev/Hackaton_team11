@@ -105,10 +105,10 @@ export const renderTable = (data, tableDiv) => {
     table.appendChild(newTR);
   }
   tableDiv.appendChild(table);
-  table.addEventListener("dblclick", tableDBLClick);
+/*   table.addEventListener("dblclick", tableDBLClick); */
 };
 
-export const tableDBLClick = (e) => {
+/* export const tableDBLClick = (e) => {
   if (e.target.parentElement.classList.contains("active-tr")) {
     const input = document.createElement("input");
     input.setAttribute("type", "text");
@@ -166,4 +166,4 @@ export const tableDBLClick = (e) => {
     newButton.addEventListener("click", deleteTableUnit);
     e.target.parentElement.appendChild(newButton);
   }
-};
+}; */
