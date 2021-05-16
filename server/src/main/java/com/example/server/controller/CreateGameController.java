@@ -17,11 +17,10 @@ import javax.validation.Valid;
 @RestController
 public class CreateGameController {
     private final CreateGameService createGameService;
-    private final AddUserToTournament addUserToTournament;
 
-    public CreateGameController(CreateGameService createGameService, AddUserToTournament addUserToTournament) {
+
+    public CreateGameController(CreateGameService createGameService) {
         this.createGameService = createGameService;
-        this.addUserToTournament = addUserToTournament;
     }
 
     @PostMapping("/game")
@@ -29,12 +28,8 @@ public class CreateGameController {
         if (bindingResult.hasErrors()) {
             throw new InvalidFieldException(bindingResult.getAllErrors().get(0).getDefaultMessage());
         }
+        log.info(tournamentEntity.getName() + " was registered");
         createGameService.saveGame(tournamentEntity);
-    }
-
-    @PostMapping("/user")
-    public void registerUser(@RequestBody UserEntityForTournament userEntityForTournament) {
-        addUserToTournament.addUserToTournament(userEntityForTournament.login, userEntityForTournament.getNameTournament());
     }
 
 }

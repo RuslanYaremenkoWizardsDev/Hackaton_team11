@@ -1,6 +1,7 @@
 package com.example.server.services;
 
 import com.example.server.exception.InvalidTimeStart;
+import com.example.server.exception.TournamentWithSameNameExist;
 import com.example.server.tournament.model.TournamentDTO;
 import com.example.server.tournament.model.entity.TournamentEntity;
 import com.example.server.tournament.model.enums.Level;
@@ -10,7 +11,9 @@ import com.example.server.tournament.model.repo.TournamentRepo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
+import java.sql.SQLException;
 import java.util.Date;
+
 @Slf4j
 @Component
 public class CreateGameService {
@@ -20,12 +23,14 @@ public class CreateGameService {
         this.tournamentRepo = tournamentRepo;
     }
 
-    public void saveGame(TournamentEntity tournamentEntity){
+    public void saveGame(TournamentEntity tournamentEntity) {
         Mode mode = tournamentEntity.getModeTournament();
         Level level = tournamentEntity.getLevel();
         int numberOfPlayer = tournamentEntity.getNumberOfPlayer();
         ScenatioOfTournament scenatioOfTournament = tournamentEntity.getScenatioOfTournament();
-
+        if(tournamentRepo.findByName(tournamentEntity.getName()).isPresent()){
+            throw new TournamentWithSameNameExist("Invalid name Tournament");
+        }
         TournamentDTO tournamentDTO = new TournamentDTO(tournamentEntity.getName(), tournamentEntity.getTournamentDescription(), tournamentEntity.getPlace()
                 , tournamentEntity.getDateStartTournament(), tournamentEntity.getDateLastRegistrationOnTournament());
         if (mode != null) {
@@ -34,7 +39,7 @@ public class CreateGameService {
         if (level != null) {
             tournamentDTO.setLevel(level);
         }
-        if (numberOfPlayer >= 32) {
+        if (numberOfPlayer == 4 || numberOfPlayer == 8 || numberOfPlayer == 32 || numberOfPlayer == 64 || numberOfPlayer == 128) {
             tournamentDTO.setNumberOfPlayer(numberOfPlayer);
         }
         if (scenatioOfTournament != null) {
