@@ -10,6 +10,7 @@ import com.example.server.tournament.repo.TournamentRepo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import java.util.Date;
+import java.util.List;
 
 @Slf4j
 @Component
@@ -48,5 +49,9 @@ public class CreateGameService {
             throw new InvalidTimeStart("Start time < current time");
         }
         tournamentRepo.save(tournamentDTO);
+    }
+
+    public List<TournamentEntity> getAllTournament(){
+        return tournamentRepo.findAll();
     }
 }

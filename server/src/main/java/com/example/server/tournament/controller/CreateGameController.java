@@ -1,5 +1,6 @@
 package com.example.server.tournament.controller;
 
+import com.example.server.tournament.model.dto.TournamentDto;
 import com.example.server.tournament.model.entity.TournamentEntity;
 import com.example.server.tournament.services.CreateGameService;
 import com.example.server.usercredentials.exception.InvalidFieldException;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import javax.validation.Valid;
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -22,12 +24,26 @@ public class CreateGameController {
     }
 
     @PostMapping("/game")
-    public void saveGame(@Valid @RequestBody TournamentEntity tournamentEntity, BindingResult bindingResult) {
+    public List<TournamentEntity> saveGame(@Valid @RequestBody TournamentDto tournamentDto, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             throw new InvalidFieldException(bindingResult.getAllErrors().get(0).getDefaultMessage());
         }
-        log.info(tournamentEntity.getName() + " was registered");
+        TournamentEntity tournamentEntity = TournamentEntity
+                .builder()
+                .status(tournamentDto.getStatus())
+                .name(tournamentDto.getName())
+                .tournamentDescription(tournamentDto.getTournamentDescription())
+                .modeTournament(tournamentDto.getModeTournament())
+                .place(tournamentDto.getPlace())
+                .dateStartTournament(tournamentDto.getDateStartTournament())
+                .dateLastRegistrationOnTournament(tournamentDto.getDateLastRegistrationOnTournament())
+                .level(tournamentDto.getLevel())
+                .numberOfPlayer(tournamentDto.getNumberOfPlayer())
+                .scenatioOfTournament(tournamentDto.getScenarioOfTournament())
+                .build();
         createGameService.saveGame(tournamentEntity);
+        log.info(tournamentEntity.getName() + " was registered");
+        return createGameService.getAllTournament();
     }
 
 }

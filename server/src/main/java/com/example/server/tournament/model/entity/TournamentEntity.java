@@ -5,6 +5,7 @@ import com.example.server.tournament.model.enums.Mode;
 import com.example.server.tournament.model.enums.ScenatioOfTournament;
 import com.example.server.tournament.model.enums.Status;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
@@ -13,6 +14,7 @@ import java.io.Serializable;
 @Entity
 @Table(name = "all_tournament")
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class TournamentEntity implements Serializable {
