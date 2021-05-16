@@ -12,6 +12,7 @@ import viewInvitations from '../modules/viewInvitations';
  
 document.addEventListener('DOMContentLoaded', ()=>{
 
+
     if(window.location.pathname === "/index.html"){
         auth();
     }else if(window.location.pathname === "/regpage.html"){
@@ -23,6 +24,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
         declineTournament();
         switchToStat();
         viewInvitations();
+        // const tableBody = document.querySelector('#tbody'):
+    //get renderTableDiv(data, tableBody)
 
     }else if(window.location.pathname === "/user.html"){
         settingsPopup();   
