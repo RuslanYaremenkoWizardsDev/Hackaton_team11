@@ -12,4 +12,6 @@ public class Mappings {
     public static final String GET_ALL_INVITE = "/getAllInvite";
     public static final String ADD_TOURNAMENT = "/addTournament";
     public static final String GET_TOURNAMENT = "/getTournament";
+    public static final String FORGOT_PASSWORD_MAPPING = "/forgot_password";
+
 }
