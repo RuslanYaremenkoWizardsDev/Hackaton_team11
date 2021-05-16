@@ -4,9 +4,12 @@ import com.example.server.tournament.model.entity.TournamentEntity;
 import com.example.server.tournament.model.enums.Status;
 import com.example.server.tournament.repo.TournamentRepo;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 import java.util.Date;
 import java.util.List;
+
 @Slf4j
+@Component
 public class CheckStartTimeTournament implements Runnable {
     private final TournamentRepo tournamentRepo;
 

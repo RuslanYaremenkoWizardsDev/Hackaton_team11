@@ -24,7 +24,7 @@ public class AuthorizationServiceImpl implements IAuthorizationService {
     }
 
     @Override
-    public String authorizeUser(AuthorizationDto authorizationDto) {
+    public Person authorizeUser(AuthorizationDto authorizationDto) {
         Person person;
         if (authorizationDto.getLogin().contains("@")) {
             person = userRepository.findByEmail(authorizationDto.getLogin());
@@ -37,6 +37,6 @@ public class AuthorizationServiceImpl implements IAuthorizationService {
         if (!bCryptPasswordEncoder.matches(authorizationDto.getPassword(), person.getPassword())) {
             throw new IncorrectPasswordException(ExceptionsMessages.INCORRECT_PASSWORD);
         }
-        return jwtTokenProvider.createToken(person);
+        return person;
     }
 }

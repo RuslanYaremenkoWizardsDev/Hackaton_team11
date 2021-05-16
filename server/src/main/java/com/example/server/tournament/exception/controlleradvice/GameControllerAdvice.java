@@ -1,7 +1,7 @@
 package com.example.server.tournament.exception.controlleradvice;
 
 
-import com.example.server.tournament.controller.CreateGameController;
+import com.example.server.tournament.controller.TournamentController;
 import com.example.server.tournament.controller.RegisterUserController;
 import com.example.server.tournament.exception.*;
 import com.example.server.tournament.services.AddUserToTournament;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @Slf4j
-@ControllerAdvice(basePackageClasses = {CreateGameController.class, RegisterUserController.class, AddUserToTournament.class, CreateGameService.class})
+@ControllerAdvice(basePackageClasses = {TournamentController.class, RegisterUserController.class, AddUserToTournament.class, CreateGameService.class})
 public class GameControllerAdvice {
 
     @ExceptionHandler(FullTournamentException.class)
