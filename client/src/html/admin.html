@@ -68,7 +68,7 @@
                         <button class="main__controlPanel-createTournament">+</button>
                     </div>
                 </div>
-                <div class="main__table">
+                <div id="tournaments-tab" class="main__table">
                     <table id="table" class="table__data">
                         <thead id="thead" class="table__data-head thead">
                             <tr class="thead__tr">
@@ -111,6 +111,10 @@
                             </tr>
                         </tbody>
                     </table>
+
+                    <div class="main__statistics">
+                        
+                    </div>
                 </div>
             </div>
         </main>
@@ -148,6 +152,16 @@
                     <button id="clearAllPopupConfirm" type="button" class="clearAllPopup__buttons-confirm btn"><span data-translate="delete">DELETE</span></button>
                     <button id="clearAllPopupCancel" type="button" class="clearAllPopup__buttons-cancel btn"><span data-translate="cancel">CANCEL</span></button>
                 </div>
+        </div>
+    </div>
+
+    <div id="entry" class="entry">
+        <div class="entry__container">
+            <h1 class="entry__message"><span id="untry-user-name">User</span> wants to participate in "<span id="untry-tournament-name">Pigs</span>"</h1>
+            <div class="entry__group">
+                <button id="entry-confirm" class="entry__group-btn ">Confirm</button>
+                <button id="entry-decline" class="entry__group-btn">Decline</button>
+            </div>
         </div>
     </div>
 </body>
