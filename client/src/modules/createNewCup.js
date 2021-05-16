@@ -3,8 +3,17 @@ export default function creatingNewCup () {
     const createNewCupPopup = document.getElementById('createNewCupPopup');
     const cancelBtn = document.getElementById('cancelNewCup');
     const crossBtn = document.getElementById('crossNewCup');
-
+    const findUsers = document.getElementById('findUsers');
+    const findUsersPopup = document.getElementById('findUsersPopup');
  
+    findUsers.addEventListener('click', () => {
+        findUsersPopup.classList.remove('findUsersShowAll');
+    })
+    findUsersPopup.addEventListener('click', (event) => {
+        if (event.target === findUsersPopup) {
+            findUsersPopup.classList.add('findUsersShowAll');
+        }
+    })
     createNewCup.addEventListener('click', () => {
         openPopup(createNewCupPopup);
     })

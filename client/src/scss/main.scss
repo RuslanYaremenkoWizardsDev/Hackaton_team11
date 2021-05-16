@@ -668,6 +668,28 @@
         }
     }
 }
+.likeIngit {
+    position: absolute;
+    width: 300px;
+    height: 150px;
+    background: #333;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    &__findUsers {
+        width: 200px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 5px;
+        &-label {
+            width: 400px;
+        }
+    }
+    &.findUsersShowAll{
+        display: none;
+    }
+}
 @media screen and (max-width: 1024px) {
     .tabs {
         &__button {
