@@ -10,14 +10,17 @@ import switchToStat from '../modules/statistics';
 import switchToStatUser from '../modules/statuser';
 import viewInvitations from '../modules/viewInvitations';
 import creatingNewCup from '../modules/createNewCup';
+import viewPassword from '../modules/viewPassword';
  
 document.addEventListener('DOMContentLoaded', ()=>{
 
 
     if(window.location.pathname === "/index.html"){
         auth();
+        viewPassword();
     }else if(window.location.pathname === "/regpage.html"){
         registr();
+        viewPassword();
     }else if(window.location.pathname === "/admin.html"){
         clearAll();
         settingsPopup();  
@@ -26,6 +29,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         switchToStat();
         viewInvitations();
         creatingNewCup();
+        viewPassword();
         // const tableBody = document.querySelector('#tbody'):
     //get renderTableDiv(data, tableBody)
 
@@ -34,6 +38,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         sortData(); 
         declineTournamentInvite();
         switchToStatUser();
+        viewPassword();
     }
 
 });

@@ -10,11 +10,11 @@ export default function settingsPopup () {
     });
     cancelBtn.addEventListener('click', () => {
         closePopup(settingsPopup);
-        clearInputs(clear);
+        clearInputs(viewPassword);
     });
     crossBtn.addEventListener('click', () => {
         closePopup(settingsPopup);
-        clearInputs(clear);
+        clearInputs(viewPassword);
     });
     window.addEventListener('keyup', function (event) {
         exitOnEscape(event, settingsPopup, clear);
@@ -48,6 +48,7 @@ export default function settingsPopup () {
         }
         for (let i of input) {
             i.value = '';
+            i.type = 'password';
         }
     }
 }

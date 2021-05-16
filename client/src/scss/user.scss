@@ -265,6 +265,15 @@
         display: none;
     }
 }
+.eye {
+    display: block;
+    position: relative;
+    top: -45px;
+    right: -175px;
+    width: 5px;
+    height: 5px;
+    cursor: pointer;
+}
 
 @media screen and (max-width: 1024px) {
     .usertabs {
