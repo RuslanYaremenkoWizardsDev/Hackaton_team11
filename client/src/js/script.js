@@ -21,6 +21,9 @@ if(window.location.pathname === "/index.html"){
     sortData();  
     declineTournament();
     switchToStat();
+
+        // const tableBody = document.querySelector('#tbody'):
+    //get renderTableDiv(data, tableBody)
 }else if(window.location.pathname === "/user.html"){
     settingsPopup();   
     sortData(); 
