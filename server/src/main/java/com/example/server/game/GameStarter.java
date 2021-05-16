@@ -2,7 +2,7 @@ package com.example.server.game;
 
 import com.example.server.game.repo.BattleUserRepo;
 import com.example.server.game.repo.ResultGameRepo;
-import com.example.server.game.repo.USerStatisticRepo;
+import com.example.server.game.repo.UserStatisticRepo;
 import com.example.server.tournament.model.entity.TournamentEntity;
 import com.example.server.tournament.repo.TournamentRepo;
 import com.example.server.tournament.repo.UserInTournamentRepo;
@@ -14,9 +14,9 @@ public class GameStarter implements Runnable {
     private final ResultGameRepo resultGameRepo;
     private final UserRepository userRepository;
     private final BattleUserRepo battleUserRepo;
-    private final USerStatisticRepo uSerStatisticRepo;
+    private final UserStatisticRepo uSerStatisticRepo;
 
-    public GameStarter(UserInTournamentRepo userInTournamentRepo, TournamentRepo tournamentRepo, ResultGameRepo resultGameRepo, UserRepository userRepository, BattleUserRepo battleUserRepo, USerStatisticRepo uSerStatisticRepo) {
+    public GameStarter(UserInTournamentRepo userInTournamentRepo, TournamentRepo tournamentRepo, ResultGameRepo resultGameRepo, UserRepository userRepository, BattleUserRepo battleUserRepo, UserStatisticRepo uSerStatisticRepo) {
         this.userInTournamentRepo = userInTournamentRepo;
         this.tournamentRepo = tournamentRepo;
         this.resultGameRepo = resultGameRepo;

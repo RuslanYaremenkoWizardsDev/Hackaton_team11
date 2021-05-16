@@ -9,6 +9,8 @@ import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+
 import javax.validation.Valid;
 import java.util.List;
 
@@ -22,8 +24,7 @@ public class TournamentController {
         this.startTimeTournament = startTimeTournament;
     }
 
-    @MessageMapping("/addTournament")
-    @SendTo("/topic/tournament")
+    @PostMapping("/addTournament")
     public List<TournamentEntity> saveGame(@Valid @Payload TournamentDto tournamentDto) {
         System.out.println(tournamentDto.toString());
 
@@ -40,15 +41,13 @@ public class TournamentController {
                 tournamentDto.getNumberOfPlayer(),
                 tournamentDto.getScenarioOfTournament()
         );
-        System.out.println(tournamentEntity.toString());
 
         createGameService.saveGame(tournamentEntity);
         log.info(tournamentEntity.getName() + " was registered");
         return createGameService.getAllTournament();
     }
 
-    @MessageMapping("/getTournament")
-    @SendTo("/topic/replay")
+    @PostMapping("/getTournament")
     public List<TournamentEntity> getAllTournaments() {
         startTimeTournament.run();
         return createGameService.getAllTournament();
