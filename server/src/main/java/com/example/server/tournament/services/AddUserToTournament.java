@@ -16,6 +16,8 @@ import org.springframework.stereotype.Component;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import static com.example.server.tournament.util.Constants.TOURNAMENT_WITH_LOGIN_NOT_FOUND;
+import static com.example.server.tournament.util.Constants.USER_WITH_LOGIN_NOT_FOUND;
 
 @Component
 public class AddUserToTournament {
@@ -34,11 +36,11 @@ public class AddUserToTournament {
     public void addUserToTournament(String login, String nameTournament) throws UserWasRegisterInThisTournament {
         Optional<TournamentEntity> optionalTournamentDTO = tournamentRepo.findByName(nameTournament);
         if (optionalTournamentDTO.isEmpty()) {
-            throw new TournamentNotFoundException("Tournament with " + nameTournament + " not found");
+            throw new TournamentNotFoundException(String.format(TOURNAMENT_WITH_LOGIN_NOT_FOUND, nameTournament));
         }
         Person person = userRepository.findByLogin(login);
         if (person == null) {
-            throw new UserNotFoundException(String.format("User with login %s not found", login));
+            throw new UserNotFoundException(String.format(USER_WITH_LOGIN_NOT_FOUND, login));
         }
         UserInTournament userInTournament = new UserInTournament(optionalTournamentDTO.get().getId(), person.getId());
         if (userInTournamentRepo.findUserInTournamentByIdUser(userInTournament.getIdUser()) != null) {

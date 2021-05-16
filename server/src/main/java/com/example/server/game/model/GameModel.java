@@ -4,9 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
+import static com.example.server.game.util.Constants.TABLE_RESULT_GAME;
 
 @Entity
-@Table(name = "result_game")
+@Table(name = TABLE_RESULT_GAME)
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

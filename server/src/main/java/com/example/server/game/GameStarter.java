@@ -8,7 +8,7 @@ import com.example.server.tournament.repo.TournamentRepo;
 import com.example.server.tournament.repo.UserInTournamentRepo;
 import com.example.server.usercredentials.repo.UserRepository;
 
-public class GameStarter implements Runnable {
+public class GameStarter {
     private final UserInTournamentRepo userInTournamentRepo;
     private final TournamentRepo tournamentRepo;
     private final ResultGameRepo resultGameRepo;
@@ -25,13 +25,7 @@ public class GameStarter implements Runnable {
         this.userStatisticRepo = uSerStatisticRepo;
     }
 
-    @Override
-    public void run() {
-
-    }
-
     public void start(TournamentEntity tournamentEntity) {
-        run();
         GameService gameService = new GameService(userInTournamentRepo, tournamentRepo, resultGameRepo, userRepository, battleUserRepo, userStatisticRepo);
         gameService.play(tournamentEntity);
     }
