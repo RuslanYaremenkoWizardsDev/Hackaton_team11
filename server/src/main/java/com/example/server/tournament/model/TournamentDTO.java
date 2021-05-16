@@ -23,7 +23,7 @@ public class TournamentDTO implements Serializable {
     private Status status = Status.IN_PROGRESS;
     private String name;
     private String tournamentDescription;
-    private Mode modeTournament;
+    private Mode modeTournament = Mode.CUP;
     private String place;
     private long dateStartTournament;
     private long dateLastRegistrationOnTournament;
@@ -31,4 +31,11 @@ public class TournamentDTO implements Serializable {
     private int numberOfPlayer = 32;
     private ScenatioOfTournament scenatioOfTournament = ScenatioOfTournament.ONE_MATCH;
 
+    public TournamentDTO(String name, String tournamentDescription, String place, long dateStartTournament, long dateLastRegistrationOnTournament) {
+        this.name = name;
+        this.tournamentDescription = tournamentDescription;
+        this.place = place;
+        this.dateStartTournament = dateStartTournament;
+        this.dateLastRegistrationOnTournament = dateLastRegistrationOnTournament;
+    }
 }

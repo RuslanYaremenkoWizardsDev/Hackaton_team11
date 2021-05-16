@@ -35,7 +35,7 @@ public class RegistrationController {
     public ResponseEntity<String> registryUser(@Valid @RequestBody UserCredentials userCredentials, BindingResult bindingResult) {
         log.info(userCredentials.getLogin());
         if (bindingResult.hasErrors()) {
-            throw new InvalidFieldException(EMPTY_FIELD);
+            throw new InvalidFieldException(bindingResult.getAllErrors().get(0).getDefaultMessage());
         }
         registrationService.saveUserToDb(userCredentials);
         log.info(userCredentials.getLogin() + WAS_REGISTERED);
