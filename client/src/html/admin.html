@@ -41,8 +41,8 @@
         <main class="main">
             <div class="main-container">
                 <div class="main__tabs">
-                    <button class="main__tabs-tournaments tabs__button"><span data-translate="tournaments">Tournaments</span></button>
-                    <button class="main__tabs-statistics tabs__button"><span data-translate="statistics">Statistics</span></button>
+                    <button id="tournaments" class="main__tabs-tournaments tabs__button"><span data-translate="tournaments">Tournaments</span></button>
+                    <button id="statistics" class="main__tabs-statistics tabs__button"><span data-translate="statistics">Statistics</span></button>
                 </div>
                 <div class="main__controlPanel">
                     <div>
@@ -65,11 +65,14 @@
                         <button id="clearAll" class="main__controlPanel-clear"><span data-translate="clear">Clear All</span></button>
                     </div>
                     <div>
+                        <button id="viewInvites" class="main__controlPanel-viewInvites"><span data-translate="viewInvites">View invitations</span></button>
+                    </div>
+                    <div>
                         <button class="main__controlPanel-createTournament">+</button>
                     </div>
                 </div>
-                <div id="tournaments-tab" class="main__table">
-                    <table id="table" class="table__data">
+                <div id="tournaments-tab" class="main__table ">
+                    <table id="table" class="table__data ">
                         <thead id="thead" class="table__data-head thead">
                             <tr class="thead__tr">
                                 <th id="sort-name" class="tr__th"><span class="tr__cell" data-translate="name">Name</span></th>
@@ -101,8 +104,52 @@
                         </tbody>
                     </table>
 
-                    <div class="main__statistics">
-                        
+                    <div id="stat-window" class="main__statistics switchToTable">
+
+                        <table id="statisticsOfPlayers" class="statisticsOfPlayers soptable__data">
+                            <caption class="statisticsOfPlayers__caption">Statistics of players</caption>
+                            <thead id="sop-thead" class="soptable__data-head sopthead">
+                                <tr class="sopthead__tr">
+                                    <th id="sop-name" class="soptr__th"><span class="soptr__cell" data-translate="name">Name</span></th>
+                                    <th id="sop-games" class="soptr__th"><span class="soptr__cell" data-translate="games">Games</span></th>
+                                    <th id="sop-wins" class="soptr__th"><span class="soptr__cell" data-translate="wins">Wins</span></th>
+                                    <th id="sop-draws" class="soptr__th"><span class="soptr__cell" data-translate="draws">Draws</span></th>
+                                    <th id="sop-loses" class="soptr__th"><span class="soptr__cell" data-translate="loses">Loses</span></th>
+                                    <th id="sop-cupWins" class="soptr__th"><span class="soptr__cell" data-translate="cupWins">Cup wins</span></th>
+                                </tr>
+                            </thead>
+                            <tbody id="sop-tbody" class="soptable__data-body soptbody">
+                                <tr class="soptbody__tr">
+                                    <td class="soptr__td soptd-name"><span class="soptr__cell">Kek</span></td>
+                                    <td class="soptr__td soptd-games"><span class="soptr__cell">2</span></td>
+                                    <td class="soptr__td soptd-wins"><span class="soptr__cell">1</span></td>
+                                    <td class="soptr__td soptd-draws"><span class="soptr__cell">1</span></td>
+                                    <td class="soptr__td soptd-loses"><span class="soptr__cell">0</span></td>
+                                    <td class="soptr__td soptd-cupWins"><span class="soptr__cell">0</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="statisticsOfTournaments">
+                            <caption class="statisticsOfTournaments__caption">Statistics of tournaments</caption>
+                            <thead id="sot-thead" class="sottable__data-head sotthead">
+                                <tr class="sotthead__tr">
+                                    <th id="sot-name" class="sottr__th"><span class="sottr__cell" data-translate="numberOfTournaments">Number of tournaments</span></th>
+                                    <th id="sot-mode" class="sottr__th"><span class="sottr__cell" data-translate="active">Active</span></th>
+                                    <th id="sot-place" class="sottr__th"><span class="sottr__cell" data-translate="finished">Finished</span></th>
+                                    <th id="sot-name" class="sottr__th"><span class="sottr__cell" data-translate="notStarted">Not started</span></th>
+                                </tr>
+                            </thead>
+                            <tbody id="sot-tbody" class="sottable__data-body sottbody">
+                                <tr class="sottbody__tr">
+                                    <td class="sottr__td sottd-numberOfTournaments"><span class="sottr__cell">100</span></td>
+                                    <td class="sottr__td sottd-active"><span class="sottr__cell">89</span></td>
+                                    <td class="sottr__td sottd-finished"><span class="sottr__cell">43</span></td>
+                                    <td class="sottr__td sottd-notStarted"><span class="sottr__cell">2</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
                     </div>
                 </div>
             </div>
@@ -130,6 +177,48 @@
         </div>
     </div>
 
+    <div id="viewInvitesPopup" class="viewInvitesPopup hideviewInvitesPopup">
+        <div class="viewInvitesPopup__container">
+            <div id="closeviewInvitesPopup" class="viewInvitesPopup__button">
+                <button id="closeClearAllPU" class="viewInvitesPopup__button-close"></button>
+            </div>
+                <h1 class="viewInvitesPopup__header">List of invitations</h1>
+                <div class="viewInvitesPopup__list-title">
+                    <p>Login</p>     
+                    <p>Tournament</p>
+                </div>
+            <div class="viewInvitesPopup__list">
+                
+                <div class="viewInvitesPopup__list-invite">
+                    <div class="viewInvitesPopup__list-div">
+                        <p id="viewLogin" class="viewInvitesPopup__list-login">Ansu</p>
+                    </div>
+                    <div class="viewInvitesPopup__list-div">
+                        <p id="viewTour" class="viewInvitesPopup__list-tour">Barc</p>
+                    </div>
+                    <button id="viewInvitesPopupConfirm" type="button" class="viewInvitesPopup__buttons-confirm btn"><span data-translate="confirm">Confirm</span></button>
+                    <button id="viewInvitesPopupCancel" type="button" class="viewInvitesPopup__buttons-cancel btn"><span data-translate="decline">Decline</span></button>
+                </div>
+                <div class="viewInvitesPopup__list-invite">
+                    <div class="viewInvitesPopup__list-div">
+                        <p id="viewLogin" class="viewInvitesPopup__list-login">Leo</p>
+                    </div>
+                    <div class="viewInvitesPopup__list-div">
+                        <p id="viewTour" class="viewInvitesPopup__list-tour">LaLiga</p>
+                    </div>
+                    <button id="viewInvitesPopupConfirm" type="button" class="viewInvitesPopup__buttons-confirm btn"><span data-translate="confirm">Confirm</span></button>
+                    <button id="viewInvitesPopupCancel" type="button" class="viewInvitesPopup__buttons-cancel btn"><span data-translate="decline">Decline</span></button>
+                </div>
+            </div>
+                <!-- <h1 class="viewInvitesPopup__header">Clear All</h1>
+                <p class="viewInvitesPopup__question"><span data-translate="clarification">Are you sure you want to delete all data?</span></p>
+                <div class="viewInvitesPopup__buttons">
+                    <button id="viewInvitesPopupConfirm" type="button" class="viewInvitesPopup__buttons-confirm btn"><span data-translate="delete">DELETE</span></button>
+                    <button id="viewInvitesPopupCancel" type="button" class="viewInvitesPopup__buttons-cancel btn"><span data-translate="cancel">CANCEL</span></button>
+                </div> -->
+        </div>
+    </div>
+
     <div id="clearAllPopup" class="clearAllPopup hideClearAllPopup">
         <div class="clearAllPopup__container">
             <div id="closeClearAllPopUp" class="clearAllPopup__button">
@@ -144,7 +233,7 @@
         </div>
     </div>
 
-    <div id="entry" class="entry">
+    <div id="entry" class="entry declineEntry">
         <div class="entry__container">
             <h1 class="entry__message"><span id="untry-user-name">User</span> wants to participate in "<span id="untry-tournament-name">Pigs</span>"</h1>
             <div class="entry__group">
