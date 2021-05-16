@@ -29,11 +29,9 @@
                     </label>
                     <img src="" alt="avatar" class="header__nav-avatar">
                     <button id="settings" class="header__nav-settings nav-input-styles"><span data-translate="settings">Settings</span>
-                        <!-- <image id="settings-icon" src="../img/shestir_white.png"/> -->
                     </button>
                     <a id="logout" href="index.html">
                         <button  class="header__nav-logout nav-input-styles"><span data-translate="logout">Logout</span>
-                            <!-- <image id="logout-icon" src="../img/exit_white.png"/> -->
                         </button>
                     </a>
                 </div>
@@ -116,6 +114,27 @@
                 </div>
             </div>
         </main>
+    </div>
+
+    <div id="settingsPopup" class="settingsPopup hideSettingsPopup">
+        <div class="settingsPopup__container">
+            <div id="closeSettingsPopUp" class="settingsPopup__button">
+                <button id="closeSettingsPU" class="settingsPopup__button-close"></button>
+            </div>
+                <h1 class="settingsPopup__header"><span data-translate="settings">Settings</span></h1>
+                <div class="settingsPopup__group">
+                    <label class="settingsPopup__group-label" for="password">Change password</label>
+                    <input type="password" name="oldPassword" id="oldPassword" data-placeholder="yourPassword" placeholder="Enter your old password..." class="settingsPopup__group-oldPassword settingsPopup__input" data-clear="clear">
+                    <input type="password" name="newPassword" id="newPassword" data-placeholder="newPassword" placeholder="Enter your new password..." class="settingsPopup__group-newPassword settingsPopup__input" data-clear="clear">
+
+                    <label class="settingsPopup__group-label" for="login">Change login</label>                        
+                    <input type="text" name="login" id="newLogin" data-placeholder="newLogin" placeholder="New login" class="settingsPopup__group-newlogin" data-clear="clear">
+                </div>
+                <div class="settingsPopup__buttons">
+                    <button id="settingsPopupConfirm" type="button" class="settingsPopup__buttons-confirm btn"><span data-translate="confirm">CONFIRM</span></button>
+                    <button id="settingsPopupCancel" type="button" class="settingsPopup__buttons-cancel btn"><span data-translate="cancel">CANCEL</span></button>
+                </div>
+        </div>
     </div>
 
     <div id="clearAllPopup" class="clearAllPopup hideClearAllPopup">
