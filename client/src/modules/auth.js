@@ -26,7 +26,7 @@ function auth(){
             });
         
             postRequest(URL, req).then(()=>{
-                document.location.href = "http://localhost:8077/main.html";
+                document.location.href = "/main.html";
             });
         }
     });
