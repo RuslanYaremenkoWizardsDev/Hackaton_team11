@@ -8,9 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-
 import javax.validation.Valid;
-
 import static com.example.server.usercredentials.utils.constants.ExceptionsMessages.EMPTY_FIELD;
 import static com.example.server.usercredentials.utils.constants.Mappings.FORGOT_PASSWORD_MAPPING;
 import static com.example.server.usercredentials.utils.constants.Responses.*;
@@ -27,7 +25,7 @@ public class ForgotPasswordController {
     }
 
     @PostMapping(FORGOT_PASSWORD_MAPPING)
-    public ResponseEntity<String> updatePassUser (@Valid @RequestBody String login, String secretKey, String newPassword, BindingResult bindingResult) {
+    public ResponseEntity<String> updatePassUser(@Valid @RequestBody String login, String secretKey, String newPassword, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             throw new InvalidFieldException(EMPTY_FIELD);
         }

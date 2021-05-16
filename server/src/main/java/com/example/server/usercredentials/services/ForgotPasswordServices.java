@@ -2,22 +2,27 @@ package com.example.server.usercredentials.services;
 
 import com.example.server.usercredentials.model.entity.Person;
 import com.example.server.usercredentials.repo.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
+import static com.example.server.game.util.Constants.USER_NOT_FOUND;
 
 @Component
 public class ForgotPasswordServices {
-    @Autowired
-    private UserRepository userRepo;
+    private final UserRepository userRepo;
 
-    public void updatePassword ( String login, String secretKey, String newPassword)  {
+    public ForgotPasswordServices(UserRepository userRepo) {
+        this.userRepo = userRepo;
+    }
+
+    public void updatePassword(String login, String secretKey, String newPassword) {
         Person findPerson = userRepo.findBySecretKey(login);
         if (findPerson != null && findPerson.getSecretKey().equals(secretKey)) {
             findPerson.setPassword(newPassword);
             userRepo.save(findPerson);
-        } else {
-           // throw new MyExc;
+            return;
         }
+        throw new UsernameNotFoundException(USER_NOT_FOUND);
+
     }
 
 }
