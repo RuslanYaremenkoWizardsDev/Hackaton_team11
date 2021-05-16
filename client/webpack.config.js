@@ -49,6 +49,10 @@ module.exports = {
             filename: 'guest.html',
             template: './src/html/guest.html'
         }),
+        new HTMLPlugin({
+            filename: 'user.html',
+            template: './src/html/user.html'
+        }),
         new CopyPlugin({
             patterns: [{from:'src/img/', to: 'img'}]
         })
