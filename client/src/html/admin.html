@@ -7,20 +7,125 @@
     <title>Admin</title>
 </head>
 <body>
-    
-    <header>
-
-    </header>
-
-     
-    <section>
-        <nav></nav>
-        <div class="search">
-            <input type="text">
-            <input type="text">
-            <input type="text">
+      <!-- <header class="header">
+        <div class="header__logo">
+          <img class="header__img" src="img/kisspng-http-404-error-internet-cybercrime-5b188b7fb8c744.2381966215283352317569.jpg" width="150px" />
         </div>
-    </section>
+  
+        <div class="header__sidebar">
+          <div class="header__sideBox">
+            <div class="header__out button">Log out</div>
+            <img class="header__setting" src="img/settings--v1.png" width="150px" />
 
+            </div>
+            <img class="header__theme">
+          </div>
+            <select class="header__select" name="language" id="lang">
+              <option class = "header__ru" value="ru">ru</option>
+              <option class = "header__en"  value="en" selected>en</option>
+            </select> -->
+            <!-- модалка настроек для смены логина и пароля -->
+            <div class="headerSettings__modal">
+              <div class="headerSettings__modal-content">
+                <div class="headerSettings__modal-head">
+                  <p class="headerSettings__head-text">Settings</p>
+                  <span class="headerSettings__close">&times;</span>
+                </div>
+                <p class="headerSettings__modal-text">Below you can change your login and password</p>
+                <div class="headerSettings__login">
+                  <p class="headerSettings__input-text">Change password</p>
+                  <div class="headerSettings__login-box">
+                    <input class="headerSettings__input" placeholder="Enter your old password...">
+                  </div>
+                </div>
+                <div class="headerSettings__password">
+                  <p class="headerSettings__input-text"></p>
+                  <div class="headerSettings__password-box">
+                    <input class="headerSettings__input" placeholder="Enter your new password...">
+                  </div>
+                  <p class="headerSettings__input-text">Change login</p>
+                  <input class="headerSettings__input" placeholder="Enter your new login...">
+                </div>
+                <div class="headerSettings__buttons">
+                  <div class="headerSettings__ok button">OK</div>
+                  <div class="headerSettings__cancel button">Cancel</div>
+                </div>
+              </div>
+            </div>   
+  
+          <!-- </div>
+        </div> -->
+     
+
+    <!-- </header> -->
+    <!-- модалка добавления пользователя -->
+    <div class="createCup__modal">
+      <div class="createCup__modal-content">
+        <div class="createCupModal__modal-head">
+          <p class="createCupModal__head-text">Create new cup</p>
+          <span class="createCupModal__close">&times;</span>
+        </div>
+        <div class="createCupModal__name-mode">
+          <p class="createCupModal__input-text">Name*</p>
+          <div class="createCupModal__name-box">
+            <input class="createCupModal__input">
+            <p class="createCupModal__input-text">Mode*</p>
+            <div class="createCupModal__mode-box">
+              <input class="createCupModal__input">
+            </div>
+          </div>
+        </div>
+        <div class="createCupModal__description">
+          <div class="createCupModal__description-box">
+            <input class="createCupModal__input-description"  placeholder="Description...">
+          </div>
+      </div>
+      <div class="createCupModal__place-scenario">
+        <p class="createCupModal__input-text">Place</p>
+        <div class="createCupModal__place-box">
+          <input class="createCupModal__input">
+          <p class="createCupModal__input-text">Scenario</p>
+          <select class="createCupModal__select" name="Level" id="lang">
+            <option class = "createCupModal__level" value="Advanced" selected>One-match</option>
+            <option class = "createCupModal__level"  value="Midlle">Two-match</option>
+            <option class = "createCupModal__level"  value="Begginer">To three wins</option>
+          </select>
+        </div>
+      </div>
+      <div class="createCupModal__start-box">
+        <p class="createCupModal__input-text">Start date*</p>
+        <input type="date" value="">
+      </div>
+      <div class="createCupModal__last-box">
+        <p class="createCupModal__input-text">Last reg date*</p>
+        <input type="date" value="">
+      </div>
+      <div class=""></div>
+      <p class="createCupModal__input-text">Level</p>
+        <select class="createCupModal__select" name="Level" id="lang">
+          <option class = "createCupModal__level" value="Advanced">Advanced</option>
+          <option class = "createCupModal__level"  value="Midlle" selected>Midlle</option>
+          <option class = "createCupModal__level"  value="Begginer">Begginer</option>
+        </select>
+        <p class="createCupModal__input-text">Partisipants</p>
+        <select class="createCupModal__select" name="Partisipants" id="lang">
+          <option class = "createCupModal__partisipants  " value="128">128</option>
+          <option class = "createCupModal__partisipants"  value="64">64</option>
+          <option class = "createCupModal__partisipants"  value="32" selected>32</option>
+          <option class = "createCupModal__partisipants"  value="16">16</option>
+          <option class = "createCupModal__partisipants"  value="8">8</option>
+          <option class = "createCupModal__partisipants"  value="4">4</option>
+        </select>
+        <!-- нужен выбор нескольких значений!!!! --> 
+        <div class = "createCupModal__users-child" >
+          <input class ="createCupModal__users-input" type="text" id="findUsers" placeholder = "&#128269; Invited players..." />
+        </div> 
+      </div>      
+        <div class="createCupModal__buttons">
+          <div class="createCupModal__create button">Create</div>
+          <div class="createCupModal__cancel button">Cancell</div>
+        </div>
+      </div>
+    </div> 
 </body>
 </html>
