@@ -1,12 +1,69 @@
-/*
-    public static final String REG_EXP_FOR_LOGIN = "^[a-zA-Z](.[a-zA-Z0-9_-]*)$";
-    public static final String REG_EXP_FOR_PASSWORD = "[0-9a-zA-Z]{6,}";
-*/
+import postRequest from '../modules/request';
+
+function registr(){
+
+    const URL = 'http://localhost:8077/registration';
+
+    const login = document.querySelector("#reg-login");
+    const pass = document.querySelector('#reg-password');
+    const confPass = document.querySelector('#reg-confirmPassword');
+    const email = document.querySelector('#reg-email');
+    const btnReq = document.querySelector('#reg-submit');
+    
+    function getValidEntry(){
+        if(login.value === "" || pass.value === "" || confPass.value === "" || email === ""){
+            console.log("Fill in all the fields");
+            return true;
+        }
+    
+        if(pass.value != confPass.value){
+            console.log("repeated the password unsuccessfully");
+            return true;
+        }
+    
+    }
+    
+    btnReq.addEventListener('click', ()=>{
+    
+        if(getValidEntry()){
+            alert("No");
+        }else{
+            const req = JSON.stringify({
+                login: login.value,
+                password: pass.value,
+                email: email.value,
+                secretKey: "sKey11111"
+            });
+        
+            postRequest(URL, req).then(()=>{
+                document.location.href = "/index.html";
+            });
+        }
+    
+       
+    
+    });
+
+}
+
+export default registr;
+    
+
+
+
+    
+
+
+
+    
 
 
 
 
-function req(){
+
+
+
+/*function req(){
     const login = document.querySelector("#reg-login");
     const pass = document.querySelector('#reg-password');
     const confPass = document.querySelector('#reg-confirmPassword');
@@ -56,7 +113,7 @@ function req(){
 }
 
 
-export default req;
+export default req;*/
 
 
 

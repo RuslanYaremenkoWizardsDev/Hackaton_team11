@@ -1,8 +1,13 @@
 import '../scss/style.scss';
+import registr  from '../modules/req';
+import auth from '../modules/auth';
+ 
+document.addEventListener('DOMContentLoaded', ()=>{
 
-import req from '../modules/req';
+if(window.location.pathname === "/index.html"){
+    auth();
+}else if(window.location.pathname === "/regpage.html"){
+    registr();
+}
 
-
-window.addEventListener('DOMContentLoaded', () => {
-  req();
-})
+});
