@@ -9,5 +9,7 @@ import java.util.List;
 public interface UserInTournamentRepo extends JpaRepository<UserInTournament, Long> {
     List<UserInTournament> findByIdTournament(long idTournament);
 
-    List<Long> findByIdUser(UserInTournament userInTournament);
+    List<UserInTournament> findByIdUser(Long idUser);
+
+    UserInTournament findUserInTournamentByIdUser(Long id);
 }
