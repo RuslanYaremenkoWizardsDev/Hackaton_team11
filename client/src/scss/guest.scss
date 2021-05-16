@@ -1,19 +1,19 @@
-.general {
+.guest {
     background: #333;
     min-height: 100vh;
 }
-.main-container {
+.guestmain-container {
     width: 100%;
     max-width: 1030px;
     margin: 0 auto;
     padding: 0 15px;
 }
-.nav-input-styles {
+.guestnav-input-styles {
     cursor: pointer;
 }
-.tr {
+.guesttr {
     &__th {
-        width: 10%;
+        width: 12%;
         height: 45px;
         padding: 0 5px;
         border: 1px solid #ccc;
@@ -21,7 +21,7 @@
         font-weight: 400;
     }
     &__td {
-        width: 10%;
+        width: 12%;
         height: 45px;
         padding: 0 5px;
         border: 1px solid #ccc;
@@ -38,7 +38,7 @@
         width: 100%;
     }
 }
-.td {
+.guesttd {
     width: 142px;
     height: 43px;
     border: 1px solid #ccc;
@@ -47,13 +47,13 @@
     overflow-x: scroll;
 }
 
-.td-actions {
+.tguestd-actions {
     .tr__cell {
         font-size: 48px;
     }
 }
 
-.header {
+.guestheader {
     display: flex;
     align-items: center;
     width: 100%;
@@ -122,7 +122,7 @@
     }
 }
 
-.main {
+.guestmain {
     padding: 50px 0 0;
     &__tabs {
         display: flex;
@@ -130,6 +130,7 @@
 
     }
     &__controlPanel {
+        width: 70%;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -176,7 +177,7 @@
         }
     }
 }
-.tabs {
+.guesttabs {
     &__button {
         width: 150px;
         height: 50px;
@@ -186,7 +187,7 @@
         cursor: pointer;
     }
 }
-.table {
+.guesttable {
     &__data {
         width: 100%;
         min-width: 999px;
@@ -197,7 +198,7 @@
         border-collapse: collapse;
     }
 }
-.thead {
+.guestthead {
     width: 100%;
     &__tr {
         display: flex;
@@ -205,7 +206,7 @@
         padding: 0 0 10px;
     }
 }
-.tbody {
+.guesttbody {
     background: #fff;
     width: 100%;
     &__tr {
@@ -215,14 +216,14 @@
     }
 }
 
-.main__table {
+.guestmain__table {
     position: relative;
     overflow: auto;
     margin: 30px 0 0;
 }
 
 @media screen and (max-width: 1024px) {
-    .tabs {
+    .guesttabs {
         &__button {
             margin-right: 95px;
         }
@@ -230,7 +231,7 @@
 }
 
 @media screen and (max-width: 768px) {
-    .tabs {
+    .guesttabs {
         &__button {
             margin-right: 25px;
         }
