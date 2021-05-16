@@ -11,107 +11,78 @@
 <body>
   
 
- <div class="headerSettings__modal">
-  <div class="headerSettings__modal-content">
-    <div class="headerSettings__modal-head">
-      <p class="headerSettings__head-text">Settings</p>
-      <span class="headerSettings__close">&times;</span>
-    </div>
-    <p class="headerSettings__modal-text">Below you can change your login and password</p>
-    <div class="headerSettings__login">
-      <p class="headerSettings__input-text">Change password</p>
-      <div class="headerSettings__login-box">
-        <input class="headerSettings__input" placeholder="Enter your old password...">
-      </div>
-    </div>
-    <div class="headerSettings__password">
-      <p class="headerSettings__input-text"></p>
-      <div class="headerSettings__password-box">
-        <input class="headerSettings__input" placeholder="Enter your new password...">
-      </div>
-      <p class="headerSettings__input-text">Change login</p>
-      <input class="headerSettings__input" placeholder="Enter your new login...">
-    </div>
-    <div class="headerSettings__buttons">
-      <div class="headerSettings__ok button">OK</div>
-      <div class="headerSettings__cancel button">Cancel</div>
-    </div>
-  </div>
-</div>   
+ 
 
   <!-- модалка добавления пользователя -->
-  <div class="createCup__modal">
-    <div class="createCup__modal-content">
+  <form class="createCup__modal">
+    <div class="form-content form__content">
         <div class="createCupModal__modal-head">
           <p class="createCupModal__head-text">Create new cup</p>
           <span class="createCupModal__close">&times;</span>
         </div>
-        <div class="createCupModal__name-mode">
-        <p class="createCupModal__input-text">Name*</p>
-        <div class="createCupModal__name-box">
-          <input class="createCupModal__input">
-          <p class="createCupModal__input-text">Mode*</p>
-        <div class="createCupModal__mode-box">
-        <input class="createCupModal__input">
-        </div>
-      </div>
-    </div>
-
-    <div class="createCupModal__description">
-      <div class="createCupModal__description-box">
-        <input class="createCupModal__input-description"  placeholder="Description...">
-      </div>
-    </div>
-
-    <div class="createCupModal__place-scenario">
-      <p class="createCupModal__input-text">Place</p>
-        <div class="createCupModal__place-box">
-          <input class="createCupModal__input">
-          <p class="createCupModal__input-text">Scenario</p>
-            <select class="createCupModal__select" name="Level" id="lang">
-              <option class = "createCupModal__level" value="Advanced" selected>One-match</option>
-              <option class = "createCupModal__level"  value="Midlle">Two-match</option>
-              <option class = "createCupModal__level"  value="Begginer">To three wins</option>
+        <div class="form-content form__content">
+          <div class = "form__contentChild">
+            <span class = "form__name">Name*</span>
+            <input class="form__field" id="name" />
+          </div>
+          <div class = "form__contentChild">
+            <span class = "form__name">Mode*</span>
+            <input class="form__field" id="mode" />
+          </div>
+          <div class = "form__contentChild">
+            <input class="form__field" id="description" placeholder="Description..."/>
+          </div>
+          <div class = "form__contentChild">
+            <span class = "form__name">Place</span>
+            <input class="form__field" id="place" />
+          </div>
+          <div class = "form__contentChild">
+            <span class = "form__name">Scenario</span>
+            <select class="form__field" name="Level" id="scenario">
+              <option class = "form__field-scenario" value="OneMatch" selected>One-match</option>
+              <option class = "form__field-scenario"  value="TwoMatch">Two-match</option>
+              <option class = "form__field-scenario"  value="ToThreeWins">To three wins</option>
             </select>
-        </div>
-    </div>
-
-    <div class="createCupModal__start-box">
-      <p class="createCupModal__input-text">Start date*</p>
-      <input type="date" value="">
-    </div>
-
-    <div class="createCupModal__last-box">
-      <p class="createCupModal__input-text">Last reg date*</p>
-      <input type="date" value="">
-    </div>
-    <div class="createCupModal__level">
-      <p class="createCupModal__input-text">Level</p>
-        <select class="createCupModal__select" name="Level" id="lang">
-          <option class = "createCupModal__level-option" value="Advanced">Advanced</option>
-          <option class = "createCupModal__level-option"  value="Midlle" selected>Midlle</option>
-          <option class = "createCupModal__level-option"  value="Begginer">Begginer</option>
-        </select>
-      <p class="createCupModal__input-text">Partisipants</p>
-        <select class="createCupModal__select" name="Partisipants" id="lang">
-          <option class = "createCupModal__partisipants  " value="128">128</option>
-          <option class = "createCupModal__partisipants"  value="64">64</option>
-          <option class = "createCupModal__partisipants"  value="32" selected>32</option>
-          <option class = "createCupModal__partisipants"  value="16">16</option>
-          <option class = "createCupModal__partisipants"  value="8">8</option>
-          <option class = "createCupModal__partisipants"  value="4">4</option>
-        </select>
+          </div>
+          <div class = "form__contentChild">
+            <span class = "form__name">Start date*</span>
+            <input class="form__field" type="date" id="startDate" />
+          </div>
+          <div class = "form__contentChild">
+            <span class = "form__name">Last registration date*</span>
+            <input class="form__field" type="date" id="lastRegDate" />
+          </div>
+          <div class = "form__contentChild">
+            <span class = "form__name">Level</span>
+            <select class="createCupModal__select" name="Level" id="lavel">
+              <option class = "form__field-level" value="Advanced">Advanced</option>
+              <option class = "form__field-level"  value="Midlle" selected>Midlle</option>
+              <option class = "form__field-level"  value="Begginer">Begginer</option>
+            </select>
+          </div>
+          <div class = "form__contentChild">
+            <span class = "form__name">Partisipants</span>
+            <input class="form__field" type="date" id="partisipants" />
+            <select class="createCupModal__select" name="Partisipants" id="lang">
+              <option class = "form__field-partisipants  " value="128">128</option>
+              <option class = "form__field-partisipants"  value="64">64</option>
+              <option class = "form__field-partisipants"  value="32" selected>32</option>
+              <option class = "form__field-partisipants"  value="16">16</option>
+              <option class = "form__field-partisipants"  value="8">8</option>
+              <option class = "form__field-partisipants"  value="4">4</option>
+            </select>
+          </div>  
     <!-- нужен выбор нескольких значений!!!! --> 
       <div class = "createCupModal__users-child" >
         <input class ="createCupModal__users-input" type="text" id="findUsers" placeholder = "&#128269; Invited players..." />
       </div> 
-    </div>    
+  </div>  
 
-    <div class="createCupModal__buttons">
-      <div class="createCupModal__create button">Create</div>
-      <div class="createCupModal__cancel button">Cancell</div>
+    <div class="form__buttons">
+      <div class="form__button-create button" id="create">Create</div>
+      <div class="form__button-cancel button">Cancell</div>
     </div>
-  </div>
+  </form>
 </div> 
 </body>
 </html>

@@ -1,5 +1,3 @@
-import { Base64, decode } from 'js-base64';
-
 
 function  postRequest(url, requestBody) {
   return new Promise(function (resolve, reject) {
