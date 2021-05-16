@@ -20,12 +20,15 @@
     "mini-css-extract-plugin": "^1.5.0",
     "node-sass": "^5.0.0",
     "sass-loader": "^11.0.1",
+    "stomp-websocket": "^2.3.4-next",
     "style-loader": "^2.0.0",
     "webpack": "^5.35.1",
     "webpack-cli": "^4.6.0",
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
-    "js-base64": "^3.6.0"
+    "@stomp/stompjs": "^6.1.0",
+    "js-base64": "^3.6.0",
+    "sockjs-client": "^1.5.1"
   }
 }

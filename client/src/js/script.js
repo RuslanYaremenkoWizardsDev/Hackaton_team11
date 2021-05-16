@@ -4,6 +4,7 @@ import auth from '../modules/auth';
 import clearAll from '../modules/clearAll';
 import settingsPopup from '../modules/settings';
 import sortData from '../modules/header-sort';
+import admin from '../modules/admin';
  
 document.addEventListener('DOMContentLoaded', ()=>{
 
@@ -15,6 +16,7 @@ if(window.location.pathname === "/index.html"){
     clearAll();
     settingsPopup();  
     sortData();  
+    admin();
 }else if(window.location.pathname === "/user.html"){
     settingsPopup();   
     sortData(); 
