@@ -20,7 +20,7 @@ public class GameController {
     private final ResultGameRepo resultGameRepo;
     private final UserRepository userRepository;
     private final BattleUserRepo battleUserRepo;
-    private final UserStatisticRepo uSerStatisticRepo;
+    private final UserStatisticRepo userStatisticRepo;
 
     public GameController(UserInTournamentRepo userInTournamentRepo, TournamentRepo tournamentRepo, ResultGameRepo resultGameRepo, UserRepository userRepository, BattleUserRepo battleUserRepo, UserStatisticRepo uSerStatisticRepo) {
         this.userInTournamentRepo = userInTournamentRepo;
@@ -28,12 +28,12 @@ public class GameController {
         this.resultGameRepo = resultGameRepo;
         this.userRepository = userRepository;
         this.battleUserRepo = battleUserRepo;
-        this.uSerStatisticRepo = uSerStatisticRepo;
+        this.userStatisticRepo = userStatisticRepo;
     }
 
     @PostMapping("/gamestart")
     public void gameStart(@RequestBody Long id) {
-        GameStarter gameStarter = new GameStarter(userInTournamentRepo, tournamentRepo, resultGameRepo, userRepository, battleUserRepo, uSerStatisticRepo);
+        GameStarter gameStarter = new GameStarter(userInTournamentRepo, tournamentRepo, resultGameRepo, userRepository, battleUserRepo, userStatisticRepo);
         gameStarter.start(tournamentRepo.findById(id).get());
     }
 

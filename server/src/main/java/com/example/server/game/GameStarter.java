@@ -14,7 +14,7 @@ public class GameStarter implements Runnable {
     private final ResultGameRepo resultGameRepo;
     private final UserRepository userRepository;
     private final BattleUserRepo battleUserRepo;
-    private final UserStatisticRepo uSerStatisticRepo;
+    private final UserStatisticRepo userStatisticRepo;
 
     public GameStarter(UserInTournamentRepo userInTournamentRepo, TournamentRepo tournamentRepo, ResultGameRepo resultGameRepo, UserRepository userRepository, BattleUserRepo battleUserRepo, UserStatisticRepo uSerStatisticRepo) {
         this.userInTournamentRepo = userInTournamentRepo;
@@ -22,7 +22,7 @@ public class GameStarter implements Runnable {
         this.resultGameRepo = resultGameRepo;
         this.userRepository = userRepository;
         this.battleUserRepo = battleUserRepo;
-        this.uSerStatisticRepo = uSerStatisticRepo;
+        this.userStatisticRepo = uSerStatisticRepo;
     }
 
     @Override
@@ -32,7 +32,7 @@ public class GameStarter implements Runnable {
 
     public void start(TournamentEntity tournamentEntity) {
         run();
-        GameService gameService = new GameService(userInTournamentRepo, tournamentRepo, resultGameRepo, userRepository, battleUserRepo, uSerStatisticRepo);
+        GameService gameService = new GameService(userInTournamentRepo, tournamentRepo, resultGameRepo, userRepository, battleUserRepo, userStatisticRepo);
         gameService.play(tournamentEntity);
     }
 }
