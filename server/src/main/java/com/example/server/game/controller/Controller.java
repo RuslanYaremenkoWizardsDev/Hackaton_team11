@@ -1,6 +1,7 @@
 package com.example.server.game.controller;
 
 import com.example.server.game.GameStarter;
+import com.example.server.game.repo.BattleUserRepo;
 import com.example.server.game.repo.ResultGameRepo;
 import com.example.server.game.repo.USerStatisticRepo;
 import com.example.server.tournament.repo.TournamentRepo;
@@ -29,11 +30,11 @@ public class Controller {
         this.battleUserRepo = battleUserRepo;
         this.uSerStatisticRepo = uSerStatisticRepo;
     }
-    @PostMapping("/gamestart")
-    public void gameStart(@RequestBody Long id){
-        GameStarter gameStarter = new GameStarter(userInTournamentRepo,tournamentRepo,resultGameRepo, userRepository, battleUserRepo, uSerStatisticRepo);
-        gameStarter.start(tournamentRepo.findById(id).get());
 
+    @PostMapping("/gamestart")
+    public void gameStart(@RequestBody Long id) {
+        GameStarter gameStarter = new GameStarter(userInTournamentRepo, tournamentRepo, resultGameRepo, userRepository, battleUserRepo, uSerStatisticRepo);
+        gameStarter.start(tournamentRepo.findById(id).get());
     }
 
 }

@@ -1,6 +1,6 @@
 package com.example.server.game;
 
-import com.example.server.game.controller.BattleUserRepo;
+import com.example.server.game.repo.BattleUserRepo;
 import com.example.server.game.repo.ResultGameRepo;
 import com.example.server.game.repo.USerStatisticRepo;
 import com.example.server.tournament.model.entity.TournamentEntity;
@@ -8,7 +8,7 @@ import com.example.server.tournament.repo.TournamentRepo;
 import com.example.server.tournament.repo.UserInTournamentRepo;
 import com.example.server.usercredentials.repo.UserRepository;
 
-public class GameStarter implements Runnable{
+public class GameStarter implements Runnable {
     private final UserInTournamentRepo userInTournamentRepo;
     private final TournamentRepo tournamentRepo;
     private final ResultGameRepo resultGameRepo;
@@ -29,9 +29,10 @@ public class GameStarter implements Runnable{
     public void run() {
 
     }
-    public void start(TournamentEntity tournamentEntity){
+
+    public void start(TournamentEntity tournamentEntity) {
         run();
-        GameService gameService = new GameService(userInTournamentRepo,tournamentRepo,resultGameRepo, userRepository, battleUserRepo, uSerStatisticRepo);
+        GameService gameService = new GameService(userInTournamentRepo, tournamentRepo, resultGameRepo, userRepository, battleUserRepo, uSerStatisticRepo);
         gameService.play(tournamentEntity);
     }
 }

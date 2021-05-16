@@ -1,6 +1,6 @@
 package com.example.server.game;
 
-import com.example.server.game.controller.BattleUserRepo;
+import com.example.server.game.repo.BattleUserRepo;
 import com.example.server.game.exception.InsufficientNumberOfUsersException;
 import com.example.server.game.model.BattleUsersModel;
 import com.example.server.game.model.GameModel;
@@ -16,7 +16,6 @@ import com.example.server.usercredentials.exception.InvalidFieldException;
 import com.example.server.usercredentials.model.entity.Person;
 import com.example.server.usercredentials.repo.UserRepository;
 import org.springframework.stereotype.Component;
-
 import java.util.*;
 
 @Component
@@ -94,7 +93,7 @@ public class GameService {
         UserStatisticModel loseStatic =
                 userStatisticRepo.getUserStatisticModelByIdUser(person2.getId());
         loseStatic.setLose(loseStatic.getLose() + 1);
-        BattleUsersModel battleUsersModel = new BattleUsersModel(null, tournamentEntity.getId(), person.getLogin(), person2.getLogin(),person.getLogin());
+        BattleUsersModel battleUsersModel = new BattleUsersModel(null, tournamentEntity.getId(), person.getLogin(), person2.getLogin(), person.getLogin());
         battleUserRepo.save(battleUsersModel);
         return afterRound.get(0);
     }
@@ -103,7 +102,7 @@ public class GameService {
         if (person.getPower().equals(person2.getPower())) {
             return "DRAW";
         }
-        return person.getPower() > person2.getPower() ?person.getLogin() : person2.getLogin();
+        return person.getPower() > person2.getPower() ? person.getLogin() : person2.getLogin();
 
     }
 

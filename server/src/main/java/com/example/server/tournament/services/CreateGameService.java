@@ -51,7 +51,7 @@ public class CreateGameService {
         tournamentRepo.save(tournamentDTO);
     }
 
-    public List<TournamentEntity> getAllTournament(){
+    public List<TournamentEntity> getAllTournament() {
         return tournamentRepo.findAll();
     }
 }

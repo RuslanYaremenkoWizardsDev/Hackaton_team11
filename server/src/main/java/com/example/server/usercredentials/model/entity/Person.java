@@ -1,11 +1,11 @@
 package com.example.server.usercredentials.model.entity;
 
 import com.example.server.usercredentials.model.Roles;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.io.Serializable;
+
 @Entity
 @Table(name = "user_credentials")
 @Data
@@ -29,6 +29,6 @@ public class Person implements Serializable {
         this.secretKey = secretKey;
         this.avatar = null;
         this.role = Roles.USER;
-        this.power = (long)(Math.random()+1)*100;
+        this.power = (long) (Math.random() + 1) * 100;
     }
 }

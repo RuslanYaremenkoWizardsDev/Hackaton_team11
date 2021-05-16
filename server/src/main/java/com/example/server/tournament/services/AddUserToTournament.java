@@ -12,9 +12,7 @@ import com.example.server.tournament.repo.UserInTournamentRepo;
 import com.example.server.usercredentials.exception.UserNotFoundException;
 import com.example.server.usercredentials.model.entity.Person;
 import com.example.server.usercredentials.repo.UserRepository;
-import org.postgresql.util.PSQLException;
 import org.springframework.stereotype.Component;
-
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -43,7 +41,7 @@ public class AddUserToTournament {
             throw new UserNotFoundException(String.format("User with login %s not found", login));
         }
         UserInTournament userInTournament = new UserInTournament(optionalTournamentDTO.get().getId(), person.getId());
-        if(userInTournamentRepo.findUserInTournamentByIdUser(userInTournament.getIdUser()) != null){
+        if (userInTournamentRepo.findUserInTournamentByIdUser(userInTournament.getIdUser()) != null) {
             throw new UserWasRegisterInThisTournament("User wa register");
         }
         Date date = new Date();

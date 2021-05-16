@@ -29,7 +29,7 @@ public class RegistrationService {
         Person person = new Person(userCredentials.getLogin(), userCredentials.getEmail(),
                 bCryptPasswordEncoder.encode(userCredentials.getPassword()), bCryptPasswordEncoder.encode(userCredentials.getSecretKey()));
         userRepository.save(person);
-        uSerStatisticRepo.save(new UserStatisticModel(null, person.getId(), 0L,0L,0L,0L));
+        uSerStatisticRepo.save(new UserStatisticModel(null, person.getId(), 0L, 0L, 0L, 0L));
     }
 
     private void checkLoginExist(String login, String email) {
