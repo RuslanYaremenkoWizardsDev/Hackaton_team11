@@ -18,25 +18,30 @@ function admin(){
     const lang = document.querySelector('#lang');
     const create = document.querySelector('#create');
 
+    function getMilsec(arg){
+        const x = new Date(arg);
+        const y = new Date();
+        return x - y;
+    }
+
     create.addEventListener("click", ()=>{
-        const createTurn = JSON.stringify({
-            date_last_registration_on_tournament: lastRegDate.value,
-            date_start_tournament: startDate.value,
-            level: lavel.value,
-            mode_tournament: mode.value,
-            name: name.value,
-            number_of_player: 25,
-            place: place.value,
-            scenatio_of_tournament: scenario.value,
-            status: "status",
-            tournament_description: descr.value,
-        });
+            const createTurn = JSON.stringify({
+                dateLastRegistrationOnTournament: String(getMilsec(lastRegDate.value)),
+                dateStartTournament: String(getMilsec(startDate.value)),
+                level: lavel.value,
+                name: name.value,
+                numberOfPlayer: partisipants.value,
+                place: place.value,
+                tournamentDescription: descr.value
+    });
+
+        
 
         postRequest(URL, createTurn).then(()=>{
             console.log("Круто");
-        })
+        });
 
-        console.log(createTurn);
+
     });
 
     

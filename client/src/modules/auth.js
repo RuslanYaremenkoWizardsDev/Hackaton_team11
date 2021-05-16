@@ -26,9 +26,9 @@ function auth(){
                 password: pass.value,
             });
         
-            postRequest(URL, req).then((res)=>{
-                //console.log(res.headers)
-                alert(res);
+            postRequest(URL, req).then(()=>{
+                
+                
                
                 document.location.href = "/admin.html";
             });

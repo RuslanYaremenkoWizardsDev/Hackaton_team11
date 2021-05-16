@@ -7,8 +7,8 @@ function  postRequest(url, requestBody) {
         let request = new XMLHttpRequest();
         request.open("POST", url, true);
         request.setRequestHeader("Content-Type", "application/json");
-        request.setRequestHeader("Access-Control-Expose-Headers", "*");
-        request.setRequestHeader("Access-Control-Allow-Headers", "*");
+       /* request.setRequestHeader("Access-Control-Expose-Headers", "*");
+        request.setRequestHeader("Access-Control-Allow-Headers", "*");*/
 
         request.addEventListener("load", function () {
     
