@@ -65,6 +65,9 @@
                         <button id="clearAll" class="main__controlPanel-clear"><span data-translate="clear">Clear All</span></button>
                     </div>
                     <div>
+                        <button id="viewInvites" class="main__controlPanel-viewInvites"><span data-translate="viewInvites">View invitations</span></button>
+                    </div>
+                    <div>
                         <button class="main__controlPanel-createTournament">+</button>
                     </div>
                 </div>
@@ -171,6 +174,43 @@
                     <button id="settingsPopupConfirm" type="button" class="settingsPopup__buttons-confirm btn"><span data-translate="confirm">CONFIRM</span></button>
                     <button id="settingsPopupCancel" type="button" class="settingsPopup__buttons-cancel btn"><span data-translate="cancel">CANCEL</span></button>
                 </div>
+        </div>
+    </div>
+
+    <div id="viewInvitesPopup" class="viewInvitesPopup hideviewInvitesPopup">
+        <div class="viewInvitesPopup__container">
+            <div id="closeviewInvitesPopup" class="viewInvitesPopup__button">
+                <button id="closeClearAllPU" class="viewInvitesPopup__button-close"></button>
+            </div>
+                <h1 class="viewInvitesPopup__header">List of invitations</h1>
+            <div class="viewInvitesPopup__list">
+                <div class="viewInvitesPopup__list-invite">
+                    <div class="viewInvitesPopup__list-div">
+                        <p id="viewLogin" class="viewInvitesPopup__list-login">Ansu</p>
+                    </div>
+                    <div class="viewInvitesPopup__list-div">
+                        <p id="viewTour" class="viewInvitesPopup__list-tour">Barc</p>
+                    </div>
+                    <button id="viewInvitesPopupConfirm" type="button" class="viewInvitesPopup__buttons-confirm btn"><span data-translate="confirm">Confirm</span></button>
+                    <button id="viewInvitesPopupCancel" type="button" class="viewInvitesPopup__buttons-cancel btn"><span data-translate="decline">Decline</span></button>
+                </div>
+                <div class="viewInvitesPopup__list-invite">
+                    <div class="viewInvitesPopup__list-div">
+                        <p id="viewLogin" class="viewInvitesPopup__list-login">Leo</p>
+                    </div>
+                    <div class="viewInvitesPopup__list-div">
+                        <p id="viewTour" class="viewInvitesPopup__list-tour">LaLiga</p>
+                    </div>
+                    <button id="viewInvitesPopupConfirm" type="button" class="viewInvitesPopup__buttons-confirm btn"><span data-translate="confirm">Confirm</span></button>
+                    <button id="viewInvitesPopupCancel" type="button" class="viewInvitesPopup__buttons-cancel btn"><span data-translate="decline">Decline</span></button>
+                </div>
+            </div>
+                <!-- <h1 class="viewInvitesPopup__header">Clear All</h1>
+                <p class="viewInvitesPopup__question"><span data-translate="clarification">Are you sure you want to delete all data?</span></p>
+                <div class="viewInvitesPopup__buttons">
+                    <button id="viewInvitesPopupConfirm" type="button" class="viewInvitesPopup__buttons-confirm btn"><span data-translate="delete">DELETE</span></button>
+                    <button id="viewInvitesPopupCancel" type="button" class="viewInvitesPopup__buttons-cancel btn"><span data-translate="cancel">CANCEL</span></button>
+                </div> -->
         </div>
     </div>
 

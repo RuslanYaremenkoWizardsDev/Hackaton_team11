@@ -8,27 +8,30 @@ import declineTournament from '../modules/tournamentEntry';
 import declineTournamentInvite from '../modules/tournamentInvite';
 import switchToStat from '../modules/statistics';
 import switchToStatUser from '../modules/statuser';
+import viewInvitations from '../modules/viewInvitations';
  
 document.addEventListener('DOMContentLoaded', ()=>{
 
-if(window.location.pathname === "/index.html"){
-    auth();
-}else if(window.location.pathname === "/regpage.html"){
-    registr();
-}else if(window.location.pathname === "/admin.html"){
-    clearAll();
-    settingsPopup();  
-    sortData();  
-    declineTournament();
-    switchToStat();
 
+    if(window.location.pathname === "/index.html"){
+        auth();
+    }else if(window.location.pathname === "/regpage.html"){
+        registr();
+    }else if(window.location.pathname === "/admin.html"){
+        clearAll();
+        settingsPopup();  
+        sortData();  
+        declineTournament();
+        switchToStat();
+        viewInvitations();
         // const tableBody = document.querySelector('#tbody'):
     //get renderTableDiv(data, tableBody)
-}else if(window.location.pathname === "/user.html"){
-    settingsPopup();   
-    sortData(); 
-    declineTournamentInvite();
-    switchToStatUser();
-}
+
+    }else if(window.location.pathname === "/user.html"){
+        settingsPopup();   
+        sortData(); 
+        declineTournamentInvite();
+        switchToStatUser();
+    }
 
 });
