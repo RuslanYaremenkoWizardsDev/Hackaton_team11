@@ -1,6 +1,6 @@
 package com.example.server.usercredentials.controllers;
 
-import com.example.server.usercredentials.exception.UserAlreadyExist;
+import com.example.server.usercredentials.exception.InvalidFieldException;
 import com.example.server.usercredentials.exception.conrolleradvice.UserCredentialsControllerAdvice;
 import com.example.server.usercredentials.model.dto.AuthorizationDto;
 import com.example.server.usercredentials.model.entity.Person;
@@ -16,7 +16,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.validation.BindingResult;
 import java.util.stream.Stream;
-import static com.example.server.usercredentials.utils.constants.ExceptionsMessages.USER_WITH_SAME_CREDENTIALS_EXIST;
 import static com.example.server.usercredentials.utils.constants.Mappings.AUTHORIZATION_MAPPING;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -30,12 +29,17 @@ class AuthorizationControllerTest {
     private final AuthorizationController cut = new AuthorizationController(authorizationService);
     private MockMvc mockMvc;
 
-
     private static Stream<Arguments> authorizeUserTestSource() {
         return Stream.of(
                 Arguments.arguments(new AuthorizationDto("Petr", "paswqsw")),
-                Arguments.arguments(new AuthorizationDto("grisha", "passww2")),
+                Arguments.arguments(new AuthorizationDto("grisha", "passwqw2")),
                 Arguments.arguments(new AuthorizationDto("pes", "passwq123"))
+        );
+    }
+    private static Stream<Arguments> authorizeUserExceptionTestSource() {
+        return Stream.of(
+                Arguments.arguments(new AuthorizationDto(null, "paswqwsw")),
+                Arguments.arguments(new AuthorizationDto(null, "passww2"))
         );
     }
 
@@ -60,12 +64,12 @@ class AuthorizationControllerTest {
     }
 
 
-//    @ParameterizedTest
-//    @MethodSource("userExistSource")
+    @ParameterizedTest
+    @MethodSource("authorizeUserExceptionTestSource")
     public void controllerUserExistExceptionTest(AuthorizationDto authorizationDto) throws Exception {
-        Mockito.when(bindingResult.hasErrors()).thenReturn(false);
-        Exception exception = new UserAlreadyExist(USER_WITH_SAME_CREDENTIALS_EXIST);
-        Mockito.doThrow(exception).when(authorizationService).authorizeUser(authorizationDto);
+        Mockito.when(bindingResult.hasErrors()).thenReturn(true);
+        Exception exception = new InvalidFieldException("must not be blank");
+
         mockMvc.perform(post(AUTHORIZATION_MAPPING).contentType(APPLICATION_JSON).content(objectMapper
                 .writeValueAsString(authorizationDto)))
                 .andExpect(status().isBadRequest())

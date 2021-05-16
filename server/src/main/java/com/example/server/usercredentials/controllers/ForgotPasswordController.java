@@ -1,7 +1,8 @@
 package com.example.server.usercredentials.controllers;
 
 import com.example.server.usercredentials.exception.InvalidFieldException;
-import com.example.server.usercredentials.services.ForgotPasswordServices;
+import com.example.server.usercredentials.model.dto.ForgotPassDto;
+import com.example.server.usercredentials.services.impl.ForgotPasswordServices;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -25,12 +26,12 @@ public class ForgotPasswordController {
     }
 
     @PostMapping(FORGOT_PASSWORD_MAPPING)
-    public ResponseEntity<String> updatePassUser(@Valid @RequestBody String login, String secretKey, String newPassword, BindingResult bindingResult) {
+    public ResponseEntity<String> updatePassUser(@Valid @RequestBody ForgotPassDto forgotPassDto, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             throw new InvalidFieldException(EMPTY_FIELD);
         }
-        forgotPasswordServices.updatePassword(login, secretKey, newPassword);
-        log.info(login + UPDATED_PASSWORD);
+        forgotPasswordServices.updatePassword(forgotPassDto);
+        log.info(forgotPassDto.getLogin() + UPDATED_PASSWORD);
         return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.APPLICATION_JSON).body(SUCCESS);
     }
 }
