@@ -15,8 +15,8 @@ public class UserInTournament {
     private Long idTournament;
     private Long idUser;
 
-    public UserInTournament(long id_tournament, long id_user) {
-        this.idTournament = id_tournament;
-        this.idUser = id_user;
+    public UserInTournament(long idTournament, long idUser) {
+        this.idTournament = idTournament;
+        this.idUser = idUser;
     }
 }

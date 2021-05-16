@@ -9,7 +9,6 @@ import com.example.server.tournament.model.enums.ScenatioOfTournament;
 import com.example.server.tournament.repo.TournamentRepo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-
 import java.util.Date;
 
 @Slf4j
@@ -26,7 +25,7 @@ public class CreateGameService {
         Level level = tournamentEntity.getLevel();
         int numberOfPlayer = tournamentEntity.getNumberOfPlayer();
         ScenatioOfTournament scenatioOfTournament = tournamentEntity.getScenatioOfTournament();
-        if(tournamentRepo.findByName(tournamentEntity.getName()).isPresent()){
+        if (tournamentRepo.findByName(tournamentEntity.getName()).isPresent()) {
             throw new TournamentWithSameNameExist("Invalid name Tournament");
         }
         TournamentEntity tournamentDTO = new TournamentEntity(tournamentEntity.getName(), tournamentEntity.getTournamentDescription(), tournamentEntity.getPlace()
@@ -37,7 +36,7 @@ public class CreateGameService {
         if (level != null) {
             tournamentDTO.setLevel(level);
         }
-        if (numberOfPlayer == 4 || numberOfPlayer == 8 || numberOfPlayer == 32 || numberOfPlayer == 64 || numberOfPlayer == 128) {
+        if (numberOfPlayer == 8 || numberOfPlayer == 32 || numberOfPlayer == 64 || numberOfPlayer == 128) {
             tournamentDTO.setNumberOfPlayer(numberOfPlayer);
         }
         if (scenatioOfTournament != null) {

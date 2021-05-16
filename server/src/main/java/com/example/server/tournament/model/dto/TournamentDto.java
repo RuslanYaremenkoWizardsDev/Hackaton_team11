@@ -17,12 +17,12 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class TournamentDto implements Serializable {
     private Long id;
-    private Status status ;
+    private Status status;
     @NotBlank(message = "error name")
     @Size(max = 255)
     private String name;
     @NotBlank(message = "error description")
-    @Size(max = 1000)
+    @Size(max = 10000)
     private String tournamentDescription;
     private Mode modeTournament;
     @NotBlank(message = "error place")
@@ -31,7 +31,7 @@ public class TournamentDto implements Serializable {
     private Long dateStartTournament;
     @NotNull(message = "error dateLastRegistrationOnTournament")
     private Long dateLastRegistrationOnTournament;
-    private Level level ;
+    private Level level;
     private int numberOfPlayer;
     private ScenatioOfTournament scenarioOfTournament;
 }

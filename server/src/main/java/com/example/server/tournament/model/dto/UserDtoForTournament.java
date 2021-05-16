@@ -1,9 +1,7 @@
 package com.example.server.tournament.model.dto;
 
 import lombok.Data;
-
 import javax.validation.constraints.NotBlank;
-
 import static com.example.server.usercredentials.utils.constants.ExceptionsMessages.EMPTY_FIELD;
 
 @Data
