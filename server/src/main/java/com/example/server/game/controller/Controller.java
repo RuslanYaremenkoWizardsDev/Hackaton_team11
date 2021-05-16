@@ -3,7 +3,8 @@ package com.example.server.game.controller;
 import com.example.server.game.GameStarter;
 import com.example.server.game.repo.BattleUserRepo;
 import com.example.server.game.repo.ResultGameRepo;
-import com.example.server.game.repo.USerStatisticRepo;
+
+import com.example.server.game.repo.UserStatisticRepo;
 import com.example.server.tournament.repo.TournamentRepo;
 import com.example.server.tournament.repo.UserInTournamentRepo;
 import com.example.server.usercredentials.repo.UserRepository;
@@ -20,20 +21,20 @@ public class Controller {
     private final ResultGameRepo resultGameRepo;
     private final UserRepository userRepository;
     private final BattleUserRepo battleUserRepo;
-    private final USerStatisticRepo uSerStatisticRepo;
+    private final UserStatisticRepo userStatisticRepo;
 
-    public Controller(UserInTournamentRepo userInTournamentRepo, TournamentRepo tournamentRepo, ResultGameRepo resultGameRepo, UserRepository userRepository, BattleUserRepo battleUserRepo, USerStatisticRepo uSerStatisticRepo) {
+    public Controller(UserInTournamentRepo userInTournamentRepo, TournamentRepo tournamentRepo, ResultGameRepo resultGameRepo, UserRepository userRepository, BattleUserRepo battleUserRepo, UserStatisticRepo userStatisticRepo) {
         this.userInTournamentRepo = userInTournamentRepo;
         this.tournamentRepo = tournamentRepo;
         this.resultGameRepo = resultGameRepo;
         this.userRepository = userRepository;
         this.battleUserRepo = battleUserRepo;
-        this.uSerStatisticRepo = uSerStatisticRepo;
+        this.userStatisticRepo = userStatisticRepo;
     }
 
     @PostMapping("/gamestart")
     public void gameStart(@RequestBody Long id) {
-        GameStarter gameStarter = new GameStarter(userInTournamentRepo, tournamentRepo, resultGameRepo, userRepository, battleUserRepo, uSerStatisticRepo);
+        GameStarter gameStarter = new GameStarter(userInTournamentRepo, tournamentRepo, resultGameRepo, userRepository, battleUserRepo, userStatisticRepo);
         gameStarter.start(tournamentRepo.findById(id).get());
     }
 

@@ -6,7 +6,7 @@ import com.example.server.game.model.BattleUsersModel;
 import com.example.server.game.model.GameModel;
 import com.example.server.game.model.UserStatisticModel;
 import com.example.server.game.repo.ResultGameRepo;
-import com.example.server.game.repo.USerStatisticRepo;
+import com.example.server.game.repo.UserStatisticRepo;
 import com.example.server.tournament.model.entity.TournamentEntity;
 import com.example.server.tournament.model.entity.UserInTournament;
 import com.example.server.tournament.model.enums.Status;
@@ -25,10 +25,10 @@ public class GameService {
     private final ResultGameRepo resultGameRepo;
     private final UserRepository userRepository;
     private final BattleUserRepo battleUserRepo;
-    private final USerStatisticRepo userStatisticRepo;
+    private final UserStatisticRepo userStatisticRepo;
 
 
-    public GameService(UserInTournamentRepo userInTournamentRepo, TournamentRepo tournamentRepo, ResultGameRepo resultGameRepo, UserRepository userRepository, BattleUserRepo battleUserRepo, USerStatisticRepo userStatisticRepo) {
+    public GameService(UserInTournamentRepo userInTournamentRepo, TournamentRepo tournamentRepo, ResultGameRepo resultGameRepo, UserRepository userRepository, BattleUserRepo battleUserRepo, UserStatisticRepo userStatisticRepo) {
         this.userInTournamentRepo = userInTournamentRepo;
         this.tournamentRepo = tournamentRepo;
         this.resultGameRepo = resultGameRepo;
