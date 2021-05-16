@@ -28,19 +28,20 @@ public class CreateGameController {
         if (bindingResult.hasErrors()) {
             throw new InvalidFieldException(bindingResult.getAllErrors().get(0).getDefaultMessage());
         }
-        TournamentEntity tournamentEntity = TournamentEntity
-                .builder()
-                .status(tournamentDto.getStatus())
-                .name(tournamentDto.getName())
-                .tournamentDescription(tournamentDto.getTournamentDescription())
-                .modeTournament(tournamentDto.getModeTournament())
-                .place(tournamentDto.getPlace())
-                .dateStartTournament(tournamentDto.getDateStartTournament())
-                .dateLastRegistrationOnTournament(tournamentDto.getDateLastRegistrationOnTournament())
-                .level(tournamentDto.getLevel())
-                .numberOfPlayer(tournamentDto.getNumberOfPlayer())
-                .scenatioOfTournament(tournamentDto.getScenarioOfTournament())
-                .build();
+        TournamentEntity tournamentEntity = new TournamentEntity(
+                null,
+                tournamentDto.getStatus(),
+                tournamentDto.getName(),
+                tournamentDto.getTournamentDescription(),
+                tournamentDto.getModeTournament(),
+                tournamentDto.getPlace(),
+                tournamentDto.getDateStartTournament(),
+                tournamentDto.getDateLastRegistrationOnTournament(),
+                tournamentDto.getLevel(),
+                tournamentDto.getNumberOfPlayer(),
+                tournamentDto.getScenarioOfTournament()
+                );
+
         createGameService.saveGame(tournamentEntity);
         log.info(tournamentEntity.getName() + " was registered");
         return createGameService.getAllTournament();

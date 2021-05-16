@@ -14,7 +14,6 @@ import java.io.Serializable;
 @Entity
 @Table(name = "all_tournament")
 @Data
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class TournamentEntity implements Serializable {
