@@ -3,9 +3,10 @@ package com.example.server.tournament.model.entity;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
+import static com.example.server.tournament.util.Constants.TABLE_USERS_TOURNAMENT;
 
 @Entity
-@Table(name = "users_tournament")
+@Table(name = TABLE_USERS_TOURNAMENT)
 @Data
 @NoArgsConstructor
 public class UserInTournament {
