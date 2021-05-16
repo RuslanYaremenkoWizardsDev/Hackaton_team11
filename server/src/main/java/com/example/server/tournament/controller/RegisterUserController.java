@@ -27,7 +27,10 @@ public class RegisterUserController {
     }
 
     @PostMapping(REGISTER_USER_IN_TOURNAMENT)
-    public void registerUser(@RequestBody UserDtoForTournament userDtoForTournament) {
+    public void registerUser(@Valid @RequestBody UserDtoForTournament userDtoForTournament, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            throw new InvalidFieldException(bindingResult.getAllErrors().get(0).getDefaultMessage());
+        }
         addUserToTournament.addUserToTournament(userDtoForTournament.login, userDtoForTournament.getNameTournament());
     }
 
