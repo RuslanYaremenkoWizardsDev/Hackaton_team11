@@ -9,6 +9,7 @@ import declineTournamentInvite from '../modules/tournamentInvite';
 import switchToStat from '../modules/statistics';
 import switchToStatUser from '../modules/statuser';
 import viewInvitations from '../modules/viewInvitations';
+import creatingNewCup from '../modules/createNewCup';
  
 document.addEventListener('DOMContentLoaded', ()=>{
 
@@ -24,6 +25,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         declineTournament();
         switchToStat();
         viewInvitations();
+        creatingNewCup();
         // const tableBody = document.querySelector('#tbody'):
     //get renderTableDiv(data, tableBody)
 

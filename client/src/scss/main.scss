@@ -556,7 +556,118 @@
         animation: none;
     }
 }
-
+.createNewCupPopup {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: $modal-bg;
+    top: 0;
+    left: 0;
+    visibility: visible;
+    transition: transform .4s ease;
+    z-index: 10;
+    &.hideCreateNewCupPopup {
+        display: none;
+    }
+}
+.createCupModal {
+    &__modal {
+        &-head {
+            text-align: center;
+        }
+    }
+    &__close {
+        position: absolute;
+        right: 5%;
+        top: 5%;
+        cursor: pointer;
+    }
+    &__users {
+        &-input {
+            width: 100%;
+            height: 40px;
+        }
+    }
+}
+.createCup {
+    &__modal {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 600px; 
+        min-height: 410px;
+        margin: 0 auto;
+        height: auto; 
+        position: absolute; 
+        top: 50%; 
+        left: 50%; 
+        transform: translate(-50%, -50%); 
+        border: 2px solid #5353ff; 
+        background: $main-page-bg; 
+        opacity: 1;
+        line-height: 1.5;
+        color: #fff;
+    }
+    &__close {
+        position: absolute;
+        top: 35px;
+        right: 25px;
+        width: 20px;
+        height: 20px;
+        background: none;
+        border: none;
+        transition: .3s ease;
+        cursor: pointer;
+        transform: translate(0, -50%) rotate(45deg);
+    }
+}
+.form {
+    &__field {
+        padding: 5px;
+        &-description {
+            padding: 10px;
+            width: 100%;
+            height: 50px;
+            background: #fff;
+        }
+    }
+    &__contentChild {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 10px 0;
+    }
+    &__content {
+        margin: 20px 0 30px;
+        width: 70%;
+        &-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        }
+        &-rowSpaceAround {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            margin: 0 0 20px;
+            width: 70%;
+        }
+    }
+    &__button {
+        &-create,
+        &-cancel {
+            width: 80px;
+            height: 30px;
+            border: 1px solid #ccc;
+            text-align: center;
+            cursor: pointer;
+            &:hover,
+            &:hover {
+                background: #888;
+            }
+        }
+    }
+}
 @media screen and (max-width: 1024px) {
     .tabs {
         &__button {
