@@ -64,7 +64,7 @@
                         </select>
                     </div>
                     <div>
-                        <button class="main__controlPanel-clear"><span data-translate="clear">Clear All</span></button>
+                        <button id="clearAll" class="main__controlPanel-clear"><span data-translate="clear">Clear All</span></button>
                     </div>
                     <div>
                         <button class="main__controlPanel-createTournament">+</button>
@@ -116,6 +116,19 @@
                 </div>
             </div>
         </main>
+    </div>
+
+    <div id="clearAllPopup" class="clearAllPopup hideClearAllPopup">
+        <div class="clearAllPopup__container">
+            <div id="closeClearAllPopUp" class="clearAllPopup__button">
+                <button id="closeClearAllPU" class="clearAllPopup__button-close"></button>
+            </div>
+                <h1 class="clearAllPopup__header"><span data-translate="clarification">Delete all elements from the table?</span></h1>
+                <div class="clearAllPopup__buttons">
+                    <button id="clearAllPopupConfirm" type="button" class="clearAllPopup__buttons-confirm btn"><span data-translate="delete">DELETE</span></button>
+                    <button id="clearAllPopupCancel" type="button" class="clearAllPopup__buttons-cancel btn"><span data-translate="cancel">CANCEL</span></button>
+                </div>
+        </div>
     </div>
 </body>
 </html>
