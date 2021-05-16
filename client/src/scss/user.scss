@@ -197,6 +197,9 @@
         overflow-y: auto;
         table-layout: fixed;
         border-collapse: collapse;
+        &.switchToStat {
+            display: none;
+        }
     }
 }
 .userthead {

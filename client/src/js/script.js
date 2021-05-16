@@ -6,6 +6,8 @@ import settingsPopup from '../modules/settings';
 import sortData from '../modules/header-sort';
 import declineTournament from '../modules/tournamentEntry';
 import declineTournamentInvite from '../modules/tournamentInvite';
+import switchToStat from '../modules/statistics';
+import switchToStatUser from '../modules/statuser';
  
 document.addEventListener('DOMContentLoaded', ()=>{
 
@@ -18,10 +20,12 @@ if(window.location.pathname === "/index.html"){
     settingsPopup();  
     sortData();  
     declineTournament();
+    switchToStat();
 }else if(window.location.pathname === "/user.html"){
     settingsPopup();   
     sortData(); 
     declineTournamentInvite();
+    switchToStatUser();
 }
 
 });
