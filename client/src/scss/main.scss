@@ -1,5 +1,5 @@
 .general {
-    background: #ccc;
+    background: #333;
     min-height: 100vh;
 }
 .main-container {
@@ -110,6 +110,15 @@
             height: 50px;
             border: 1px solid red;
         }
+        &-logout {
+            width: 80px;
+            height: 40px;
+            border-radius: 12px;
+            background: rgb(83, 83, 255);
+            &:hover {
+                background: rgb(61, 61, 255);
+            }
+        }
     }
 }
 
@@ -130,21 +139,29 @@
             width: 150px;
             height: 40px;
             padding: 10px;
+            cursor: pointer;
         }
         &-date {
             width: 150px;
             height: 40px;
             padding: 10px;
+            cursor: pointer;
         }
         &-scenario {
             width: 150px;
             height: 40px;
+            cursor: pointer;
         }
         &-clear {
             width: 120px;
             height: 40px;
             padding: 10px;
             border-radius: 12px;
+            background: rgb(83, 83, 255);
+            cursor: pointer;
+            &:hover {
+                background: rgb(61, 61, 255);
+            }
         }
         &-createTournament {
             display: flex;
@@ -155,6 +172,7 @@
             font-weight: 900;
             font-size: 55px;
             padding-bottom: 6px;
+            cursor: pointer;
         }
     }
 }
