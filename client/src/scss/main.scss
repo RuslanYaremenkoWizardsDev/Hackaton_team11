@@ -495,14 +495,14 @@
         }
     }
     &__header {
-    margin: 35px auto 15px;
-    width: 70%;
-    text-align: center;
-    color: $text-color;
-    font-size: 35px;
-    cursor: default;
-    word-break: break-word;
-    font-weight: 300;
+        margin: 25px auto 15px;
+        width: 70%;
+        text-align: center;
+        color: white;
+        font-size: 25px;
+        cursor: default;
+        word-break: break-word;
+        font-weight: 300;
     }
     &__list {
         display: flex;
@@ -528,6 +528,14 @@
             width: 25%;
             text-align: center;
             // border: 1px solid #333;
+        }
+        &-title {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            color: #fff;
+            margin-left: 120px;
+            width: 205px;
         }
     }
     &__buttons {
