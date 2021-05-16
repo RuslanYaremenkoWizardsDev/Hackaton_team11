@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import javax.validation.Valid;
 import java.util.List;
+import static com.example.server.usercredentials.utils.constants.Mappings.*;
 
 @Slf4j
 @RestController
@@ -25,12 +26,12 @@ public class RegisterUserController {
         this.pool = pool;
     }
 
-    @PostMapping("/user")
+    @PostMapping(REGISTER_USER_IN_TOURNAMENT)
     public void registerUser(@RequestBody UserDtoForTournament userDtoForTournament) {
         addUserToTournament.addUserToTournament(userDtoForTournament.login, userDtoForTournament.getNameTournament());
     }
 
-    @PostMapping("/addInvite")
+    @PostMapping(ADD_INVITE)
     public void confirmInvite(@Valid @RequestBody UserDtoForTournament userDtoForTournament, BindingResult bindingResult) throws InterruptedException {
         if (bindingResult.hasErrors()) {
             throw new InvalidFieldException(bindingResult.getAllErrors().get(0).getDefaultMessage());
@@ -38,12 +39,12 @@ public class RegisterUserController {
         pool.addInvite(userDtoForTournament);
     }
 
-    @PostMapping("/getInvite")
+    @PostMapping(GET_INVITE)
     public UserDtoForTournament getInvite() {
         return pool.getInvite();
     }
 
-    @PostMapping("/getAllInvites")
+    @PostMapping(GET_ALL_INVITE)
     public List<UserDtoForTournament> getAllInvites() {
         return pool.getAllInvites();
     }

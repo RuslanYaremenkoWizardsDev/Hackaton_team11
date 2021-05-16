@@ -4,9 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
+import static com.example.server.game.util.Constants.TABLE_USER_STATISTIC;
 
 @Entity
-@Table(name = "user_statistic")
+@Table(name = TABLE_USER_STATISTIC)
 @AllArgsConstructor
 @NoArgsConstructor
 @Data

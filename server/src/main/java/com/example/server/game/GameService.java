@@ -17,6 +17,7 @@ import com.example.server.usercredentials.model.entity.Person;
 import com.example.server.usercredentials.repo.UserRepository;
 import org.springframework.stereotype.Component;
 import java.util.*;
+import static com.example.server.game.util.Constants.DRAW;
 
 @Component
 public class GameService {
@@ -45,7 +46,7 @@ public class GameService {
         }
         List<UserInTournament> optionalUserInTournaments = userInTournamentRepo.findByIdTournament(optionalTournamentEntity.get().getId());
         if (optionalUserInTournaments.size() % 2 != 0 || optionalUserInTournaments.size() < 4) {
-            throw new InsufficientNumberOfUsersException("not enough users");
+            throw new InsufficientNumberOfUsersException("Not enough users");
         }
         UserInTournament winner = getWinner(optionalUserInTournaments, tournamentEntity);
         Date date = new Date();
@@ -69,11 +70,13 @@ public class GameService {
             for (int j = userInTournaments2.size() - 1; j >= 0; j--) {
                 Person person = userRepository.findById(userInTournaments1.get(i).getIdUser()).get();
                 Person person2 = userRepository.findById(userInTournaments2.get(j).getIdUser()).get();
+                person.setPower(person.getPower() + 1);
+                person2.setPower(person.getPower() + 2);
                 String winner = getWinnerByPower(person, person2);
                 BattleUsersModel battleUsersModel = new BattleUsersModel(null, tournamentEntity.getId(), person.getLogin(), person2.getLogin(), winner);
                 battleUserRepo.save(battleUsersModel);
                 afterRound.add(userInTournaments1.get(i));
-                UserStatisticModel winerStatic =
+                UserStatisticModel winnerStatic =
                         userStatisticRepo.getUserStatisticModelByIdUser(userInTournaments1.get(i).getIdUser());
                 UserStatisticModel loseStatic =
                         userStatisticRepo.getUserStatisticModelByIdUser(userInTournaments2.get(j).getIdUser());
@@ -85,11 +88,13 @@ public class GameService {
             getWinner(afterRound, tournamentEntity);
         }
         Person person = userRepository.findById(afterRound.get(0).getIdUser()).get();
+        person.setPower(person.getPower() + 3);
         Person person2 = userRepository.findById(afterRound.get(1).getIdUser()).get();
-        UserStatisticModel winerStatic =
+        person2.setPower(person.getPower() + 5);
+        UserStatisticModel winnerStatic =
                 userStatisticRepo.getUserStatisticModelByIdUser(person.getId());
-        winerStatic.setWins(winerStatic.getWins() + 1);
-        winerStatic.setWinsCup(winerStatic.getWinsCup() + 1);
+        winnerStatic.setWins(winnerStatic.getWins() + 1);
+        winnerStatic.setWinsCup(winnerStatic.getWinsCup() + 1);
         UserStatisticModel loseStatic =
                 userStatisticRepo.getUserStatisticModelByIdUser(person2.getId());
         loseStatic.setLose(loseStatic.getLose() + 1);
@@ -100,7 +105,8 @@ public class GameService {
 
     public String getWinnerByPower(Person person, Person person2) {
         if (person.getPower().equals(person2.getPower())) {
-            return "DRAW";
+            person.setPower(person.getPower() + 5);
+            return DRAW;
         }
         return person.getPower() > person2.getPower() ? person.getLogin() : person2.getLogin();
 

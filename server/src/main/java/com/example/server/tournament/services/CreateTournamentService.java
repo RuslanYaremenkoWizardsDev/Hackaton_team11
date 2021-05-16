@@ -14,10 +14,10 @@ import java.util.List;
 
 @Slf4j
 @Component
-public class CreateGameService {
+public class CreateTournamentService {
     final TournamentRepo tournamentRepo;
 
-    public CreateGameService(TournamentRepo tournamentRepo) {
+    public CreateTournamentService(TournamentRepo tournamentRepo) {
         this.tournamentRepo = tournamentRepo;
     }
 

@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
+import static com.example.server.game.util.Constants.USER_NOT_FOUND;
+import static com.example.server.usercredentials.utils.constants.Mappings.GET_STATISTIC_BY_LOGIN;
+import static com.example.server.usercredentials.utils.constants.Mappings.GET_STATISTIC_FOR_ALL_USER;
 
 @Slf4j
 @RestController
@@ -21,20 +24,20 @@ public class UserStatisticController {
         this.userRepository = userRepository;
     }
 
-    @PostMapping("/getStaticByLogin")
+    @PostMapping(GET_STATISTIC_BY_LOGIN)
     public UserStatisticModel userStatisticModels(@RequestBody String login) {
         Long id = userRepository.findByLogin(login).getId();
         if (id == null) {
-            throw new UserNotFoundException("User not found " + login);
+            throw new UserNotFoundException(USER_NOT_FOUND + login);
         }
         return userStatisticRepo.getUserStatisticModelByIdUser(id);
     }
 
-    @PostMapping("/getStaticForAllUser")
+    @PostMapping(GET_STATISTIC_FOR_ALL_USER)
     public List<UserStatisticModel> allStatisticModels() {
         List<UserStatisticModel> allStats = userStatisticRepo.findAll();
         if (allStats.size() < 1) {
-            throw new UserNotFoundException("Users not found ");
+            throw new UserNotFoundException(USER_NOT_FOUND);
         }
         return allStats;
     }
