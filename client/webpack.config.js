@@ -11,7 +11,7 @@ module.exports = {
         path: path.resolve(__dirname, 'dist/'),
     },
     devServer: {
-        port: 4070,
+        port: 4200,
         contentBase: path.resolve(__dirname, '/dist')
     },
     //watch: true,
@@ -40,6 +40,10 @@ module.exports = {
         new HTMLPlugin({
             filename: 'regpage.html',
             template: './src/html/regpage.html'
+        }),
+        new HTMLPlugin({
+            filename: 'admin.html',
+            template: './src/html/admin.html'
         }),
         new CopyPlugin({
             patterns: [{from:'src/img/', to: 'img'}]
