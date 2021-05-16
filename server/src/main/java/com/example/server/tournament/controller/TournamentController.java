@@ -5,12 +5,9 @@ import com.example.server.tournament.model.entity.TournamentEntity;
 import com.example.server.tournament.services.CheckStartTimeTournament;
 import com.example.server.tournament.services.CreateGameService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
-import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
-
 import javax.validation.Valid;
 import java.util.List;
 
@@ -19,6 +16,7 @@ import java.util.List;
 public class TournamentController {
     private final CreateGameService createGameService;
     private final CheckStartTimeTournament startTimeTournament;
+
     public TournamentController(CreateGameService createGameService, CheckStartTimeTournament startTimeTournament) {
         this.createGameService = createGameService;
         this.startTimeTournament = startTimeTournament;
@@ -52,6 +50,5 @@ public class TournamentController {
         startTimeTournament.run();
         return createGameService.getAllTournament();
     }
-
 
 }

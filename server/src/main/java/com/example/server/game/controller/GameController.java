@@ -22,7 +22,7 @@ public class GameController {
     private final BattleUserRepo battleUserRepo;
     private final UserStatisticRepo userStatisticRepo;
 
-    public GameController(UserInTournamentRepo userInTournamentRepo, TournamentRepo tournamentRepo, ResultGameRepo resultGameRepo, UserRepository userRepository, BattleUserRepo battleUserRepo, UserStatisticRepo uSerStatisticRepo) {
+    public GameController(UserInTournamentRepo userInTournamentRepo, TournamentRepo tournamentRepo, ResultGameRepo resultGameRepo, UserRepository userRepository, BattleUserRepo battleUserRepo, UserStatisticRepo userStatisticRepo) {
         this.userInTournamentRepo = userInTournamentRepo;
         this.tournamentRepo = tournamentRepo;
         this.resultGameRepo = resultGameRepo;

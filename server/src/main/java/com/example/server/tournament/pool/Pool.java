@@ -11,24 +11,25 @@ import java.util.concurrent.LinkedBlockingQueue;
 @Component
 public class Pool {
     private final BlockingQueue<UserDtoForTournament> invites = new LinkedBlockingQueue<>();
+    private final String POOL_IS_EMPTY = "Pool is empty";
 
     public UserDtoForTournament getInvite() {
-        if (invites.size() > 0){
+        if (invites.size() > 0) {
             return invites.poll();
         }
-        throw new PoolIsEmpty("Pool is empty");
+        throw new PoolIsEmpty(POOL_IS_EMPTY);
     }
 
     public void addInvite(UserDtoForTournament userDtoForTournament) throws InterruptedException {
         invites.put(userDtoForTournament);
     }
 
-    public List<UserDtoForTournament> getAllInvites(){
-        if (invites.size() > 0){
+    public List<UserDtoForTournament> getAllInvites() {
+        if (invites.size() > 0) {
             ArrayList<UserDtoForTournament> allInvites = new ArrayList<>(invites);
             invites.clear();
             return allInvites;
         }
-        throw new PoolIsEmpty("Pool is empty");
+        throw new PoolIsEmpty(POOL_IS_EMPTY);
     }
 }

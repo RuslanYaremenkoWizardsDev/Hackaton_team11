@@ -1,7 +1,7 @@
 package com.example.server.usercredentials.services.impl;
 
 import com.example.server.game.model.UserStatisticModel;
-import com.example.server.game.repo.USerStatisticRepo;
+import com.example.server.game.repo.UserStatisticRepo;
 import com.example.server.usercredentials.exception.UserAlreadyExist;
 import com.example.server.usercredentials.model.dto.UserCredentials;
 import com.example.server.usercredentials.model.entity.Person;
