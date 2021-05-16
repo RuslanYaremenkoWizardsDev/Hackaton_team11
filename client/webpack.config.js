@@ -46,6 +46,10 @@ module.exports = {
             template: './src/html/admin.html'
         }),
         new HTMLPlugin({
+          filename: 'password.html',
+          template: './src/html/password.html'
+      }),
+        new HTMLPlugin({
             filename: 'guest.html',
             template: './src/html/guest.html'
         }),
