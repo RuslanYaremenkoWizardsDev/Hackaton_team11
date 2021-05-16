@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User</title>
+</head>
+<body>
+    <div class="usergeneral">
+        <header class="userheader">
+            <div class="userheader__bar usermain-container">
+                <div class="userheader__logo">
+                    <image id="user-icon" class="userheader__logo-icon" src=""/>
+                    <div id="user-logo" class="userheader__logo-logoname"></div>
+                </div>  
+                <div class="userheader__nav">
+                    <label id="user-language" for="language">
+                        <select name="language" id="user-select-language" class="userheader__nav-language usernav-input-styles">
+                            <option value="en" data-translate="en" selected>En</option>
+                            <option value="ua" data-translate="ua">Ua</option>
+                        </select>
+                    </label>
+                    <label id="user-theme" for="theme">
+                        <select name="theme" id="user-select-theme" class="userheader__nav-theme usernav-input-styles">
+                            <option value="light" data-translate="light">Light</option>
+                            <option value="dark" data-translate="dark">Dark</option>
+                        </select>
+                    </label>
+                    <img src="" alt="avatar" class="userheader__nav-avatar">
+                    <button id="user-settings" class="userheader__nav-settings usernav-input-styles"><span data-translate="settings">Settings</span>
+                    </button>
+                    <a id="user-logout" href="index.html">
+                        <button  class="userheader__nav-logout usernav-input-styles"><span data-translate="logout">Logout</span>
+                        </button>
+                    </a>
+                </div>
+            </div>
+    
+        </header>
+        <main class="usermain">
+            <div class="usermain-container">
+                <div class="usermain__tabs">
+                    <button class="usermain__tabs-tournaments usertabs__button"><span data-translate="tournaments">Tournaments</span></button>
+                    <button class="usermain__tabs-statistics usertabs__button"><span data-translate="statistics">Statistics</span></button>
+                </div>
+                <div class="usermain__controlPanel">
+                    <div>
+                        <label for="player-login"></label>
+                        <input type="text" name="player-login" id="user-player" class="usermain__controlPanel-player" placeholder="Enter player login...">    
+                    </div>
+                    <div>
+                        <label for="reg-date"></label>
+                        <input type="date" name="reg-date" id="user-reg-date" class="usermain__controlPanel-date" value="2018-07-22"
+                        min="1970-01-01" max="2099-12-31">    
+                    </div>
+                    <div>
+                        <select name="scenario" id="user-scenario" class="usermain__controlPanel-scenario">
+                            <option value="oneMatchConfrontation" data-translate="oneMatchConfrontation">One-match confrontation</option>
+                            <option value="twoMatchConfrontation" data-translate="twoMatchConfrontation">Two-match confrontation</option>
+                            <option value="toThreeWins" data-translate="toThreeWins">To three wins</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="usermain__table">
+                    <table id="user-table" class="usertable__data">
+                        <thead id="user-thead" class="usertable__data-head thead">
+                            <tr class="userthead__tr">
+                                <th class="usertr__th"><span class="usertr__cell" data-translate="name">Name</span></th>
+                                <th class="usertr__th"><span class="usertr__cell" data-translate="mode">Mode</span></th>
+                                <th class="usertr__th"><span class="usertr__cell" data-translate="place">Place</span></th>
+                                <th class="usertr__th"><span class="usertr__cell" data-translate="startDate">Start date</span></th>
+                                <th class="usertr__th"><span class="usertr__cell" data-translate="lastRegDate">Last reg date</span></th>
+                                <th class="usertr__th"><span class="usertr__cell" data-translate="state">State</span></th>
+                                <th class="usertr__th"><span class="usertr__cell" data-translate="level">Level</span></th>
+                                <th class="usertr__th"><span class="usertr__cell" data-translate="partisipants">Participants</span></th>
+                                <th class="usertr__th"><span class="usertr__cell" data-translate="scenario">Scenario</span></th>
+                                <th class="usertr__th"><span class="usertr__cell" data-translate="actions">Actions</span></th>
+                            </tr>
+                        </thead>
+                        <tbody id="user-tbody" class="usertable__data-body usertbody">
+                            <tr class="usertbody__tr">
+                                <td class="usertr__td usertd-name"><span class="usertr__cell">Super Cup</span></td>
+                                <td class="usertr__td usertd-mode"><span class="usertr__cell">Cup</span></td>
+                                <td class="usertr__td usertd-place"><span class="usertr__cell">Kharkiv</span></td>
+                                <td class="usertr__td usertd-startDate"><span class="usertr__cell">16/05/2021</span></td>
+                                <td class="usertr__td usertd-lastRegDate"><span class="usertr__cell">15/05/2021</span></td>
+                                <td class="usertr__td usertd-state"><span class="usertr__cell">in progress</span></td>
+                                <td class="usertr__td usertd-level"><span class="usertr__cell">middle</span></td>
+                                <td class="usertr__td usertd-partisipants"><span class="usertr__cell">6/32</span></td>
+                                <td class="usertr__td usertd-scenario"><span class="usertr__cell">One match</span></td>
+                                <td class="usertr__td usertd-actions"><span class="usertr__cell">&#9993;</span></td>
+                            </tr>
+                            <tr class="tbody__tr">
+                                <td class="usertr__td usertd-name"><span class="usertr__cell">Super Cup</span></td>
+                                <td class="usertr__td usertd-mode"><span class="usertr__cell">Cup</span></td>
+                                <td class="usertr__td usertd-place"><span class="usertr__cell">Kharkiv</span></td>
+                                <td class="usertr__td usertd-startDate"><span class="usertr__cell">16/05/2021</span></td>
+                                <td class="usertr__td usertd-lastRegDate"><span class="usertr__cell">15/05/2021</span></td>
+                                <td class="usertr__td usertd-state"><span class="usertr__cell">in progress</span></td>
+                                <td class="usertr__td usertd-level"><span class="usertr__cell">middle</span></td>
+                                <td class="usertr__td usertd-partisipants"><span class="usertr__cell">6/32</span></td>
+                                <td class="usertr__td usertd-scenario"><span class="usertr__cell">One match</span></td>
+                                <td class="usertr__td usertd-actions"><span class="usertr__cell">&#9993;</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
