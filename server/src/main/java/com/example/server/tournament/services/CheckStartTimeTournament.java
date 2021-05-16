@@ -21,13 +21,8 @@ public class CheckStartTimeTournament implements Runnable {
         tournamentDTOList.forEach(tournamentDTO -> {
             if (date.getTime() > tournamentDTO.getDateStartTournament()) {
                 tournamentDTO.setStatus(Status.ACTIVE);
+                tournamentRepo.save(tournamentDTO);
             }
         });
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            log.info(e.getMessage());
-        }
-        run();
     }
 }

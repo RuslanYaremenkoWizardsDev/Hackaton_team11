@@ -7,6 +7,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import static com.example.server.usercredentials.utils.constants.Mappings.AUTHORIZATION_MAPPING;
 import static com.example.server.usercredentials.utils.constants.Mappings.REGISTRATION_MAPPING;
 
@@ -31,7 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
-                .antMatchers(REGISTRATION_MAPPING, AUTHORIZATION_MAPPING, "/game", "/user").permitAll()
+                .antMatchers(REGISTRATION_MAPPING, AUTHORIZATION_MAPPING, "/game", "/user", "/gamestart").permitAll()
                 .anyRequest().authenticated();
     }
 }

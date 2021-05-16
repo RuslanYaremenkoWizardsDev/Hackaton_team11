@@ -1,6 +1,7 @@
 package com.example.server.tournament.repo;
 
 import com.example.server.tournament.model.entity.UserInTournament;
+import com.example.server.usercredentials.model.entity.Person;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import java.util.List;
@@ -9,5 +10,6 @@ import java.util.List;
 public interface UserInTournamentRepo extends JpaRepository<UserInTournament, Long> {
     List<UserInTournament> findByIdTournament(long idTournament);
 
-    List<Long> findByIdUser(UserInTournament userInTournament);
+    List<UserInTournament> findByIdUser(Long idUser);
+    UserInTournament findUserInTournamentByIdUser(Long id);
 }

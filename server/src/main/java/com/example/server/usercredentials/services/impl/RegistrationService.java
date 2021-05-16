@@ -1,5 +1,7 @@
 package com.example.server.usercredentials.services.impl;
 
+import com.example.server.game.model.UserStatisticModel;
+import com.example.server.game.repo.USerStatisticRepo;
 import com.example.server.usercredentials.exception.UserAlreadyExist;
 import com.example.server.usercredentials.model.dto.UserCredentials;
 import com.example.server.usercredentials.model.entity.Person;
@@ -14,10 +16,12 @@ import static com.example.server.usercredentials.utils.constants.ExceptionsMessa
 public class RegistrationService {
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
+    private final USerStatisticRepo uSerStatisticRepo;
 
-    public RegistrationService(UserRepository userRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
+    public RegistrationService(UserRepository userRepository, BCryptPasswordEncoder bCryptPasswordEncoder, USerStatisticRepo uSerStatisticRepo) {
         this.userRepository = userRepository;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+        this.uSerStatisticRepo = uSerStatisticRepo;
     }
 
     public void saveUserToDb(UserCredentials userCredentials) {
@@ -25,6 +29,7 @@ public class RegistrationService {
         Person person = new Person(userCredentials.getLogin(), userCredentials.getEmail(),
                 bCryptPasswordEncoder.encode(userCredentials.getPassword()), bCryptPasswordEncoder.encode(userCredentials.getSecretKey()));
         userRepository.save(person);
+        uSerStatisticRepo.save(new UserStatisticModel(null, person.getId(), 0L,0L,0L,0L));
     }
 
     private void checkLoginExist(String login, String email) {
