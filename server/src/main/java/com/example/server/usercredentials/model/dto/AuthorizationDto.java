@@ -9,8 +9,8 @@ import javax.validation.constraints.NotBlank;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AuthorizationDto {
-    @NotBlank
+    @NotBlank(message = "Empty login")
     String login;
-    @NotBlank
+    @NotBlank(message = "Empty password")
     String password;
 }
