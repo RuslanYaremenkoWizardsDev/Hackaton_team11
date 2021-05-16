@@ -5,64 +5,81 @@ export const error = (str, node) => {
   // функция отрисовки ошибки
 };
 
-export const renderTable = (data, tableDiv) => {
-  tableDiv.innerHTML = "";
+export const renderTable = (data, tableStat1) => {
+  tableStat1.innerHTML = "";
 
 
   for (let i = 0; i < data.length; i++) {
     const newTR = document.createElement("tr");
-    if(data[i].tournamentDescription){
-      newTR.setAttribute('title', data[i].tournamentDescription)
-    }
-    newTR.classList.add("table_cup");
+    
+    newTR.classList.add("sopthead__tr");
     const nameTH = document.createElement("td");
-    nameTH.setAttribute("data", "name");
-    nameTH.textContent = data[i].name;
-    const modeTH = document.createElement("td");
-    modeTH.setAttribute("data", "modeTournament");
-    modeTH.textContent = data[i].modeTournament;
-    const placeTH = document.createElement("td");
-    placeTH.setAttribute("data", "place");
-    placeTH.textContent = data[i].place === "NULL" ? "" : data[i].place;
-    const startDateTH = document.createElement("td");
-    startDateTH.setAttribute("data", "dateStartTournament");
-    startDateTH.textContent = data[i].dateStartTournament;
-    const lastRegDateTH = document.createElement("td");
-    lastRegDateTH.setAttribute("data", "dateLastRegistrationOnTournament");
-    lastRegDateTH.textContent = data[i].dateLastRegistrationOnTournament;
-    const statusTH = document.createElement("td");
-    statusTH.setAttribute("data", "status");
-    statusTH.textContent = data[i].status === "In progress";
-    const levelTH = document.createElement("td");
-    levelTH.setAttribute("data", "level");
-    levelTH.textContent = data[i].level;
-    const participantsTH = document.createElement("td");
-    participantsTH.setAttribute("data", "numberOfPlayer");
-    participantsTH.textContent = data[i].numberOfPlayer;
-    const scenarioTH = document.createElement("td");
-    scenarioTH.setAttribute("data", "scenatioOfTournament");
-    scenarioTH.textContent = data[i].scenatioOfTournament;
-    // const actionsTH = document.createElement("td");
-    // actionsTH.setAttribute("data", "ACTIONS");
-    // actionsTH.textContent = data[i].ACTIONS;
+    nameTH.setAttribute("data", "login");
+    nameTH.textContent = data[i].login;
+    const winsTH = document.createElement("td");
+    winsTH.setAttribute("data", "wins");
+    winsTH.textContent = data[i].wins;
+    const drawsTH = document.createElement("td");
+    drawsTH.setAttribute("data", "draws");
+    drawsTH.textContent = data[i].draws;
+    const loseTH = document.createElement("td");
+    loseTH.setAttribute("data", "lose");
+    loseTH.textContent = data[i].lose;
+    const winsCupTH = document.createElement("td");
+    winsCupTH.setAttribute("data", "winsCup");
+    winsCupTH.textContent = data[i].winsCup;
+ 
+    newTR.setAttribute("id", `${data[i].id}`);
+    newTR.appendChild(loginTH);
+    newTR.appendChild(winsTH);
+    newTR.appendChild(drawsTH);
+    newTR.appendChild(loseTH);
+    newTR.appendChild(winsCupTH);
 
+    table.appendChild(newTR);
+  }
+  tableStat1.appendChild(table);
+};
+
+
+
+// {
+//   "allTournaments": 1,
+//   "active": 0,
+//   "finished": 1,
+//   "notStarted": 0
+// }
+export const renderTable = (data, tableStat2) => {
+  tableStat2.innerHTML = "";
+
+
+  for (let i = 0; i < data.length; i++) {
+    const newTR = document.createElement("tr");
+    
+    newTR.classList.add("sopthead__tr");
+    const allTournamentsTH = document.createElement("td");
+    allTournamentsTH.setAttribute("data", "allTournaments");
+    allTournamentsTH.textContent = data[i].allTournaments;
+    const activeTH = document.createElement("td");
+    activeTH.setAttribute("data", "active");
+    activeTH.textContent = data[i].active;
+    const finishedTH = document.createElement("td");
+    finishedTH.setAttribute("data", "finished");
+    finishedTH.textContent = data[i].finished;
+    const notStartedTH = document.createElement("td");
+    notStartedTH.setAttribute("data", "notStarted");
+    notStartedTH.textContent = data[i].notStarted;
 
 
     //???СМЕНА ДАННЫХ+УДАЛЕНИЕ СТРОКИ  
     newTR.setAttribute("id", `${data[i].id}`);
-    newTR.appendChild(nameTH);
-    newTR.appendChild(modeTH);
-    newTR.appendChild(placeTH);
-    newTR.appendChild(startDateTH);
-    newTR.appendChild(lastRegDateTH);
-    newTR.appendChild(descriptionTH);
-    newTR.appendChild(levelTH);
-    newTR.appendChild(participantsTH);
-    newTR.appendChild(scenarioTH);
-    newTR.appendChild(actionsTH);
+    newTR.appendChild(loginTH);
+    newTR.appendChild(winsTH);
+    newTR.appendChild(drawsTH);
+    newTR.appendChild(loseTH);
+    newTR.appendChild(winsCupTH);
 
     table.appendChild(newTR);
   }
-  tableDiv.appendChild(table);
-  table.addEventListener("dblclick", tableDBLClick);
+  tableStat1.appendChild(table);
 };
