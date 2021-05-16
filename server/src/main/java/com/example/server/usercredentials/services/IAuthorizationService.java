@@ -1,7 +1,8 @@
 package com.example.server.usercredentials.services;
 
 import com.example.server.usercredentials.model.dto.AuthorizationDto;
+import com.example.server.usercredentials.model.entity.Person;
 
 public interface IAuthorizationService {
-    String authorizeUser(AuthorizationDto authorizationDto);
+    Person authorizeUser(AuthorizationDto authorizationDto);
 }

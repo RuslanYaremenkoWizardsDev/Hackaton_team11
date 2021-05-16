@@ -2,32 +2,31 @@ package com.example.server.tournament.controller;
 
 import com.example.server.tournament.model.dto.TournamentDto;
 import com.example.server.tournament.model.entity.TournamentEntity;
+import com.example.server.tournament.services.CheckStartTimeTournament;
 import com.example.server.tournament.services.CreateGameService;
-import com.example.server.usercredentials.exception.InvalidFieldException;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.Payload;
+import org.springframework.messaging.handler.annotation.SendTo;
+import org.springframework.stereotype.Controller;
 import javax.validation.Valid;
 import java.util.List;
 
 @Slf4j
-@RestController
-@CrossOrigin("*")
-public class CreateGameController {
+@Controller
+public class TournamentController {
     private final CreateGameService createGameService;
-
-    public CreateGameController(CreateGameService createGameService) {
+    private final CheckStartTimeTournament startTimeTournament;
+    public TournamentController(CreateGameService createGameService, CheckStartTimeTournament startTimeTournament) {
         this.createGameService = createGameService;
+        this.startTimeTournament = startTimeTournament;
     }
 
-    @PostMapping("/game")
-    public List<TournamentEntity> saveGame(@Valid @RequestBody TournamentDto tournamentDto, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            throw new InvalidFieldException(bindingResult.getAllErrors().get(0).getDefaultMessage());
-        }
+    @MessageMapping("/addTournament")
+    @SendTo("/topic/tournament")
+    public List<TournamentEntity> saveGame(@Valid @Payload TournamentDto tournamentDto) {
+        System.out.println(tournamentDto.toString());
+
         TournamentEntity tournamentEntity = new TournamentEntity(
                 null,
                 tournamentDto.getStatus(),
@@ -40,11 +39,20 @@ public class CreateGameController {
                 tournamentDto.getLevel(),
                 tournamentDto.getNumberOfPlayer(),
                 tournamentDto.getScenarioOfTournament()
-                );
+        );
+        System.out.println(tournamentEntity.toString());
 
         createGameService.saveGame(tournamentEntity);
         log.info(tournamentEntity.getName() + " was registered");
         return createGameService.getAllTournament();
     }
+
+    @MessageMapping("/getTournament")
+    @SendTo("/topic/replay")
+    public List<TournamentEntity> getAllTournaments() {
+        startTimeTournament.run();
+        return createGameService.getAllTournament();
+    }
+
 
 }
