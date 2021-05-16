@@ -1,6 +1,6 @@
-package com.example.server.tournament.model.repo;
+package com.example.server.tournament.repo;
 
-import com.example.server.tournament.model.UserInTournament;
+import com.example.server.tournament.model.entity.UserInTournament;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

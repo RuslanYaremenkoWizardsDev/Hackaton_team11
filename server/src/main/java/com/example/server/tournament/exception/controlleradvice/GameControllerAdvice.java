@@ -1,14 +1,13 @@
-package com.example.server.exception.controlleradvice;
+package com.example.server.tournament.exception.controlleradvice;
 
-import com.example.server.controller.CreateGameController;
-import com.example.server.controller.RegisterUserController;
-import com.example.server.exception.FullTournamentException;
-import com.example.server.exception.InvalidTimeStart;
-import com.example.server.exception.TournamentNotFoundException;
-import com.example.server.exception.TournamentWithSameNameExist;
-import com.example.server.services.AddUserToTournament;
-import com.example.server.services.CreateGameService;
-import com.example.server.usercredentials.exception.InvalidFieldException;
+import com.example.server.tournament.controller.CreateGameController;
+import com.example.server.tournament.controller.RegisterUserController;
+import com.example.server.tournament.exception.FullTournamentException;
+import com.example.server.tournament.exception.InvalidTimeStart;
+import com.example.server.tournament.exception.TournamentNotFoundException;
+import com.example.server.tournament.exception.TournamentWithSameNameExist;
+import com.example.server.tournament.services.AddUserToTournament;
+import com.example.server.tournament.services.CreateGameService;
 import com.example.server.usercredentials.exception.UserNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

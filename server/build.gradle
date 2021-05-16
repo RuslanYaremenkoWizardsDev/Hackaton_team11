@@ -37,6 +37,8 @@ dependencies {
     implementation "org.postgresql:postgresql:${postgresql}"
     implementation "org.springframework.boot:spring-boot-starter-security:${springBootVersion}"
     implementation "io.jsonwebtoken:jjwt:${jwt}"
+    implementation 'org.springframework.boot:spring-boot-starter-websocket'
+    implementation 'org.webjars:stomp-websocket:2.3.3'
 }
 
 test {

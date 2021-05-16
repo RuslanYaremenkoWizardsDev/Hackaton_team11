@@ -1,9 +1,7 @@
-package com.example.server.controller;
+package com.example.server.tournament.controller;
 
-import com.example.server.services.AddUserToTournament;
-import com.example.server.services.CreateGameService;
 import com.example.server.tournament.model.entity.TournamentEntity;
-import com.example.server.tournament.model.entity.UserEntityForTournament;
+import com.example.server.tournament.services.CreateGameService;
 import com.example.server.usercredentials.exception.InvalidFieldException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.BindingResult;
@@ -17,7 +15,6 @@ import javax.validation.Valid;
 @RestController
 public class CreateGameController {
     private final CreateGameService createGameService;
-
 
     public CreateGameController(CreateGameService createGameService) {
         this.createGameService = createGameService;

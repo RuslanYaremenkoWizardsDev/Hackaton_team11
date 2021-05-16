@@ -1,12 +1,12 @@
-package com.example.server.services;
+package com.example.server.tournament.services;
 
-import com.example.server.exception.FullTournamentException;
-import com.example.server.exception.InvalidTimeStart;
-import com.example.server.exception.TournamentNotFoundException;
-import com.example.server.tournament.model.TournamentDTO;
-import com.example.server.tournament.model.UserInTournament;
-import com.example.server.tournament.model.repo.TournamentRepo;
-import com.example.server.tournament.model.repo.UserInTournamentRepo;
+import com.example.server.tournament.exception.FullTournamentException;
+import com.example.server.tournament.exception.InvalidTimeStart;
+import com.example.server.tournament.exception.TournamentNotFoundException;
+import com.example.server.tournament.model.entity.TournamentEntity;
+import com.example.server.tournament.model.entity.UserInTournament;
+import com.example.server.tournament.repo.TournamentRepo;
+import com.example.server.tournament.repo.UserInTournamentRepo;
 import com.example.server.usercredentials.exception.UserNotFoundException;
 import com.example.server.usercredentials.model.entity.Person;
 import com.example.server.usercredentials.repo.UserRepository;
@@ -30,7 +30,7 @@ public class AddUserToTournament {
     }
 
     public void addUserToTournament(String login, String nameTournament) {
-        Optional<TournamentDTO> optionalTournamentDTO = tournamentRepo.findByName(nameTournament);
+        Optional<TournamentEntity> optionalTournamentDTO = tournamentRepo.findByName(nameTournament);
         if (optionalTournamentDTO.isEmpty()) {
             throw new TournamentNotFoundException("Tournament with " + nameTournament + " not found");
         }

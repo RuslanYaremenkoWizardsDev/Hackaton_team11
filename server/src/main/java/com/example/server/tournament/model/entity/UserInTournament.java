@@ -1,11 +1,7 @@
-package com.example.server.tournament.model;
+package com.example.server.tournament.model.entity;
 
-import com.example.server.usercredentials.model.dto.UserCredentials;
-import com.example.server.usercredentials.model.entity.Person;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 
 @Entity
@@ -18,7 +14,6 @@ public class UserInTournament {
     private Long id;
     private Long idTournament;
     private Long idUser;
-
 
     public UserInTournament(long id_tournament, long id_user) {
         this.idTournament = id_tournament;

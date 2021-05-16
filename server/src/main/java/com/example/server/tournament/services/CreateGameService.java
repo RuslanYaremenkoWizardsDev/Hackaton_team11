@@ -1,17 +1,15 @@
-package com.example.server.services;
+package com.example.server.tournament.services;
 
-import com.example.server.exception.InvalidTimeStart;
-import com.example.server.exception.TournamentWithSameNameExist;
-import com.example.server.tournament.model.TournamentDTO;
+import com.example.server.tournament.exception.InvalidTimeStart;
+import com.example.server.tournament.exception.TournamentWithSameNameExist;
 import com.example.server.tournament.model.entity.TournamentEntity;
 import com.example.server.tournament.model.enums.Level;
 import com.example.server.tournament.model.enums.Mode;
 import com.example.server.tournament.model.enums.ScenatioOfTournament;
-import com.example.server.tournament.model.repo.TournamentRepo;
+import com.example.server.tournament.repo.TournamentRepo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
-import java.sql.SQLException;
 import java.util.Date;
 
 @Slf4j
@@ -31,7 +29,7 @@ public class CreateGameService {
         if(tournamentRepo.findByName(tournamentEntity.getName()).isPresent()){
             throw new TournamentWithSameNameExist("Invalid name Tournament");
         }
-        TournamentDTO tournamentDTO = new TournamentDTO(tournamentEntity.getName(), tournamentEntity.getTournamentDescription(), tournamentEntity.getPlace()
+        TournamentEntity tournamentDTO = new TournamentEntity(tournamentEntity.getName(), tournamentEntity.getTournamentDescription(), tournamentEntity.getPlace()
                 , tournamentEntity.getDateStartTournament(), tournamentEntity.getDateLastRegistrationOnTournament());
         if (mode != null) {
             tournamentDTO.setModeTournament(mode);

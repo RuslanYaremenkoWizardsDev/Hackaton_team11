@@ -1,7 +1,7 @@
-package com.example.server.controller;
+package com.example.server.tournament.controller;
 
-import com.example.server.services.AddUserToTournament;
-import com.example.server.tournament.model.entity.UserEntityForTournament;
+import com.example.server.tournament.services.AddUserToTournament;
+import com.example.server.tournament.model.dto.UserDtoForTournament;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,7 +17,7 @@ public class RegisterUserController {
     }
 
     @PostMapping("/user")
-    public void registerUser(@RequestBody UserEntityForTournament userEntityForTournament) {
-        addUserToTournament.addUserToTournament(userEntityForTournament.login, userEntityForTournament.getNameTournament());
+    public void registerUser(@RequestBody UserDtoForTournament userDtoForTournament) {
+        addUserToTournament.addUserToTournament(userDtoForTournament.login, userDtoForTournament.getNameTournament());
     }
 }

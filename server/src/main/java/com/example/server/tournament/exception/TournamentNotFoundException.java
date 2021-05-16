@@ -1,4 +1,4 @@
-package com.example.server.exception;
+package com.example.server.tournament.exception;
 
 public class TournamentNotFoundException extends RuntimeException{
     public TournamentNotFoundException(String message) {

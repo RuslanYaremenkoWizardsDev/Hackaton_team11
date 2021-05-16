@@ -8,32 +8,34 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.persistence.*;
 import java.io.Serializable;
 
+@Entity
+@Table(name = "all_tournament")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class TournamentEntity implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private Status status ;
-    @NotBlank(message = "error name")
-    @Size(max = 255)
+    private Status status = Status.IN_PROGRESS;
     private String name;
-    @NotBlank(message = "error description")
-    @Size(max = 1000)
     private String tournamentDescription;
-    private Mode modeTournament;
-    @NotBlank(message = "error place")
+    private Mode modeTournament = Mode.CUP;
     private String place;
-    @NotNull(message = "error dateStartTournament")
-    private Long dateStartTournament;
-    @NotNull(message = "error dateLastRegistrationOnTournament")
-    private Long dateLastRegistrationOnTournament;
-    private Level level ;
-    private int numberOfPlayer;
-    private ScenatioOfTournament scenatioOfTournament ;
+    private long dateStartTournament;
+    private long dateLastRegistrationOnTournament;
+    private Level level = Level.MIDDLE;
+    private int numberOfPlayer = 32;
+    private ScenatioOfTournament scenatioOfTournament = ScenatioOfTournament.ONE_MATCH;
+
+    public TournamentEntity(String name, String tournamentDescription, String place, long dateStartTournament, long dateLastRegistrationOnTournament) {
+        this.name = name;
+        this.tournamentDescription = tournamentDescription;
+        this.place = place;
+        this.dateStartTournament = dateStartTournament;
+        this.dateLastRegistrationOnTournament = dateLastRegistrationOnTournament;
+    }
 }
