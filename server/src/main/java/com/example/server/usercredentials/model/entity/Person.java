@@ -29,6 +29,6 @@ public class Person implements Serializable {
         this.secretKey = secretKey;
         this.avatar = null;
         this.role = Roles.USER;
-        this.power = (long) (Math.random() + 1) * 100;
+        this.power = 20L;
     }
 }
