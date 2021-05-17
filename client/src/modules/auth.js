@@ -19,7 +19,7 @@ function auth(){
 
     btnIn.addEventListener("click", ()=>{
         if(getValidEntry()){
-            alert("No");
+            
         }else{
             const req = JSON.stringify({
                 login: login.value,
@@ -28,11 +28,9 @@ function auth(){
 
         
             postRequest(URL, req).then((res)=>{
-                //console.log(res.headers)
-                alert(res);
 
-                document.location.href = "/admin.html";
             });
+
         }
     });
 

@@ -10,6 +10,7 @@ import switchToStat from '../modules/statistics';
 import switchToStatUser from '../modules/statuser';
 import viewInvitations from '../modules/viewInvitations';
 import creatingNewCup from '../modules/createNewCup';
+import user from '../modules/user';
  
 document.addEventListener('DOMContentLoaded', ()=>{
 
@@ -34,6 +35,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         sortData(); 
         declineTournamentInvite();
         switchToStatUser();
+        user();
     }
 
 });

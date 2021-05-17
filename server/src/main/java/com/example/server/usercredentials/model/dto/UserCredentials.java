@@ -20,6 +20,7 @@ public class UserCredentials implements Serializable {
     @Pattern(message = INCORRECT_PASSWORD, regexp = REG_EXP_FOR_PASSWORD)
     private String password;
     @NotBlank(message = EMPTY_FIELD)
+    @Pattern(message = "Incorrect email", regexp = "^([a-z0-9_-]+\\.)*[a-z0-9_-]+@[a-z0-9_-]+(\\.[a-z0-9_-]+)*\\.[a-z]{2,6}$")
     private String email;
     @NotBlank(message = EMPTY_FIELD)
     private String secretKey;
