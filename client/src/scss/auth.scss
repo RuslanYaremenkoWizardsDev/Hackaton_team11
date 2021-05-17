@@ -75,10 +75,12 @@
   &__button{
     background-color: #889EEB;
     border-radius: 10px;
+    cursor: pointer;
   }
 }
 .auth-eye {
     position: absolute;
     top: 25px;
     right: 5px;
+    cursor: pointer;
 }

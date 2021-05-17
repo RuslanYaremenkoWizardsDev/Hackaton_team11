@@ -11,6 +11,7 @@ import switchToStatUser from '../modules/statuser';
 import viewInvitations from '../modules/viewInvitations';
 import creatingNewCup from '../modules/createNewCup';
 import viewPassword from '../modules/viewPassword';
+import handleTheme from '../modules/handleTheme';
  
 document.addEventListener('DOMContentLoaded', ()=>{
 
@@ -39,6 +40,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
         declineTournamentInvite();
         switchToStatUser();
         viewPassword();
+    }else if(window.location.pathname === "/guest.html"){
+        handleTheme();
     }
 
 });

@@ -1,5 +1,11 @@
 .guest {
-  background: url(../img/9a463a4837ceeea0ddcb73a23b4139d7.jpg);
+    &.theme-dark {
+        background-color: #333;
+    }
+    &.theme-light {
+        background-color: #d2e0ff;
+    }
+    // background: url(../img/9a463a4837ceeea0ddcb73a23b4139d7.jpg);
     min-height: 100vh;
 }
 .guestmain-container {
@@ -90,7 +96,7 @@
         height: 110px;
         &-language {
             &:hover {
-                color: $hover-color;
+                background: $hover-color;
             }
             &:focus {
                 outline: none;
@@ -98,7 +104,7 @@
         }
         &-theme {
             &:hover {
-                color: $hover-color;
+                background: $hover-color;
             }
             &:focus {
                 outline: none;
