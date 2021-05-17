@@ -19,6 +19,11 @@ function  postRequest(url, requestBody) {
 
                 const role = JSON.parse(request.responseText);
                 const cook = document.cookie = "role = " + role.role + ';path=/';
+                if(role.role === "USER"){
+                    document.location.href = "/user.html";
+                }else if (role.role === "ADMIN"){
+                    document.location.href = "/admin.html";
+                }
                 console.log(request.responseText);
             
 
