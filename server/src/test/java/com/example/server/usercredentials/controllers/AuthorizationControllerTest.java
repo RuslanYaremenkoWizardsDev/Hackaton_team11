@@ -68,7 +68,7 @@ class AuthorizationControllerTest {
     @MethodSource("authorizeUserExceptionTestSource")
     public void controllerUserExistExceptionTest(AuthorizationDto authorizationDto) throws Exception {
         Mockito.when(bindingResult.hasErrors()).thenReturn(true);
-        Exception exception = new InvalidFieldException("must not be blank");
+        Exception exception = new InvalidFieldException("Empty login");
 
         mockMvc.perform(post(AUTHORIZATION_MAPPING).contentType(APPLICATION_JSON).content(objectMapper
                 .writeValueAsString(authorizationDto)))

@@ -12,6 +12,7 @@ import viewInvitations from '../modules/viewInvitations';
 import creatingNewCup from '../modules/createNewCup';
 import viewPassword from '../modules/viewPassword';
 import handleTheme from '../modules/handleTheme';
+import user from '../modules/user';
  
 document.addEventListener('DOMContentLoaded', ()=>{
 
@@ -42,6 +43,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         switchToStatUser();
         viewPassword.viewPasswordUser();
         handleTheme.handleThemeUser();
+        user();
     }else if(window.location.pathname === "/guest.html"){
         handleTheme.handleThemeGuest();
     }
