@@ -20,7 +20,7 @@ public class ForgotPasswordServices {
 
     public void updatePassword(ForgotPassDto forgotPassDto) {
         Person findPerson = userRepo.findByLogin(forgotPassDto.getLogin());
-        if (bCryptPasswordEncoder.matches(forgotPassDto.getSecretKey(), findPerson.getSecretKey())) {
+        if (findPerson != null && bCryptPasswordEncoder.matches(forgotPassDto.getSecretKey(), findPerson.getSecretKey())) {
             findPerson.setPassword(bCryptPasswordEncoder.encode(forgotPassDto.getNewPassword()));
             userRepo.save(findPerson);
             return;
