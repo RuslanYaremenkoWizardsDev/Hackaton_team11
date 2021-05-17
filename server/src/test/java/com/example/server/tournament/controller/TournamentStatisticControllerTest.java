@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.validation.BindingResult;
 import java.util.ArrayList;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -19,7 +18,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 class TournamentStatisticControllerTest {
     private final ObjectMapper objectMapper = new ObjectMapper();
-    private final BindingResult bindingResult = Mockito.mock(BindingResult.class);
     private final TournamentRepo tournamentRepo = Mockito.mock(TournamentRepo.class);
     private final TournamentStatisticController cut = new TournamentStatisticController(tournamentRepo);
     private MockMvc mockMvc;
