@@ -1,5 +1,5 @@
 .usergeneral {
-  background: url(../img/9a463a4837ceeea0ddcb73a23b4139d7.jpg);
+    background-color: #333;
     min-height: 100vh;
 }
 .usermain-container {
@@ -273,6 +273,36 @@
     width: 5px;
     height: 5px;
     cursor: pointer;
+}
+.userstatisticsOfPlayers {
+    display: table;
+    margin: 0 auto;
+    width: 80%;
+    height: 30%;
+    &__caption {
+        padding: 15px 0;
+        margin: 20px 0 0;
+        color: #fff;
+        font-size: 26px;
+    }
+}
+
+.userstatisticsOfTournaments {
+    display: table;
+    margin: 0 auto;
+    width: 80%;
+    height: 30%;
+    &__caption {
+        padding: 15px 0;
+        color: #fff;
+        font-size: 26px;
+    }
+}
+.theme-light {
+    &.usergeneral {
+        background: #eee;
+        height: 1000vh;
+    }
 }
 
 @media screen and (max-width: 1024px) {

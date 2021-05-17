@@ -7,7 +7,7 @@
     <title>Admin</title>
 </head>
 <body>
-    <div class="general">
+    <div id="general" class="general theme-dark">
         <header class="header">
             <div class="header__bar main-container">
                 <div class="header__logo">
@@ -18,13 +18,13 @@
                     <label id="language" for="language">
                         <select name="language" id="select-language" class="header__nav-language nav-input-styles">
                             <option value="en" data-translate="en" selected>En</option>
-                            <option value="ua" data-translate="ua">Ua</option>
+                            <option value="ru" data-translate="ru">Ru</option>
                         </select>
                     </label>
                     <label id="theme" for="theme">
                         <select name="theme" id="select-theme" class="header__nav-theme nav-input-styles">
-                            <option value="light" data-translate="light">Light</option>
                             <option value="dark" data-translate="dark">Dark</option>
+                            <option value="light" data-translate="light">Light</option>
                         </select>
                     </label>
                     <img src="\img\user_def.png" alt="avatar" class="header__nav-avatar">
@@ -165,9 +165,9 @@
                 <div class="settingsPopup__group">
                     <label class="settingsPopup__group-label" for="password">Change password</label>
                     <input type="password" name="oldPassword" id="oldPassword" data-placeholder="yourPassword" placeholder="Enter your old password..." class="settingsPopup__group-oldPassword settingsPopup__input viewpassword" data-clear="clear">
-                    <span class="admineye">&#128065;</span>
+                    <span class="eye admineye">&#128065;</span>
                     <input type="password" name="newPassword" id="newPassword" data-placeholder="newPassword" placeholder="Enter your new password..." class="settingsPopup__group-newPassword settingsPopup__input viewpassword" data-clear="clear">
-                    <span class="admineye">&#128065;</span>
+                    <span class="eye admineye">&#128065;</span>
                     <label class="settingsPopup__group-label" for="login">Change login</label>                        
                     <input type="text" name="login" id="newLogin" data-placeholder="newLogin" placeholder="New login" class="settingsPopup__group-newlogin" data-clear="clear">
                 </div>

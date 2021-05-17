@@ -4,6 +4,7 @@ export default function settingsPopup () {
     const cancelBtn = document.getElementById('settingsPopupCancel');
     const crossBtn = document.getElementById('closeSettingsPopUp');
     const clear = document.querySelectorAll('[data-clear]');
+    const viewPassword = document.querySelectorAll('.eye');
 
     settings.addEventListener('click', () => {
         openPopup(settingsPopup);

@@ -11,6 +11,7 @@ import switchToStatUser from '../modules/statuser';
 import viewInvitations from '../modules/viewInvitations';
 import creatingNewCup from '../modules/createNewCup';
 import viewPassword from '../modules/viewPassword';
+import handleTheme from '../modules/handleTheme';
  
 document.addEventListener('DOMContentLoaded', ()=>{
 
@@ -30,6 +31,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         viewInvitations();
         creatingNewCup();
         viewPassword.viewPasswordAdmin();
+        handleTheme.handleThemeAdmin();
         // const tableBody = document.querySelector('#tbody'):
     //get renderTableDiv(data, tableBody)
 
@@ -39,8 +41,9 @@ document.addEventListener('DOMContentLoaded', ()=>{
         declineTournamentInvite();
         switchToStatUser();
         viewPassword.viewPasswordUser();
+        handleTheme.handleThemeUser();
     }else if(window.location.pathname === "/guest.html"){
-        handleTheme();
+        handleTheme.handleThemeGuest();
     }
 
 });
