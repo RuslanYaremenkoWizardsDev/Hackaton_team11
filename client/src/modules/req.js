@@ -27,7 +27,7 @@ function registr(){
     btnReq.addEventListener('click', ()=>{
     
         if(getValidEntry()){
-            alert("No");
+            
         }else{
             const req = JSON.stringify({
                 login: login.value,
