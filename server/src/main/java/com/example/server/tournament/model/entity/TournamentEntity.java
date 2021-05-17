@@ -9,9 +9,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.io.Serializable;
+import static com.example.server.tournament.util.Constants.TABLE_ALL_TOURNAMENT;
 
 @Entity
-@Table(name = "all_tournament")
+@Table(name = TABLE_ALL_TOURNAMENT)
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

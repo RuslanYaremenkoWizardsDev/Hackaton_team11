@@ -11,6 +11,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import static com.example.server.tournament.util.Constants.*;
 
 @Data
 @AllArgsConstructor
@@ -18,18 +19,18 @@ import java.io.Serializable;
 public class TournamentDto implements Serializable {
     private Long id;
     private Status status;
-    @NotBlank(message = "error name")
+    @NotBlank(message = ERROR_NAME)
     @Size(max = 255)
     private String name;
-    @NotBlank(message = "error description")
+    @NotBlank(message = ERROR_DESCRIPTION)
     @Size(max = 10000)
     private String tournamentDescription;
     private Mode modeTournament;
-    @NotBlank(message = "error place")
+    @NotBlank(message = ERROR_PLACE)
     private String place;
-    @NotNull(message = "error dateStartTournament")
+    @NotNull(message = ERROR_DATE_START_TOURNAMENT)
     private Long dateStartTournament;
-    @NotNull(message = "error dateLastRegistrationOnTournament")
+    @NotNull(message = ERROR_DATE_LAST_REGISTRATION)
     private Long dateLastRegistrationOnTournament;
     private Level level;
     private int numberOfPlayer;

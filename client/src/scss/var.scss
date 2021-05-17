@@ -116,7 +116,6 @@ $modal-bg: rgba(26, 26, 26, 0.9);
         animation: none;
     }
 }
-
 .settingsPopup {
     position: fixed;
     width: 100%;
@@ -176,7 +175,7 @@ $modal-bg: rgba(26, 26, 26, 0.9);
         width: 100%;
         text-align: center;
         color: $text-color;
-        font-size: 55px;
+        font-size: 40px;
         padding: 50px 0 10px;
         cursor: default;
     }
@@ -193,7 +192,7 @@ $modal-bg: rgba(26, 26, 26, 0.9);
             justify-content: space-between;
             padding: 25px;
             width: 420px;
-            height: 65px;
+            height: 40px;
             font-size: 24px;
         }
         &-oldPassword,
@@ -214,14 +213,15 @@ $modal-bg: rgba(26, 26, 26, 0.9);
         padding: 40px 0 35px;
         &-confirm,
         &-cancel {
-            width: 200px;
-            height: 60px;
+            width: 150px;
+            height: 40px;
             text-align: center;
             background: #5353ff;
             transition: .3s ease;
             color: $text-color;
             cursor: pointer;
-            font-size: 24px;
+            font-size: 20px;
+            border-radius: 12px;
             &:hover,
             &:hover {
                 background: $hover-color;
@@ -236,7 +236,7 @@ $modal-bg: rgba(26, 26, 26, 0.9);
         justify-content: space-between;
         padding: 25px;
         width: 420px;
-        height: 65px;
+        height: 40px;
         font-size: 24px;
     }
     &.hideSettingsPopup {

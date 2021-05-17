@@ -25,11 +25,12 @@ function auth(){
                 login: login.value,
                 password: pass.value,
             });
+
         
             postRequest(URL, req).then((res)=>{
                 //console.log(res.headers)
                 alert(res);
-               
+
                 document.location.href = "/admin.html";
             });
         }
