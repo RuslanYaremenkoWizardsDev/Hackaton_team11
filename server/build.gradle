@@ -5,7 +5,7 @@ plugins {
     id 'checkstyle'
 }
 
-
+sourceCompatibility = '8'
 ext{
     springBootVersion = '2.4.5'
     lombokVersion = '1.18.20'
