@@ -1,0 +1,707 @@
+.general {
+    background: url(../img/9a463a4837ceeea0ddcb73a23b4139d7.jpg);
+    min-height: 100vh;
+}
+.main-container {
+    width: 100%;
+    max-width: 1030px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+.nav-input-styles {
+    cursor: pointer;
+}
+.tr {
+    &__th {
+        width: 10%;
+        height: 45px;
+        padding: 0 5px;
+        border: 1px solid #ccc;
+        background: #fff;
+        font-weight: 400;
+        cursor: pointer;
+    }
+    &__td {
+        width: 10%;
+        height: 45px;
+        padding: 0 5px;
+        border: 1px solid #ccc;
+        background: #fff;
+        font-weight: 400;
+        text-align: center;
+    }
+
+    &__cell {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+    }
+}
+.td {
+    width: 142px;
+    height: 43px;
+    border: 1px solid #ccc;
+    background: #fff;
+    font-weight: 400;
+    overflow-x: scroll;
+}
+
+.td-actions {
+    .tr__cell {
+        font-size: 48px;
+    }
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    &__bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__logo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 320px;
+        height: 110px;
+        color: $text-color; 
+        &-icon {
+            color: #ccc;
+            width: 105px;
+            height: 105px;
+        }
+        &-logoname {
+            font-size: 39px;
+            letter-spacing: 2px;
+            cursor: default;
+        }
+    }
+    &__nav {
+        position: relative;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 430px;
+        height: 110px;
+        &-language {
+            &:hover {
+                color: $hover-color;
+            }
+            &:focus {
+                outline: none;
+            }
+        }
+        &-theme {
+            &:hover {
+                color: $hover-color;
+            }
+            &:focus {
+                outline: none;
+            }
+        }
+        &-avatar {
+            display: block;
+            width: 50px;
+            height: 50px;
+            border: 1px solid red;
+        }
+        &-logout {
+            width: 80px;
+            height: 40px;
+            border-radius: 12px;
+            background: rgb(83, 83, 255);
+            &:hover {
+                background: rgb(61, 61, 255);
+            }
+        }
+    }
+}
+
+.main {
+    padding: 50px 0 0;
+    &__tabs {
+        display: flex;
+        height: 75px;
+
+    }
+    &__controlPanel {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        height: 70px;
+        &-player {
+            width: 150px;
+            height: 40px;
+            padding: 10px;
+            cursor: pointer;
+        }
+        &-date {
+            width: 150px;
+            height: 40px;
+            padding: 10px;
+            cursor: pointer;
+        }
+        &-scenario {
+            width: 150px;
+            height: 40px;
+            cursor: pointer;
+        }
+        &-clear {
+            width: 120px;
+            height: 40px;
+            padding: 10px;
+            border-radius: 12px;
+            background: rgb(83, 83, 255);
+            cursor: pointer;
+            &:hover {
+                background: rgb(61, 61, 255);
+            }
+        }
+        &-viewInvites {
+            width: 120px;
+            height: 40px;
+            padding: 10px;
+            border-radius: 12px;
+            background: rgb(83, 83, 255);
+            cursor: pointer;
+            &:hover {
+                background: rgb(61, 61, 255);
+            }
+        }
+        &-createTournament {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            font-weight: 900;
+            font-size: 55px;
+            padding-bottom: 6px;
+            cursor: pointer;
+        }
+    }
+    &__statistics {
+        width: 100%;
+        height: 400px;
+        &.switchToTable {
+            display: none;
+        }
+    }
+}
+.tabs {
+    &__button {
+        width: 150px;
+        height: 50px;
+        margin-right: 100px;
+        border-radius: 12px;
+        font-size: 15px;
+        cursor: pointer;
+    }
+}
+.table {
+    &__data {
+        width: 100%;
+        min-width: 999px;
+        min-height: 315px;
+        height: auto;
+        overflow-y: auto;
+        table-layout: fixed;
+        border-collapse: collapse;
+        &.switchToStat {
+            display: none;
+        }
+    }
+}
+.thead {
+    width: 100%;
+    &__tr {
+        display: flex;
+        align-items: center;
+        padding: 0 0 10px;
+    }
+}
+.tbody {
+    background: #fff;
+    width: 100%;
+    &__tr {
+        display: flex;
+        align-items: center;
+        padding: 0 0 2px;
+    }
+    
+}
+
+.main__table {
+    position: relative;
+    overflow: auto;
+    margin: 30px 0 0;
+
+}
+
+.entry {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    bottom: 2%;
+    left: 2%;
+    width: 400px;
+    height: auto;
+    background-color: #fff;
+    border: 1px solid #333;
+    box-shadow: 5px 5px 5px #000;
+    z-index: 5;
+    &__message {
+        padding: 10px 15px;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 25px;
+    }
+    &__group {
+        padding: 10px 0;
+        margin: 0 auto;
+        width: 300px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        &-btn {
+            width: 90px;
+            height: 30px;
+            border-radius: 12px;
+            cursor: pointer;
+            &:hover {
+                background: #fff;
+            }
+        }
+    }
+    &.declineEntry {
+        display: none;
+    }
+}
+
+.statisticsOfPlayers {
+    display: table;
+    margin: 0 auto;
+    width: 80%;
+    height: 30%;
+    &__caption {
+        padding: 15px 0;
+        margin: 20px 0 0;
+        color: #fff;
+        font-size: 26px;
+    }
+}
+
+.statisticsOfTournaments {
+    display: table;
+    margin: 0 auto;
+    width: 80%;
+    height: 30%;
+    &__caption {
+        padding: 15px 0;
+        color: #fff;
+        font-size: 26px;
+    }
+}
+.soptable {
+    &__data {
+        &-head {
+            width: 100px;
+            border: 1px solid red;
+        }
+    }
+}
+.sopthead {
+    width: 100%;
+    &__tr {
+        display: flex;
+        align-items: center;
+    }
+}
+.soptbody {
+    width: 100%;
+    &__tr {
+        display: flex;
+        align-items: center;
+        padding: 0 0 2px;
+    }
+}
+.soptr {
+    &__th {
+        width: 40%;
+        height: 45px;
+        padding: 0 5px;
+        margin: 0 auto;
+        border: 1px solid #ccc;
+        background: #fff;
+        font-weight: 400;
+        cursor: pointer;
+    }
+    &__td {
+        width: 40%;
+        height: 45px;
+        padding: 0 5px;
+        margin: 0 auto;
+
+        border: 1px solid #ccc;
+        background: #fff;
+        font-weight: 400;
+        text-align: center;
+    }
+
+    &__cell {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+    }
+}
+.soptd {
+    width: 142px;
+    height: 43px;
+    border: 1px solid #ccc;
+    background: #fff;
+    font-weight: 400;
+    overflow-x: scroll;
+}
+
+
+.sottable {
+    &__data {
+        &-head {
+            width: 100px;
+            border: 1px solid red;
+        }
+    }
+}
+.sotthead {
+    width: 100%;
+    &__tr {
+        display: flex;
+        align-items: center;
+    }
+}
+.sottbody {
+    width: 100%;
+    &__tr {
+        display: flex;
+        align-items: center;
+        padding: 0 0 2px;
+    }
+}
+.sottr {
+    &__th {
+        width: 40%;
+        height: 45px;
+        padding: 0 5px;
+        margin: 0 auto;
+        border: 1px solid #ccc;
+        background: #fff;
+        font-weight: 400;
+        cursor: pointer;
+    }
+    &__td {
+        width: 40%;
+        height: 45px;
+        padding: 0 5px;
+        margin: 0 auto;
+
+        border: 1px solid #ccc;
+        background: #fff;
+        font-weight: 400;
+        text-align: center;
+    }
+
+    &__cell {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+    }
+}
+.sottd {
+    width: 142px;
+    height: 43px;
+    border: 1px solid #ccc;
+    background: #fff;
+    font-weight: 400;
+    overflow-x: scroll;
+}
+
+.viewInvitesPopup {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: $modal-bg;
+    top: 0;
+    left: 0;
+    visibility: visible;
+    transition: transform .4s ease;
+    z-index: 10;
+    &__container {
+        width: 600px; 
+        min-height: 300px;
+        margin: 0 auto;
+        height: auto; 
+        position: absolute; 
+        top: 50%; 
+        left: 50%; 
+        transform: translate(-50%, -50%); 
+        border: 2px solid #5353ff; 
+        background: $main-page-bg; 
+        opacity: 1;
+        line-height: 1.5;
+    }
+    &__button {
+        &-close {
+            position: absolute;
+            top: 35px;
+            right: 25px;
+            width: 20px;
+            height: 20px;
+            background: none;
+            border: none;
+            transition: .3s ease;
+            cursor: pointer;
+            transform: translate(0, -50%) rotate(45deg);
+            &::before {
+                content: '';
+                width: 100%;
+                height: 3px;
+                position: absolute;
+                top: 50%;
+                left: 0;
+                margin-top: -2px;
+                background: #5353ff;
+            }
+            &::after {
+                content: '';
+                width: 3px;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 50%;
+                margin-left: -2px;
+                background: #5353ff;
+            }
+        }
+    }
+    &__header {
+        margin: 25px auto 15px;
+        width: 70%;
+        text-align: center;
+        color: white;
+        font-size: 25px;
+        cursor: default;
+        word-break: break-word;
+        font-weight: 300;
+    }
+    &__list {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        width: 80%;
+        min-height: 150px;
+        height: auto;
+        border: 1px solid #333;
+        background: #fff;
+        margin: 0 auto;
+        &-invite {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #333;
+            width: 90%;
+            margin: 5px 0 0;
+        }
+        &-div {
+            width: 25%;
+            text-align: center;
+            // border: 1px solid #333;
+        }
+        &-title {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            color: #fff;
+            margin-left: 120px;
+            width: 205px;
+        }
+    }
+    &__buttons {
+        &-confirm,
+        &-cancel {
+            cursor: pointer;
+            &:hover,
+            &:hover {
+                background: $hover-color;
+                color: $main-page-bg;
+            }
+        }
+    }
+    &.hideviewInvitesPopup {
+        display: block;
+        opacity: 0;
+        visibility: hidden;
+        animation: none;
+    }
+}
+.createNewCupPopup {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: $modal-bg;
+    top: 0;
+    left: 0;
+    visibility: visible;
+    transition: transform .4s ease;
+    z-index: 10;
+    &.hideCreateNewCupPopup {
+        display: none;
+    }
+}
+.createCupModal {
+    &__modal {
+        &-head {
+            text-align: center;
+        }
+    }
+    &__close {
+        position: absolute;
+        right: 5%;
+        top: 5%;
+        cursor: pointer;
+    }
+    &__users {
+        &-input {
+            width: 100%;
+            height: 40px;
+        }
+    }
+}
+.createCup {
+    &__modal {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 600px; 
+        min-height: 410px;
+        margin: 0 auto;
+        height: auto; 
+        position: absolute; 
+        top: 50%; 
+        left: 50%; 
+        transform: translate(-50%, -50%); 
+        border: 2px solid #5353ff; 
+        background: $main-page-bg; 
+        opacity: 1;
+        line-height: 1.5;
+        color: #fff;
+    }
+    &__close {
+        position: absolute;
+        top: 35px;
+        right: 25px;
+        width: 20px;
+        height: 20px;
+        background: none;
+        border: none;
+        transition: .3s ease;
+        cursor: pointer;
+        transform: translate(0, -50%) rotate(45deg);
+    }
+}
+.form {
+    &__field {
+        padding: 5px;
+        &-description {
+            padding: 10px;
+            width: 100%;
+            height: 50px;
+            background: #fff;
+        }
+    }
+    &__contentChild {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 10px 0;
+    }
+    &__content {
+        margin: 20px 0 30px;
+        width: 70%;
+        &-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        }
+        &-rowSpaceAround {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            margin: 0 0 20px;
+            width: 70%;
+        }
+    }
+    &__button {
+        &-create,
+        &-cancel {
+            width: 80px;
+            height: 30px;
+            border: 1px solid #ccc;
+            text-align: center;
+            cursor: pointer;
+            &:hover,
+            &:hover {
+                background: #888;
+            }
+        }
+    }
+}
+.likeIngit {
+    position: absolute;
+    width: 300px;
+    height: 150px;
+    background: #333;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    &__findUsers {
+        width: 200px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 5px;
+        &-label {
+            width: 400px;
+        }
+    }
+    &.findUsersShowAll{
+        display: none;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .tabs {
+        &__button {
+            margin-right: 95px;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .tabs {
+        &__button {
+            margin-right: 25px;
+        }
+    }
+}

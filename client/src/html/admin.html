@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+</head>
+<body>
+    <div class="general">
+        <header class="header">
+            <div class="header__bar main-container">
+                <div class="header__logo">
+                    <image id="icon" class="header__logo-icon" src="\img\404-error (3).png"/>
+                    <div id="logo" class="header__logo-logoname"></div>
+                </div>  
+                <div class="header__nav">
+                    <label id="language" for="language">
+                        <select name="language" id="select-language" class="header__nav-language nav-input-styles">
+                            <option value="en" data-translate="en" selected>En</option>
+                            <option value="ua" data-translate="ua">Ua</option>
+                        </select>
+                    </label>
+                    <label id="theme" for="theme">
+                        <select name="theme" id="select-theme" class="header__nav-theme nav-input-styles">
+                            <option value="light" data-translate="light">Light</option>
+                            <option value="dark" data-translate="dark">Dark</option>
+                        </select>
+                    </label>
+                    <img src="\img\user_def.png" alt="avatar" class="header__nav-avatar">
+                    <button id="settings" class="header__nav-settings nav-input-styles"><span data-translate="settings">My account</span>
+                    </button>
+                    <a id="logout" href="index.html">
+                        <button  class="header__nav-logout nav-input-styles"><span data-translate="logout">Logout</span>
+                        </button>
+                    </a>
+                </div>
+            </div>
+    
+        </header>
+        <main class="main">
+            <div class="main-container">
+                <div class="main__tabs">
+                    <button id="tournaments" class="main__tabs-tournaments tabs__button"><span data-translate="tournaments">Tournaments</span></button>
+                    <button id="statistics" class="main__tabs-statistics tabs__button"><span data-translate="statistics">Statistics</span></button>
+                </div>
+                <div class="main__controlPanel">
+                    <div>
+                        <label for="player-login"></label>
+                        <input type="text" name="player-login" id="player" class="main__controlPanel-player" placeholder="Enter player login...">    
+                    </div>
+                    <div>
+                        <label for="reg-date"></label>
+                        <input type="date" name="reg-date" id="reg-date" class="main__controlPanel-date" value="2018-07-22"
+                        min="1970-01-01" max="2099-12-31">    
+                    </div>
+                    <div>
+                        <select name="scenario" id="scenario" class="main__controlPanel-scenario">
+                            <option value="oneMatchConfrontation" data-translate="oneMatchConfrontation">One-match confrontation</option>
+                            <option value="twoMatchConfrontation" data-translate="twoMatchConfrontation">Two-match confrontation</option>
+                            <option value="toThreeWins" data-translate="toThreeWins">To three wins</option>
+                        </select>
+                    </div>
+                    <div>
+                        <button id="clearAll" class="main__controlPanel-clear"><span data-translate="clear">Clear All</span></button>
+                    </div>
+                    <div>
+                        <button id="viewInvites" class="main__controlPanel-viewInvites"><span data-translate="viewInvites">View invitations</span></button>
+                    </div>
+                    <div>
+                        <button id="createNewCup" class="main__controlPanel-createTournament">+</button>
+                    </div>
+                </div>
+                <div id="tournaments-tab" class="main__table ">
+                    <table id="table" class="table__data ">
+                        <thead id="thead" class="table__data-head thead">
+                            <tr class="thead__tr">
+                                <th id="sort-name" class="tr__th"><span class="tr__cell" data-translate="name">Name</span></th>
+                                <th id="sort-mode" class="tr__th"><span class="tr__cell" data-translate="mode">Mode</span></th>
+                                <th id="sort-place" class="tr__th"><span class="tr__cell" data-translate="place">Place</span></th>
+                                <th id="sort-startDate" class="tr__th"><span class="tr__cell" data-translate="startDate">Start date</span></th>
+                                <th id="sort-lastRegDate" class="tr__th"><span class="tr__cell" data-translate="lastRegDate">Last reg date</span></th>
+                                <th id="sort-state" class="tr__th"><span class="tr__cell" data-translate="state">State</span></th>
+                                <th id="sort-level" class="tr__th"><span class="tr__cell" data-translate="level">Level</span></th>
+                                <th id="sort-participants" class="tr__th"><span class="tr__cell" data-translate="participants">Participants</span></th>
+                                <th id="sort-scenario" class="tr__th"><span class="tr__cell" data-translate="scenario">Scenario</span></th>
+                                <th id="sort-actions" class="tr__th"><span class="tr__cell" data-translate="actions">Actions</span></th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody" class="table__data-body tbody">
+                            <tr class="tbody__tr">
+                                <td class="tr__td td-name"><span class="tr__cell">Super Cup</span></td>
+                                <td class="tr__td td-mode"><span class="tr__cell">Cup</span></td>
+                                <td class="tr__td td-place"><span class="tr__cell">Kharkiv</span></td>
+                                <td class="tr__td td-startDate"><span class="tr__cell">16/05/2021</span></td>
+                                <td class="tr__td td-lastRegDate"><span class="tr__cell">15/05/2021</span></td>
+                                <td class="tr__td td-state"><span class="tr__cell">in progress</span></td>
+                                <td class="tr__td td-level"><span class="tr__cell">middle</span></td>
+                                <td class="tr__td td-partisipants"><span class="tr__cell">6/32</span></td>
+                                <td class="tr__td td-scenario"><span class="tr__cell">One match</span></td>
+                                <td class="tr__td td-actions"><span class="tr__cell">&#9993;</span></td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+
+                    <div id="stat-window" class="main__statistics switchToTable">
+
+                        <table id="statisticsOfPlayers" class="statisticsOfPlayers soptable__data">
+                            <caption class="statisticsOfPlayers__caption">Statistics of players</caption>
+                            <thead id="sop-thead" class="soptable__data-head sopthead">
+                                <tr class="sopthead__tr">
+                                    <th id="sop-name" class="soptr__th"><span class="soptr__cell" data-translate="name">Name</span></th>
+                                    <th id="sop-games" class="soptr__th"><span class="soptr__cell" data-translate="games">Games</span></th>
+                                    <th id="sop-wins" class="soptr__th"><span class="soptr__cell" data-translate="wins">Wins</span></th>
+                                    <th id="sop-draws" class="soptr__th"><span class="soptr__cell" data-translate="draws">Draws</span></th>
+                                    <th id="sop-loses" class="soptr__th"><span class="soptr__cell" data-translate="loses">Loses</span></th>
+                                    <th id="sop-cupWins" class="soptr__th"><span class="soptr__cell" data-translate="cupWins">Cup wins</span></th>
+                                </tr>
+                            </thead>
+                            <tbody id="sop-tbody" class="soptable__data-body soptbody">
+                                <tr class="soptbody__tr">
+                                    <td class="soptr__td soptd-name"><span class="soptr__cell">Kek</span></td>
+                                    <td class="soptr__td soptd-games"><span class="soptr__cell">2</span></td>
+                                    <td class="soptr__td soptd-wins"><span class="soptr__cell">1</span></td>
+                                    <td class="soptr__td soptd-draws"><span class="soptr__cell">1</span></td>
+                                    <td class="soptr__td soptd-loses"><span class="soptr__cell">0</span></td>
+                                    <td class="soptr__td soptd-cupWins"><span class="soptr__cell">0</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="statisticsOfTournaments">
+                            <caption class="statisticsOfTournaments__caption">Statistics of tournaments</caption>
+                            <thead id="sot-thead" class="sottable__data-head sotthead">
+                                <tr class="sotthead__tr">
+                                    <th id="sot-name" class="sottr__th"><span class="sottr__cell" data-translate="numberOfTournaments">Number of tournaments</span></th>
+                                    <th id="sot-mode" class="sottr__th"><span class="sottr__cell" data-translate="active">Active</span></th>
+                                    <th id="sot-place" class="sottr__th"><span class="sottr__cell" data-translate="finished">Finished</span></th>
+                                    <th id="sot-name" class="sottr__th"><span class="sottr__cell" data-translate="notStarted">Not started</span></th>
+                                </tr>
+                            </thead>
+                            <tbody id="sot-tbody" class="sottable__data-body sottbody">
+                                <tr class="sottbody__tr">
+                                    <td class="sottr__td sottd-numberOfTournaments"><span class="sottr__cell">100</span></td>
+                                    <td class="sottr__td sottd-active"><span class="sottr__cell">89</span></td>
+                                    <td class="sottr__td sottd-finished"><span class="sottr__cell">43</span></td>
+                                    <td class="sottr__td sottd-notStarted"><span class="sottr__cell">2</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="settingsPopup" class="settingsPopup hideSettingsPopup">
+        <div class="settingsPopup__container">
+            <div id="closeSettingsPopUp" class="settingsPopup__button">
+                <button id="closeSettingsPU" class="settingsPopup__button-close"></button>
+            </div>
+                <h1 class="settingsPopup__header"><span data-translate="settings">My account</span></h1>
+                <div class="settingsPopup__group">
+                    <label class="settingsPopup__group-label" for="password">Change password</label>
+                    <input type="password" name="oldPassword" id="oldPassword" data-placeholder="yourPassword" placeholder="Enter your old password..." class="settingsPopup__group-oldPassword settingsPopup__input" data-clear="clear">
+                    <input type="password" name="newPassword" id="newPassword" data-placeholder="newPassword" placeholder="Enter your new password..." class="settingsPopup__group-newPassword settingsPopup__input" data-clear="clear">
+
+                    <label class="settingsPopup__group-label" for="login">Change login</label>                        
+                    <input type="text" name="login" id="newLogin" data-placeholder="newLogin" placeholder="New login" class="settingsPopup__group-newlogin" data-clear="clear">
+                </div>
+                <div class="settingsPopup__buttons">
+                    <button id="settingsPopupConfirm" type="button" class="settingsPopup__buttons-confirm btn"><span data-translate="confirm">CONFIRM</span></button>
+                    <button id="settingsPopupCancel" type="button" class="settingsPopup__buttons-cancel btn"><span data-translate="cancel">CANCEL</span></button>
+                </div>
+        </div>
+    </div>
+
+    <div id="viewInvitesPopup" class="viewInvitesPopup hideviewInvitesPopup">
+        <div class="viewInvitesPopup__container">
+            <div id="closeviewInvitesPopup" class="viewInvitesPopup__button">
+                <button id="closeClearAllPU" class="viewInvitesPopup__button-close"></button>
+            </div>
+                <h1 class="viewInvitesPopup__header">List of invitations</h1>
+                <div class="viewInvitesPopup__list-title">
+                    <p>Login</p>     
+                    <p>Tournament</p>
+                </div>
+            <div class="viewInvitesPopup__list">
+                <div class="viewInvitesPopup__list-invite">
+                    <div class="viewInvitesPopup__list-div">
+                        <p id="viewLogin" class="viewInvitesPopup__list-login">Ansu</p>
+                    </div>
+                    <div class="viewInvitesPopup__list-div">
+                        <p id="viewTour" class="viewInvitesPopup__list-tour">Barc</p>
+                    </div>
+                    <button id="viewInvitesPopupConfirm" type="button" class="viewInvitesPopup__buttons-confirm btn"><span data-translate="confirm">Confirm</span></button>
+                    <button id="viewInvitesPopupCancel" type="button" class="viewInvitesPopup__buttons-cancel btn"><span data-translate="decline">Decline</span></button>
+                </div>
+                <div class="viewInvitesPopup__list-invite">
+                    <div class="viewInvitesPopup__list-div">
+                        <p id="viewLogin" class="viewInvitesPopup__list-login">Leo</p>
+                    </div>
+                    <div class="viewInvitesPopup__list-div">
+                        <p id="viewTour" class="viewInvitesPopup__list-tour">LaLiga</p>
+                    </div>
+                    <button id="viewInvitesPopupConfirm" type="button" class="viewInvitesPopup__buttons-confirm btn"><span data-translate="confirm">Confirm</span></button>
+                    <button id="viewInvitesPopupCancel" type="button" class="viewInvitesPopup__buttons-cancel btn"><span data-translate="decline">Decline</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="clearAllPopup" class="clearAllPopup hideClearAllPopup">
+        <div class="clearAllPopup__container">
+            <div id="closeClearAllPopUp" class="clearAllPopup__button">
+                <button id="closeClearAllPU" class="clearAllPopup__button-close"></button>
+            </div>
+                <h1 class="clearAllPopup__header">Clear All</h1>
+                <p class="clearAllPopup__question"><span data-translate="clarification">Are you sure you want to delete all data?</span></p>
+                <div class="clearAllPopup__buttons">
+                    <button id="clearAllPopupConfirm" type="button" class="clearAllPopup__buttons-confirm btn"><span data-translate="delete">DELETE</span></button>
+                    <button id="clearAllPopupCancel" type="button" class="clearAllPopup__buttons-cancel btn"><span data-translate="cancel">CANCEL</span></button>
+                </div>
+        </div>
+    </div>
+
+    <div id="entry" class="entry declineEntry">
+        <div class="entry__container">
+            <h1 class="entry__message"><span id="untry-user-name">User</span> wants to participate in "<span id="untry-tournament-name">Pigs</span>"</h1>
+            <div class="entry__group">
+                <button id="entry-confirm" class="entry__group-btn ">Confirm</button>
+                <button id="entry-decline" class="entry__group-btn">Decline</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="createNewCupPopup" class="createNewCupPopup hideCreateNewCupPopup">
+        <form  class="createCup__modal">
+            <div class="form__content">
+                <div class="createCupModal__modal-head">
+                    <p class="createCupModal__head-text">Create new cup</p>
+                    <span id="crossNewCup" class="createCupModal__close">&times;</span>
+                </div>
+                <div class="form__content-row">
+                    <div class = "form__contentChild">
+                        <span class = "form__name">Name*</span>
+                        <input class="form__field" id="name" />
+                    </div>
+                    <div class = "form__contentChild">
+                        <span class = "form__name">Mode*</span>
+                        <input class="form__field" id="mode" />
+                    </div>
+                </div>
+                <div class = "form__contentChild">
+                    <input class="form__field-description" id="description" placeholder="Description..."/>
+                </div>
+                <div class="form__content-row">
+                    <div class = "form__contentChild">
+                        <span class = "form__name">Place</span>
+                        <input class="form__field" id="place" />
+                    </div>
+                    <div class = "form__contentChild">
+                        <span class = "form__name">Scenario</span>
+                        <select class="form__field" name="Level" id="scenario">
+                        <option class = "form__field-scenario" value="OneMatch" selected>One-match</option>
+                        <option class = "form__field-scenario"  value="TwoMatch">Two-match</option>
+                        <option class = "form__field-scenario"  value="ToThreeWins">To three wins</option>
+                        </select>
+                    </div>
+                </div>
+                <div class = "form__contentChild">
+                    <span class = "form__name">Start date*</span>
+                    <input class="form__field" type="date" id="startDate" />
+                </div>
+                <div class = "form__contentChild">
+                    <span class = "form__name">Last registration date*</span>
+                    <input class="form__field" type="date" id="lastRegDate" />
+                </div>
+
+                <div class="form__content-row">
+                    <div class = "form__contentChild">
+                        <span class = "form__name">Level</span>
+                        <select class="createCupModal__select" name="Level" id="lavel">
+                        <option class = "form__field-level" value="Advanced">Advanced</option>
+                        <option class = "form__field-level"  value="Midlle" selected>Midlle</option>
+                        <option class = "form__field-level"  value="Begginer">Begginer</option>
+                        </select>
+                    </div>
+                    <div class = "form__contentChild">
+                        <span class = "form__name">Participants</span>
+                        <select class="createCupModal__select" name="Partisipants" id="lang">
+                        <option class = "form__field-partisipants  " value="128">128</option>
+                        <option class = "form__field-partisipants"  value="64">64</option>
+                        <option class = "form__field-partisipants"  value="32" selected>32</option>
+                        <option class = "form__field-partisipants"  value="16">16</option>
+                        <option class = "form__field-partisipants"  value="8">8</option>
+                        <option class = "form__field-partisipants"  value="4">4</option>
+                        </select>
+                    </div>  
+                </div>
+            <div class = "createCupModal__users-child" >
+                <input class ="createCupModal__users-input createCupModal__users-likeInGit" type="text" id="findUsers" placeholder = "&#128269; Invited players..." />
+                <div id="findUsersPopup" class="likeIngit findUsersShowAll">
+                    <div class="likeIngit__findUsers">
+                        <label class="likeIngit__findUsers-label" for="">Marina</label>
+                        <input type="checkbox" name="findUsers" class="likeIngit__findUsers">
+                    </div>
+                    <div class="likeIngit__findUsers">
+                        <label class="likeIngit__findUsers-label" for="">Slava</label>
+                        <input type="checkbox" name="findUsers" class="likeIngit__findUsers">
+                    </div>
+                    <div class="likeIngit__findUsers">
+                        <label class="likeIngit__findUsers-label" for="">Natasha</label>
+                        <input type="checkbox" name="findUsers" class="likeIngit__findUsers">
+                    </div>
+                    <div class="likeIngit__findUsers">
+                        <label class="likeIngit__findUsers-label" for="">Yulia</label>
+                        <input type="checkbox" name="findUsers" class="likeIngit__findUsers">
+                    </div>
+                    <div class="likeIngit__findUsers">
+                        <label class="likeIngit__findUsers-label" for="">Marina</label>
+                        <input type="checkbox" name="findUsers" class="likeIngit__findUsers">
+                    </div>
+                    <div class="likeIngit__findUsers">
+                        <label class="likeIngit__findUsers-label" for="">Slava</label>
+                        <input type="checkbox" name="findUsers" class="likeIngit__findUsers">
+                    </div>
+                    <div class="likeIngit__findUsers">
+                        <label class="likeIngit__findUsers-label" for="">Natasha</label>
+                        <input type="checkbox" name="findUsers" class="likeIngit__findUsers">
+                    </div>
+                    <div class="likeIngit__findUsers">
+                        <label class="likeIngit__findUsers-label" for="">Yulia</label>
+                        <input type="checkbox" name="findUsers" class="likeIngit__findUsers">
+                    </div>
+                </div>
+            </div> 
+            </div>  
+        <div class="form__content-rowSpaceAround">
+            <div class="form__button-create button" id="createNewCup">Create</div>
+            <div class="form__button-cancel button" id="cancelNewCup">Cancel</div>
+        </div>
+        </form>
+      </div>
+</body>
+</html>

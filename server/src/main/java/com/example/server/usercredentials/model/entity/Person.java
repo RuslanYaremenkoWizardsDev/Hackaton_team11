@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.io.Serializable;
+
 @Entity
 @Table(name = "user_credentials")
 @Data
@@ -19,6 +20,7 @@ public class Person implements Serializable {
     private String secretKey;
     private String avatar;
     private Roles role;
+    private Long power;
 
     public Person(String login, String email, String password, String secretKey) {
         this.login = login;
@@ -27,5 +29,6 @@ public class Person implements Serializable {
         this.secretKey = secretKey;
         this.avatar = null;
         this.role = Roles.USER;
+        this.power = 20L;
     }
 }

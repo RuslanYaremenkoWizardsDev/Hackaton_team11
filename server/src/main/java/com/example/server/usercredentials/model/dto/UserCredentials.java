@@ -7,8 +7,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 import static com.example.server.usercredentials.utils.constants.ExceptionsMessages.*;
-import static com.example.server.usercredentials.utils.constants.RegExp.REG_EXP_FOR_LOGIN;
-import static com.example.server.usercredentials.utils.constants.RegExp.REG_EXP_FOR_PASSWORD;
+import static com.example.server.usercredentials.utils.constants.RegExp.*;
 
 @Data
 @NoArgsConstructor

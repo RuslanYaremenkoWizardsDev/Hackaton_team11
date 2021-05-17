@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guest</title>
+</head>
+<body>
+    <div class="guest">
+        <header class="guestheader">
+            <div class="guestheader__bar guestmain-container">
+                <div class="guestheader__logo">
+                    <image id="guest-icon" class="guestheader__logo-icon" src="\img\404-error (3).png"/>
+                    <div id="guest-logo" class="guestheader__logo-logoname"></div>
+                </div>  
+                <div class="guestheader__nav">
+                    <label id="guest-language" for="language">
+                        <select name="language" id="guest-select-language" class="guestheader__nav-language guestnav-input-styles">
+                            <option value="en" data-translate="en" selected>En</option>
+                            <option value="ua" data-translate="ua">Ua</option>
+                        </select>
+                    </label>
+                    <label id="guest-theme" for="theme">
+                        <select name="theme" id="guest-select-theme" class="guestheader__nav-theme guestnav-input-styles">
+                            <option value="light" data-translate="light">Light</option>
+                            <option value="dark" data-translate="dark">Dark</option>
+                        </select>
+                    </label>
+                    <a id="guest-logout" href="index.html">
+                        <button  class="guestheader__nav-logout guestnav-input-styles"><span data-translate="logout">Logout</span>
+                        </button>
+                    </a>
+                </div>
+            </div>
+    
+        </header>
+        <main class="guestmain">
+            <div class="guestmain-container">
+                <div class="guestmain__tabs">
+                    <button class="guestmain__tabs-tournaments guesttabs__button"><span data-translate="tournaments">Tournaments</span></button>
+                </div>
+                <div class="guestmain__controlPanel">
+                    <div>
+                        <label for="player-login"></label>
+                        <input type="text" name="player-login" id="guest-player" class="guestmain__controlPanel-player" placeholder="Enter player login...">    
+                    </div>
+                    <div>
+                        <label for="reg-date"></label>
+                        <input type="date" name="reg-date" id="guest-reg-date" class="guestmain__controlPanel-date" value="2018-07-22"
+                        min="1970-01-01" max="2099-12-31">    
+                    </div>
+                    <div>
+                        <select name="scenario" id="guest-scenario" class="guestmain__controlPanel-scenario">
+                            <option value="oneMatchConfrontation" data-translate="oneMatchConfrontation">One-match confrontation</option>
+                            <option value="twoMatchConfrontation" data-translate="twoMatchConfrontation">Two-match confrontation</option>
+                            <option value="toThreeWins" data-translate="toThreeWins">To three wins</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="guestmain__table">
+                    <table id="guest-table" class="guesttable__data">
+                        <thead id="guest-thead" class="guesttable__data-head guestthead">
+                            <tr class="guestthead__tr">
+                                <th class="guesttr__th"><span class="guesttr__cell" data-translate="name">Name</span></th>
+                                <th class="guesttr__th"><span class="guesttr__cell" data-translate="mode">Mode</span></th>
+                                <th class="guesttr__th"><span class="guesttr__cell" data-translate="place">Place</span></th>
+                                <th class="guesttr__th"><span class="guesttr__cell" data-translate="startDate">Start date</span></th>
+                                <th class="guesttr__th"><span class="guesttr__cell" data-translate="lastRegDate">Last reg date</span></th>
+                                <th class="guesttr__th"><span class="guesttr__cell" data-translate="state">State</span></th>
+                                <th class="guesttr__th"><span class="guesttr__cell" data-translate="level">Level</span></th>
+                                <th class="guesttr__th"><span class="guesttr__cell" data-translate="participants">Participants</span></th>
+                                <th class="guesttr__th"><span class="guesttr__cell" data-translate="scenario">Scenario</span></th>
+                                <!-- <th class="tr__th"><span class="guesttr__cell" data-translate="actions">Actions</span></th> -->
+                            </tr>
+                        </thead>
+                        <tbody id="guest-tbody" class="guesttable__data-body guesttbody">
+                            <tr class="guesttbody__tr">
+                                <td class="guesttr__td guesttd-name"><span class="guesttr__cell">Super Cup</span></td>
+                                <td class="guesttr__td guesttd-mode"><span class="guesttr__cell">Cup</span></td>
+                                <td class="guesttr__td guesttd-place"><span class="guesttr__cell">Kharkiv</span></td>
+                                <td class="guesttr__td guesttd-startDate"><span class="guesttr__cell">16/05/2021</span></td>
+                                <td class="guesttr__td guesttd-lastRegDate"><span class="guesttr__cell">15/05/2021</span></td>
+                                <td class="guesttr__td guesttd-state"><span class="guesttr__cell">in progress</span></td>
+                                <td class="guesttr__td guesttd-level"><span class="guesttr__cell">middle</span></td>
+                                <td class="guesttr__td guesttd-partisipants"><span class="guesttr__cell">6/32</span></td>
+                                <td class="guesttr__td guesttd-scenario"><span class="guesttr__cell">One match</span></td>
+                                <!-- <td class="guesttr__td guesttd-actions"><span class="guesttr__cell">&#9993;</span></td> -->
+                            </tr>
+                            <tr class="tbody__tr">
+                                <td class="guesttr__td guesttd-name"><span class="guesttr__cell">Super Cup</span></td>
+                                <td class="guesttr__td guesttd-mode"><span class="guesttr__cell">Cup</span></td>
+                                <td class="guesttr__td guesttd-place"><span class="guesttr__cell">Kharkiv</span></td>
+                                <td class="guesttr__td guesttd-startDate"><span class="guesttr__cell">16/05/2021</span></td>
+                                <td class="guesttr__td guesttd-lastRegDate"><span class="guesttr__cell">15/05/2021</span></td>
+                                <td class="guesttr__td guesttd-state"><span class="guesttr__cell">in progress</span></td>
+                                <td class="guesttr__td guesttd-level"><span class="guesttr__cell">middle</span></td>
+                                <td class="guesttr__td guesttd-partisipants"><span class="guesttr__cell">6/32</span></td>
+                                <td class="guesttr__td guesttd-scenario"><span class="guesttr__cell">One match</span></td>
+                                <!-- <td class="guesttr__td guesttd-actions"><span class="guesttr__cell">&#9993;</span></td> -->
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

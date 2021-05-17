@@ -1,12 +1,16 @@
 package com.example.server.usercredentials.model.dto;
 
-import lombok.Value;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import javax.validation.constraints.NotBlank;
 
-@Value
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class AuthorizationDto {
-    @NotBlank
+    @NotBlank(message = "Empty login")
     String login;
-    @NotBlank
+    @NotBlank(message = "Empty password")
     String password;
 }
