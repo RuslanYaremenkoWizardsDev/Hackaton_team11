@@ -30,7 +30,6 @@ public class TournamentController {
 
     @PostMapping(ADD_TOURNAMENT)
     public List<TournamentEntity> saveGame(@Valid @RequestBody TournamentDto tournamentDto, BindingResult bindingResult) {
-        System.out.println(tournamentDto.toString());
         if (bindingResult.hasErrors()) {
             throw new InvalidFieldException(bindingResult.getAllErrors().get(0).getDefaultMessage());
         }
