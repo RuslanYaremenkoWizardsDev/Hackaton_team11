@@ -11,17 +11,16 @@ import switchToStatUser from '../modules/statuser';
 import viewInvitations from '../modules/viewInvitations';
 import creatingNewCup from '../modules/createNewCup';
 import viewPassword from '../modules/viewPassword';
-import handleTheme from '../modules/handleTheme';
  
 document.addEventListener('DOMContentLoaded', ()=>{
 
 
     if(window.location.pathname === "/index.html"){
         auth();
-        viewPassword();
+        viewPassword.viewPasswordAuth();
     }else if(window.location.pathname === "/regpage.html"){
         registr();
-        viewPassword();
+        viewPassword.viewPasswordReg();
     }else if(window.location.pathname === "/admin.html"){
         clearAll();
         settingsPopup();  
@@ -30,7 +29,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         switchToStat();
         viewInvitations();
         creatingNewCup();
-        viewPassword();
+        viewPassword.viewPasswordAdmin();
         // const tableBody = document.querySelector('#tbody'):
     //get renderTableDiv(data, tableBody)
 
@@ -39,7 +38,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         sortData(); 
         declineTournamentInvite();
         switchToStatUser();
-        viewPassword();
+        viewPassword.viewPasswordUser();
     }else if(window.location.pathname === "/guest.html"){
         handleTheme();
     }

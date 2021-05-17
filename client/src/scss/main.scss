@@ -668,6 +668,15 @@
         }
     }
 }
+.admineye {
+    display: block;
+    position: relative;
+    top: -45px;
+    right: -175px;
+    width: 5px;
+    height: 5px;
+    cursor: pointer;
+}
 .likeIngit {
     position: absolute;
     width: 300px;

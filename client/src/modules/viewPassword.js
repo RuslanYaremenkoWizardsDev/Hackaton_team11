@@ -1,9 +1,9 @@
-export default function viewPassword () {
-    const eyes = document.querySelectorAll('.eye');
-    const autheyes = document.querySelectorAll('.auth-eye');
-    const regeyes = document.querySelectorAll('.regeye');
+const viewPassword = {
+    viewPasswordAdmin () {
+    const admineyes = document.querySelectorAll('.admineye');
     const viewpassword = document.querySelectorAll('.viewpassword');
-    eyes.forEach((eye) => {
+
+    admineyes.forEach((eye) => {
         eye.addEventListener('click', () => {
             viewpassword.forEach((input) => {
                 if (input.type === 'password') {
@@ -14,26 +14,54 @@ export default function viewPassword () {
             })            
         })
     })
-    autheyes.forEach((eye) => {
-        eye.addEventListener('click', () => {
-            viewpassword.forEach((input) => {
-                if (input.type === 'password') {
-                    input.type = 'text';
-                } else if (input.type = 'text') {
-                    input.type = 'password';
-                }
-            })            
+    },
+    viewPasswordAuth () {
+        const autheyes = document.querySelectorAll('.auth-eye');
+        const viewpassword = document.querySelectorAll('.viewpassword');
+    
+        autheyes.forEach((eye) => {
+            eye.addEventListener('click', () => {
+                viewpassword.forEach((input) => {
+                    if (input.type === 'password') {
+                        input.type = 'text';
+                    } else if (input.type = 'text') {
+                        input.type = 'password';
+                    }
+                })            
+            })
         })
-    })
-    regeyes.forEach((eye) => {
-        eye.addEventListener('click', () => {
-            viewpassword.forEach((input) => {
-                if (input.type === 'password') {
-                    input.type = 'text';
-                } else if (input.type = 'text') {
-                    input.type = 'password';
-                }
-            })            
+    },
+    viewPasswordReg () {
+        const regeyes = document.querySelectorAll('.regeye');
+        const viewpassword = document.querySelectorAll('.viewpassword');
+    
+        regeyes.forEach((eye) => {
+            eye.addEventListener('click', () => {
+                viewpassword.forEach((input) => {
+                    if (input.type === 'password') {
+                        input.type = 'text';
+                    } else if (input.type = 'text') {
+                        input.type = 'password';
+                    }
+                })            
+            })
         })
-    })
+    },
+    viewPasswordUser () {
+        const usereye = document.querySelectorAll('.usereye');
+        const viewpassword = document.querySelectorAll('.viewpassword');
+    
+        usereye.forEach((eye) => {
+            eye.addEventListener('click', () => {
+                viewpassword.forEach((input) => {
+                    if (input.type === 'password') {
+                        input.type = 'text';
+                    } else if (input.type = 'text') {
+                        input.type = 'password';
+                    }
+                })            
+            })
+        })
+    }
 }
+export default viewPassword;
