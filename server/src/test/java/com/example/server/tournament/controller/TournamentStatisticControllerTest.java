@@ -11,11 +11,7 @@ import org.mockito.Mockito;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.validation.BindingResult;
-
 import java.util.ArrayList;
-
-import static com.example.server.usercredentials.utils.constants.Mappings.GET_TOURNAMENT;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -34,13 +30,14 @@ class TournamentStatisticControllerTest {
                 .setControllerAdvice(TournamentControllerAdvice.class)
                 .build();
     }
+
     @Test
     public void getTournamentStatisticTest() throws Exception {
-        TournamentStatisticModel tournamentStatisticModel = new TournamentStatisticModel(0,0,0,0);
-       Mockito.when(tournamentRepo.findAll()).thenReturn(new ArrayList<>());
-       Mockito.when(tournamentRepo.findAllByStatus(Status.FINISHED)).thenReturn(new ArrayList<>());
-       Mockito.when(tournamentRepo.findAllByStatus(Status.ACTIVE)).thenReturn(new ArrayList<>());
-       Mockito.when(tournamentRepo.findAllByStatus(Status.IN_PROGRESS)).thenReturn(new ArrayList<>());
+        TournamentStatisticModel tournamentStatisticModel = new TournamentStatisticModel(0, 0, 0, 0);
+        Mockito.when(tournamentRepo.findAll()).thenReturn(new ArrayList<>());
+        Mockito.when(tournamentRepo.findAllByStatus(Status.FINISHED)).thenReturn(new ArrayList<>());
+        Mockito.when(tournamentRepo.findAllByStatus(Status.ACTIVE)).thenReturn(new ArrayList<>());
+        Mockito.when(tournamentRepo.findAllByStatus(Status.IN_PROGRESS)).thenReturn(new ArrayList<>());
 
         mockMvc.perform(post("/usersTournament").contentType(APPLICATION_JSON))
                 .andExpect(status().isOk())

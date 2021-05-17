@@ -44,9 +44,9 @@ class TournamentControllerTest {
     @Test
     public void withoutExceptionSaveGameTest() throws Exception {
         Mockito.when(bindingResult.hasErrors()).thenReturn(false);
-        TournamentDto tournamentDto = new TournamentDto(1l, Status.IN_PROGRESS, "fff", "fff",
-                Mode.CUP, "fffa", 123123123123l,
-                1231231235345l, Level.MIDDLE, 32, ScenatioOfTournament.ONE_MATCH);
+        TournamentDto tournamentDto = new TournamentDto(1L, Status.IN_PROGRESS, "fаff", "ffйf",
+                Mode.CUP, "fffвa", 123123123123L,
+                1231231235345L, Level.MIDDLE, 32, ScenatioOfTournament.ONE_MATCH);
         TournamentEntity tournamentEntity = new TournamentEntity(
                 null,
                 tournamentDto.getStatus(),
@@ -72,9 +72,9 @@ class TournamentControllerTest {
     @Test
     public void exceptionSaveGameTest() throws Exception {
         Mockito.when(bindingResult.hasErrors()).thenReturn(false);
-        TournamentDto tournamentDto = new TournamentDto(1l, Status.IN_PROGRESS, "", "fff",
-                Mode.CUP, "fffa", 123123123123l,
-                1231231235345l, Level.MIDDLE, 32, ScenatioOfTournament.ONE_MATCH);
+        TournamentDto tournamentDto = new TournamentDto(1L, Status.IN_PROGRESS, "", "fdfff",
+                Mode.CUP, "ffdsdffa", 123123123123L,
+                1231231235345L, Level.MIDDLE, 32, ScenatioOfTournament.ONE_MATCH);
         mockMvc.perform(post(ADD_TOURNAMENT).contentType(APPLICATION_JSON).content(objectMapper
                 .writeValueAsString(tournamentDto)))
                 .andExpect(status().isBadRequest())
