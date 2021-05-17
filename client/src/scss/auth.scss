@@ -3,13 +3,15 @@
     justify-content: center;
     align-items: center;
 
-    background: #333;
+    background: url(../img/9a463a4837ceeea0ddcb73a23b4139d7.jpg);
     width: 100vw;
     height: 100vh;
     &__header {
         text-align: center;
-        color: red;
-        padding: 30px 0;
+        color: black;
+        padding: 20px 0;
+        font-size: 20px;
+        font-weight: bold;
     }
     &__body {
         display: flex;
@@ -18,8 +20,7 @@
         align-items: center;
         width: 400px;
         height: auto;
-        border: 1px solid red;
-        background: #fff;
+        background: #C4C4C4;
     }
     &__main {    
         width: 100%;
@@ -28,10 +29,10 @@
         justify-content: center;
         align-items: flex-start;
         &-submit {
-            padding: 30px 0;
+            padding: 0 0 20px;
             width: 100px;
-            border-radius: 10px;
             margin: 0 auto;
+            
         }
     }
     &__links {
@@ -41,22 +42,37 @@
         align-items: center;
         width: 80%;
         height: 15%;
-        padding: 0 0 40px;
+        padding: 0 0 20px;
+        color:black;
     }
 }
 .input-block {
     display: flex;
     flex-direction: column;
-    padding: 10px 0;
+    padding: 0 0 10px;
     width: 100%;
+}
+.forgot__password{
+  padding: 20px 0 0px;
+  display: flex;
+  justify-content: center;  
 }
 .auth-input {
     width: 100%;
     height: 40px;
-    padding: 0 10px;
-    margin: 10px 0 0;
+    color:black;
+}
+.guest__links, .req__links{
+  color:black;
+  font-size: 16px
 }
 .container {
     width: 300px;
     padding: 0 5%;
+}
+.submit{
+  &__button{
+    background-color: #889EEB;
+    border-radius: 10px;
+  }
 }

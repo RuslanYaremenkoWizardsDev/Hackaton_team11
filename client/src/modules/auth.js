@@ -25,12 +25,10 @@ function auth(){
                 login: login.value,
                 password: pass.value,
             });
+
         
             postRequest(URL, req).then((res)=>{
-               
-                   
-                
-                
+
             });
 
         }
